@@ -22,10 +22,10 @@ alias sudo='sudo '
 # (useful when executing time-consuming commands)
 alias bellring="tput bel"
 
-# ARCH Pacman Update
+# System Update
 case $(uname) in
 	'Linux')  alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
-	'Darwin') alias pacu='brew update && brew upgrade --all && brew cleanup && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
+	'Darwin') alias pacu='sudo softwareupdate -iva && brew update && brew upgrade --all && brew cleanup && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
 esac
 
 # NPM update folder (also Bower)
