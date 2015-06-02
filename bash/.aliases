@@ -24,3 +24,6 @@ alias bellring="tput bel"
 
 # ARCH Pacman Update
 alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm && sudo npm update -g'
+
+# NPM update folder (also Bower)
+alias npmu='npm-check-updates -u && npm update && bower update'
