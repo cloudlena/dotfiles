@@ -20,10 +20,12 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-	source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
+if [ "$(uname) == 'Darwin'" ]; then
+  if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+      source "$(brew --prefix)/share/bash-completion/bash_completion";
+  elif [ -f /etc/bash_completion ]; then
+      source /etc/bash_completion;
+  fi;
 fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
