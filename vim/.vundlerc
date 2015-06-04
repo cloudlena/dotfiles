@@ -4,7 +4,6 @@ filetype off                  		" required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -12,7 +11,19 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'lokaltog/vim-easymotion'
 
 " Toggle Comments
-Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/nerdcommenter'
+
+" Syntax Highlighting
+Plugin 'scrooloose/syntastic'
+
+" Pasting in Vim with correct indentation
+Plugin 'sickill/vim-pasta'
+
+" Match HTML tags for %
+Plugin 'tmhedberg/matchit'
+
+" Mark trailing whitespace
+Plugin 'bronson/vim-trailing-whitespace'
 
 " Emmet
 Plugin 'mattn/emmet-vim'
@@ -29,6 +40,14 @@ Plugin 'fatih/vim-go'
 
 " Node Plugin
 Plugin 'moll/vim-node'
+
+" Open Files
+Plugin 'kien/ctrlp.vim'
+
+" Focus on one window
+Plugin 'vim-scripts/ZoomWin'
+
+
 
 " Wakatime
 Plugin 'wakatime/vim-wakatime'
