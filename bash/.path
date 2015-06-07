@@ -1,12 +1,16 @@
-GOPATH=$HOME/go
+GOPATH="$HOME/go"
+NODE_PATH="'$(npm root -g)'"
 
-PATH="/usr/local/bin"
+PATH="$PATH:/usr/local/bin"
 PATH="$PATH:/usr/bin"
 PATH="$PATH:/bin"
 PATH="$PATH:/usr/local/sbin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/sbin"
 
 PATH="$PATH:$HOME/bin"
 PATH="$PATH:$GOPATH/bin"
 
+export NODE_PATH
 export GOPATH
 export PATH
