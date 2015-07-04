@@ -28,5 +28,9 @@ case $(uname) in
 	'Darwin') alias pacu='brew update && brew upgrade --all && brew cleanup && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
 esac
 
+# Arch Clean Up
+alias paclist ='comm -23 <(pacman -Qqt | sort) <(echo $ignorepkg | tr " " "\n" | cat <(pacman -Sqg $ignoregrp) - | sort -u)'
+alias pacro = 'pacman -Rns $(pacman -Qtdq)'
+
 # NPM update folder (also Bower)
 alias npmu='npm-check-updates -u && npm update; bower update'
