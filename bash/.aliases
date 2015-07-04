@@ -29,7 +29,6 @@ case $(uname) in
 esac
 
 # Arch Clean Up
-alias paclist ='comm -23 <(pacman -Qqt | sort) <(echo $ignorepkg | tr " " "\n" | cat <(pacman -Sqg $ignoregrp) - | sort -u)'
 alias pacro = 'pacman -Rns $(pacman -Qtdq)'
 
 # NPM update folder (also Bower)
