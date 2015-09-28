@@ -4,7 +4,7 @@
 [push]
 	default = matching
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/taafuto1/.gitignore_global
 [filter "media"]
 	required = true
 	clean = git media clean %f
