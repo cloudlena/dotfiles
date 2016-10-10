@@ -1,8 +1,6 @@
-# Easier navigation: .., ..., ...., ....., ~ and -
+# Easier navigation: .. and ...
 alias ..="cd .."
 alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -29,7 +27,7 @@ case $(uname) in
 esac
 
 # NPM update folder (also Bower)
-alias npmu='npm update && ncu -ua && npm prune; bower update && bower prune'
+alias npmu='npm install && npm update && npm prune && bower install && bower update && bower prune && npm outdated'
 
 # Visual Studio Code
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
