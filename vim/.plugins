@@ -43,7 +43,11 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Autocompletion
-Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --gocode-completer --tern-completer' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'mhartington/deoplete-typescript'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+let g:deoplete#enable_at_startup = 1
 
 " Golang Plugin
 Plug 'fatih/vim-go', { 'for': 'go' }
