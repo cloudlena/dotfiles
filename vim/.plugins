@@ -1,0 +1,69 @@
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+" let Vundle manage Vundle, required
+Plug 'gmarik/Vundle.vim'
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+
+" Edit surrounds
+Plug 'tpope/vim-surround'
+
+" Source tree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+let NERDTreeShowHidden = 1
+map <C-n> :NERDTreeToggle<CR>
+
+" Toggle Comments
+Plug 'scrooloose/nerdcommenter'
+
+" Auto close braces
+Plug 'jiangmiao/auto-pairs'
+
+" Syntax Highlighting
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_go_checkers = ['gometalinter']
+
+" Show Git indicators with line numbers
+Plug 'airblade/vim-gitgutter'
+
+" Highlight trailing whitespaces
+Plug 'bronson/vim-trailing-whitespace'
+
+" Ctrl P
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_show_hidden = 1
+map <C-p> :CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|vendor|build|media|__pycache__)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Autocompletion
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --gocode-completer --tern-completer' }
+
+" Golang Plugin
+Plug 'fatih/vim-go', { 'for': 'go' }
+
+" Typescript
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+
+" Hard mode for getting better
+Plug 'takac/vim-hardtime'
+let g:hardtime_default_on = 1
+
+" Wakatime
+Plug 'wakatime/vim-wakatime'
+
+" Initialize plugin system
+call plug#end()
+
