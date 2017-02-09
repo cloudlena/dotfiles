@@ -7,6 +7,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Git integration
+Plugin 'tpope/vim-fugitive'
+
+" Edit surrounds
+Plugin 'tpope/vim-surround'
+
 " Source tree
 Plugin 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
@@ -17,9 +23,6 @@ Plugin 'scrooloose/nerdcommenter'
 
 " Auto close braces
 Plugin 'jiangmiao/auto-pairs'
-
-" Git integration
-Plugin 'tpope/vim-fugitive'
 
 " Syntax Highlighting
 Plugin 'vim-syntastic/syntastic'
@@ -35,7 +38,7 @@ let g:syntastic_go_checkers = ['gometalinter']
 " Show Git indicators with line numbers
 Plugin 'airblade/vim-gitgutter'
 
-" Mark trailing whitespaces
+" Highlight trailing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
 
 " Ctrl P
@@ -49,8 +52,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Autocompletion
-Plugin 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup = 1
+Plugin 'Valloric/YouCompleteMe'
 
 " Golang Plugin
 Plugin 'fatih/vim-go'
