@@ -17,6 +17,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Toggle Comments
 Plug 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
 
 " Auto close braces
 Plug 'jiangmiao/auto-pairs'
