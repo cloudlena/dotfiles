@@ -43,10 +43,8 @@ set scrolloff=3
 " More natural splitting of windows and easier split navigation
 set splitbelow
 set splitright
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+
+set wrap linebreak
 
 " Automatic commands
 if has("autocmd")
