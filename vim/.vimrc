@@ -14,7 +14,6 @@ set backspace=indent,eol,start
 set gdefault
 " Change mapleader
 let mapleader=","
-
 " Enable relative line numbers
 set relativenumber
 set number
@@ -39,11 +38,10 @@ set title
 set showcmd
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-
 " More natural splitting of windows and easier split navigation
 set splitbelow
 set splitright
-
+" Soft wrapping of lines
 set wrap linebreak
 
 " Automatic commands
