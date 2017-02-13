@@ -43,6 +43,8 @@ set splitbelow
 set splitright
 " Soft wrapping of lines
 set wrap linebreak
+" Set spell check language to en_us
+set spelllang=en_us
 
 " Automatic commands
 if has("autocmd")

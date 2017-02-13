@@ -52,10 +52,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
-" Hard mode for getting better
-Plug 'takac/vim-hardtime'
-let g:hardtime_default_on = 1
-
 " Wakatime
 Plug 'wakatime/vim-wakatime'
 
