@@ -29,13 +29,13 @@ set hlsearch
 set ignorecase
 " Highlight dynamically as pattern is typed
 set incsearch
-" Don’t reset cursor to start of line when moving around.
+" Do not reset cursor to start of line when moving around
 set nostartofline
 " Show the current mode
 set showmode
-" Show the filename in the window titlebar
+" Show the filename in the window title bar
 set title
-" Show the (partial) command as it’s being typed
+" Show the (partial) command as it is being typed
 set showcmd
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
@@ -61,7 +61,9 @@ if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   " Strip trailing whitespaces on save
   autocmd BufWritePre * %s/\s\+$//e
+  " Enable spell checking for Markdown files
+  autocmd BufRead,BufNewFile *.md setlocal spell
 endif
 
-" Import Vundle configuration
+" Import plugin configuration
 source ~/.plugins
