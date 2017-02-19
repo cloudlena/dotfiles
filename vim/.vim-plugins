@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+set noshowmode
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -37,15 +38,18 @@ endif
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
 
-" Ctrl P
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_show_hidden = 1
-map <C-p> :CtrlP
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|vendor|build|media|__pycache__)$',
-  \ 'file': '\v\.(exe|so|dll|pyc)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+nnoremap <C-P> :call FzfOmniFiles()<cr>
+fun! FzfOmniFiles()
+  call system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GFiles
+  endif
+endfun
 
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

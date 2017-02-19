@@ -1,5 +1,7 @@
 " Make Vim more useful
 set nocompatible
+" Disable vim welcome message
+set shortmess=I
 " Set true terminal colors
 set termguicolors
 colorscheme elflord
@@ -31,8 +33,6 @@ set ignorecase
 set incsearch
 " Do not reset cursor to start of line when moving around
 set nostartofline
-" Show the current mode
-set showmode
 " Show the filename in the window title bar
 set title
 " Show the (partial) command as it is being typed
@@ -66,4 +66,4 @@ if has("autocmd")
 endif
 
 " Import plugin configuration
-source ~/.plugins
+source ~/.vim-plugins
