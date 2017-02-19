@@ -22,3 +22,5 @@ unset file;
 
 # update oh-my-zsh bi weekly and other useful helpers
 source $ZSH/oh-my-zsh.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
