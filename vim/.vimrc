@@ -31,8 +31,6 @@ set ignorecase
 set incsearch
 " Do not reset cursor to start of line when moving around
 set nostartofline
-" Show the current mode
-set showmode
 " Show the filename in the window title bar
 set title
 " Show the (partial) command as it is being typed

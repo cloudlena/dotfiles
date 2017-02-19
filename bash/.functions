@@ -2,3 +2,18 @@
 function mkcd() {
 	mkdir -p "$@" && cd "$_";
 }
+
+# Open tmux and vim in an IDE like layout
+function ide() {
+  if [ ! -z "$1" ]; then
+    cd "$1"
+  fi
+
+  tmux new-session -d -s ide 'vim +NERDTree'
+
+  tmux split-window -v -p 10
+  tmux split-window -h
+  tmux select-pane -t 0
+
+  tmux attach-session -d -t ide
+}

@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+set noshowmode
 
 " Git integration
 Plug 'tpope/vim-fugitive'
