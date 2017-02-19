@@ -1,6 +1,17 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Color scheme
+Plug 'junegunn/seoul256.vim'
+let g:seoul256_background = 233
+colorscheme seoul256
+
+" Add Goyo mode (for focused writing)
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " Status bar
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
