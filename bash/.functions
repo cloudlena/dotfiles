@@ -1,19 +1,56 @@
 # Create a new directory and enter it
 function mkcd() {
-	mkdir -p "$@" && cd "$_";
+	mkdir -p "$@" && cd "$_" || exit;
 }
 
 # Open tmux and vim in an IDE like layout
 function ide() {
   if [ ! -z "$1" ]; then
-    cd "$1"
+    cd "$1" || exit
   fi
 
   tmux new-session -d -s ide 'vim +NERDTree'
-
   tmux split-window -v -p 10
   tmux split-window -h
   tmux select-pane -t 0
-
   tmux attach-session -d -t ide
+}
+
+# System update
+function pacu() {
+  # Dotfiles repo
+  (cd "${HOME}/dotfiles" && git pull)
+
+  # System tools
+  case "$(uname)" in
+  'Linux')
+    # On Arch Linux, use Pacman and Yaourt
+    sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm
+    ;;
+  'Darwin')
+    # On macOS, use mas and Homebrew in parallel
+    (mas upgrade) &
+    mas_pid="$!"
+    brew update && brew upgrade && brew cleanup
+    wait "${mas_pid}"
+    ;;
+  esac
+
+  ("${HOME}/dotfiles/bash/update-go.sh") &
+  go_pid="$!"
+
+  vim -c 'PlugUpgrade | PlugUpdate | qa'
+
+  (npm update -g) &
+  npm_pid="$!"
+
+  wait "${npm_pid}"
+  npm outdated -g
+  ("${HOME}/dotfiles/bash/update-js.sh")
+
+  # Wait for all processes to finish
+  # wait "${vim_pid}"
+  wait "${go_pid}"
+
+  echo 'System upgrade finished'
 }
