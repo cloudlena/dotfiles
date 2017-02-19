@@ -37,7 +37,15 @@ Plug 'airblade/vim-gitgutter'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nnoremap <C-P> :GFiles<cr>
+nnoremap <C-P> :call FzfOmniFiles()<cr>
+fun! FzfOmniFiles()
+  call system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GFiles
+  endif
+endfun
 
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

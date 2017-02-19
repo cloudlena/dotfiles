@@ -1,5 +1,7 @@
 " Make Vim more useful
 set nocompatible
+" Disable vim welcome message
+set shortmess=I
 " Set true terminal colors
 set termguicolors
 colorscheme elflord
