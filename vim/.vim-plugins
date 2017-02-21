@@ -76,14 +76,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :call FzfOmniFiles()<cr>
-fun! FzfOmniFiles()
+function! FzfOmniFiles()
   call system('git status')
   if v:shell_error
     :Files
   else
     :GFiles
   endif
-endfun
+endfunction
 
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
