@@ -16,21 +16,24 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 function! s:goyo_enter()
   silent !tmux set status off
   silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  set noshowmode
+  let g:neomake_place_signs=0
+  sign unplace *
   set noshowcmd
   set scrolloff=999
   Limelight
-  " ...
 endfunction
 function! s:goyo_leave()
   silent !tmux set status on
   silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  set showmode
+  let g:neomake_place_signs=1
+  Neomake
   set showcmd
-  set scrolloff=5
+  set scrolloff=3
   Limelight!
-  " ...
 endfunction
+
+" Register preview
+Plug 'junegunn/vim-peekaboo'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -92,6 +95,9 @@ let g:deoplete#enable_at_startup = 1
 " Golang
 Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_fmt_command = 'goimports'
+
+" Node.js
+Plug 'moll/vim-node'
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
