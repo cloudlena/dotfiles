@@ -59,11 +59,14 @@ function pacu() {
     ;;
   esac
 
+  # Go
   ("${HOME}/dotfiles/bash/update-go.sh") &
   go_pid="$!"
 
+  # Vim
   vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
 
+  # Node.js and npm
   (npm update -g) &
   npm_pid="$!"
 
