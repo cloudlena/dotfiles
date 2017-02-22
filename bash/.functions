@@ -63,20 +63,26 @@ function pacu() {
   ("${HOME}/dotfiles/bash/update-go.sh") &
   go_pid="$!"
 
+  # Node.js and npm
+  (npm update -g) &
+  npm_global_pid="$!"
+
+  wait "${npm_global_pid}"
+  npm outdated -g
+  ("${HOME}/dotfiles/bash/update-js.sh") &
+  npm_pid="$!"
+
+  # Ruby
+  (gem update `gem list | cut -d ' ' -f 1`) &
+  ruby_pid="$!"
+
   # Vim
   vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
 
-  # Node.js and npm
-  (npm update -g) &
-  npm_pid="$!"
-
-  wait "${npm_pid}"
-  npm outdated -g
-  ("${HOME}/dotfiles/bash/update-js.sh")
-
   # Wait for all processes to finish
-  # wait "${vim_pid}"
+  wait "${npm_pid}"
   wait "${go_pid}"
+  wait "${ruby_pid}"
 
   echo 'System upgrade finished'
 }
