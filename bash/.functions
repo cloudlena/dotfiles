@@ -73,7 +73,7 @@ function pacu() {
   npm_pid="$!"
 
   # Ruby
-  (gem update `gem list | cut -d ' ' -f 1`) &
+  (gem update --force) &
   ruby_pid="$!"
 
   # Vim

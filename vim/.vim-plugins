@@ -102,6 +102,9 @@ Plug 'moll/vim-node'
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
+" JSX
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+
 " Wakatime
 Plug 'wakatime/vim-wakatime'
 
