@@ -16,22 +16,24 @@ I use [Stow](https://www.gnu.org/software/stow/) to symlink the files from this 
 
 ## Prerequisites
 
-### Vim
+### General
 
-* Install [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) or [Vim 8](http://www.vim.org/download.php)
-* Install [vim-plug](https://github.com/junegunn/vim-plug#installation)
-* Install [Python 3](https://www.python.org/downloads/)
-
-### System Upgrade
-
+* Run the above commands to get these dotfiles in the right place
 * Install [fzf](https://github.com/junegunn/fzf)
 
-#### macOS
+### Vim
+
+* Install [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) and run `ln -s "${HOME}/dotfiles/vim/.vimrc" "${HOME}/.config/nvim/init.vim"`
+* Install [vim-plug](https://github.com/junegunn/vim-plug#installation)
+* Install [Python 3](https://www.python.org/downloads/) and run `pip3 install --upgrade neovim`
+* Install the Vim Powerline additions to the font of your terminal (e.g. [Monaco for Powerline](https://gist.github.com/baopham/1838072))
+
+### macOS
 
 * Install [mas](https://github.com/mas-cli/mas)
 * Install [Homebrew](https://brew.sh/)
 
-#### Linux
+### Linux
 
 * Use [Arch Linux](https://www.archlinux.org/) or [Antergos](https://antergos.com/)
 * Install [Yaourt](https://archlinux.fr/yaourt-en)
