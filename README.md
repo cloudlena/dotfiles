@@ -28,12 +28,12 @@ I use [Stow](https://www.gnu.org/software/stow/) to symlink the files from this 
 * Install [Python 3](https://www.python.org/downloads/) and run `pip3 install --upgrade neovim`
 * Install the Vim Powerline additions to the font of your terminal (e.g. [Monaco for Powerline](https://gist.github.com/baopham/1838072))
 
-### macOS
+### macOS recommendations
 
 * Install [mas](https://github.com/mas-cli/mas)
 * Install [Homebrew](https://brew.sh/)
 
-### Linux
+### Linux recommendations
 
 * Use [Arch Linux](https://www.archlinux.org/) or [Antergos](https://antergos.com/)
 * Install [Yaourt](https://archlinux.fr/yaourt-en)
