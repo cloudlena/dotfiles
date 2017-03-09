@@ -16,7 +16,7 @@ plugins=(git)
 
 # Load the shell dotfiles
 for file in ~/.{path,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
@@ -24,3 +24,6 @@ unset file;
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Don't search files which are gitignored in FZF
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
