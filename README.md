@@ -20,6 +20,7 @@ I use [Stow](https://www.gnu.org/software/stow/) to symlink the files from this 
 
 * Run the above commands to get these dotfiles in the right place
 * Install [fzf](https://github.com/junegunn/fzf)
+* Install [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ### Vim
 
