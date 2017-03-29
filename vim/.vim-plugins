@@ -8,6 +8,10 @@ if has("autocmd")
   autocmd! VimEnter * colorscheme seoul256
 endif
 
+" Emmet for HTML editing
+Plug 'mattn/emmet-vim'
+let g:user_emmet_leader_key='<C-i>'
+
 " Add Goyo mode (for focused writing)
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
