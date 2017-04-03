@@ -31,8 +31,10 @@ I use [Stow](https://www.gnu.org/software/stow/) to symlink the files from this 
 
 ### macOS recommendations
 
+* Use [iTerm2](https://www.iterm2.com/)
 * Install [mas](https://github.com/mas-cli/mas)
 * Install [Homebrew](https://brew.sh/)
+* Run `brew install reattach-to-user-namespace` to work with tmux
 
 ### Linux recommendations
 
