@@ -134,12 +134,15 @@ Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 let g:deoplete#enable_at_startup = 1
 
+" Crystal
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+
 " Golang
 Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_fmt_command = 'goimports'
 
 " Node.js
-Plug 'moll/vim-node'
+Plug 'moll/vim-node', { 'for': 'javascript' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
