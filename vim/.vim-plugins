@@ -9,10 +9,10 @@ if has("autocmd")
 endif
 
 " Emmet for HTML editing
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html','xml'] }
 let g:user_emmet_leader_key='<C-i>'
 
-" Add Goyo mode (for focused writing)
+" Goyo mode for focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -35,15 +35,6 @@ function! s:goyo_leave()
   set scrolloff=3
   Limelight!
 endfunction
-
-" Register preview
-Plug 'junegunn/vim-peekaboo'
-
-" Status bar
-Plug 'vim-airline/vim-airline'
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-set noshowmode
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -82,56 +73,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<cr>
 
-" Tagbar
-Plug 'majutsushi/tagbar'
-map <C-m> :TagbarToggle<CR>
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-let g:tagbar_type_typescript = {
-    \ 'ctagstype': 'typescript',
-    \ 'kinds': [
-        \ 'c:classes',
-        \ 'n:modules',
-        \ 'f:functions',
-        \ 'v:variables',
-        \ 'v:varlambdas',
-        \ 'm:members',
-        \ 'i:interfaces',
-        \ 'e:enums',
-    \ ]
-\ }
-
-
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
+Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 let g:deoplete#enable_at_startup = 1
 
 " Crystal
@@ -141,17 +87,11 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_fmt_command = 'goimports'
 
-" Node.js
-Plug 'moll/vim-node', { 'for': 'javascript' }
-
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
-
-" Wakatime
-Plug 'wakatime/vim-wakatime'
 
 " Initialize plugin system
 call plug#end()
