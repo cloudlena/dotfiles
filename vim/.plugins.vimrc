@@ -84,7 +84,7 @@ let g:deoplete#enable_at_startup = 1
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 
 " Golang
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
 
 " Typescript
