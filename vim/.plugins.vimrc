@@ -1,7 +1,7 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Color scheme
+" seoul256 Color scheme
 Plug 'junegunn/seoul256.vim'
 let g:seoul256_background = 233
 if has("autocmd")
@@ -73,19 +73,18 @@ Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'fo
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 let g:deoplete#enable_at_startup = 1
 
-" Crystal
+" Crystal language support
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 
-" Golang
+" Go language support
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
 
-" Typescript
+" Typescript language support
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
-" JSX
+" JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Initialize plugin system
 call plug#end()
-

@@ -1,0 +1,60 @@
+# Taps
+tap "caskroom/cask"
+tap "cloudfoundry/tap"
+tap "go-delve/delve"
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "neovim/neovim"
+
+# Languages
+brew "go"
+brew "node"
+brew "crystal-lang"
+brew "ruby"
+brew "python3"
+    brew "sqlite"
+brew "python"
+
+# Tools
+brew "fzf"
+brew "asciinema"
+brew "git"
+brew "htop"
+brew "mas"
+brew "reattach-to-user-namespace"
+brew "shellcheck"
+brew "stow"
+brew "the_silver_searcher"
+brew "tmux"
+    brew "openssl"
+brew "tmate"
+brew "wget"
+brew "zsh"
+brew "cmake"
+brew "neovim/neovim/neovim"
+    brew "gettext"
+    brew "jemalloc"
+    brew "libtermkey"
+    brew "libuv"
+    brew "libvterm"
+    brew "unibilium"
+brew "cloudfoundry/tap/cf-cli"
+brew "go-delve/delve/delve"
+
+# Desktop Applications
+cask 'google-chrome'
+cask 'spotify'
+cask 'alfred'
+cask 'docker'
+cask 'imageoptim'
+cask 'postman'
+cask 'appcleaner'
+cask 'virtualbox'
+
+mas "1Password", id: 443987910
+mas "BetterSnapTool", id: 417375580
+mas "Caffeine", id: 411246225
+mas "Pixelmator", id: 407963104
+mas "PopClip", id: 445189367
+mas "Sip", id: 507257563
+mas "The Unarchiver", id: 425424353
