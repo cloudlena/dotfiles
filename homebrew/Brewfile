@@ -43,13 +43,15 @@ brew "cloudfoundry/tap/cf-cli"
 brew "go-delve/delve/delve"
 
 # Desktop Applications
-cask 'google-chrome'
-cask 'spotify'
 cask 'alfred'
-cask 'docker'
-cask 'imageoptim'
-cask 'postman'
 cask 'appcleaner'
+cask 'docker'
+cask 'dropbox'
+cask 'google-chrome'
+cask 'imageoptim'
+cask 'iterm2'
+cask 'postman'
+cask 'spotify'
 cask 'virtualbox'
 
 mas "1Password", id: 443987910
