@@ -71,7 +71,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+endif
 
 " Crystal language support
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
@@ -82,6 +84,8 @@ let g:go_fmt_command = 'goimports'
 
 " Typescript language support
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Shougo/vimproc.vim', { 'do': 'make', 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }

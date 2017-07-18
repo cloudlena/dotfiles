@@ -4,7 +4,6 @@ tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
-tap "neovim/neovim"
 
 # Languages
 brew "go"
@@ -30,8 +29,9 @@ brew "tmux"
 brew "tmate"
 brew "wget"
 brew "zsh"
+    brew "pcre"
 brew "cmake"
-brew "neovim/neovim/neovim"
+brew "neovim"
     brew "gettext"
     brew "jemalloc"
     brew "libtermkey"
@@ -41,6 +41,7 @@ brew "neovim/neovim/neovim"
     brew "unibilium"
 brew "cloudfoundry/tap/cf-cli"
 brew "go-delve/delve/delve"
+brew "mongodb"
 
 # Desktop Applications
 cask 'alfred'
