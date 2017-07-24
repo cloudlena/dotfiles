@@ -42,6 +42,8 @@ brew "neovim"
 brew "cloudfoundry/tap/cf-cli"
 brew "go-delve/delve/delve"
 brew "mongodb"
+brew "jq"
+    brew "oniguruma"
 
 # Desktop Applications
 cask 'alfred'
