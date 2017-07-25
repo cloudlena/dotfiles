@@ -4,7 +4,7 @@ function mkcd() {
 }
 
 # cd into directory with fzf
-fcd() {
+function fcd() {
     local dir
     dir=$(find ${1:-.} -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | fzf +m) &&
@@ -12,7 +12,7 @@ fcd() {
 }
 
 # Checkout branches or tags with fzf
-fco() {
+function fco() {
     local tags branches target
     tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
     branches=$(
@@ -26,7 +26,7 @@ fco() {
 }
 
 # fkill - kill process
-fkill() {
+function fkill() {
     local pid
     pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
@@ -36,7 +36,7 @@ fkill() {
 }
 
 # fshow - git commit browser
-fshow() {
+function fshow() {
     git log --graph --color=always \
         --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
     fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -53,11 +53,18 @@ function ide() {
         cd "$1" || exit
     fi
 
-    tmux new-session -d -s ide 'vim +NERDTree'
-    tmux split-window -v -p 10
-    tmux split-window -h
-    tmux select-pane -t 0
-    tmux attach-session -d -t ide
+    if [ ! -n "${TMUX}" ]; then
+        tmux new-session -d -s ide 'vim +NERDTree'
+        tmux split-window -v -p 10
+        tmux split-window -h
+        tmux select-pane -t 0
+        tmux attach-session -d -t ide
+    else
+        tmux split-window -v -p 10
+        tmux split-window -h
+        tmux select-pane -t 0
+        vim +NERDTree
+    fi
 }
 
 # System update
