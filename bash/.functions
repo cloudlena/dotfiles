@@ -99,8 +99,8 @@ function pacu() {
         fi
         if [ -x "$(command -v brew)" ]; then
             brew update
-            brew bundle --file=~/dotfiles/homebrew/Brewfile
-            brew bundle cleanup --force --file=~/dotfiles/homebrew/Brewfile
+            brew bundle --file=~/dotfiles/Brewfile
+            brew bundle cleanup --force --file=~/dotfiles/Brewfile
             brew cleanup
         fi
         wait "${mas_pid}" &> /dev/null
