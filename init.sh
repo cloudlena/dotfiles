@@ -39,8 +39,7 @@ case "$(uname)" in
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/
     do
-        dir=${dir%*/}
-        stow "${dir}"
+        stow --dir ~/dotfiles "$(basename "${dir}")"
     done
 
     # Install Python3 and pip3 if not installed
@@ -61,7 +60,7 @@ case "$(uname)" in
     # Install diff-so-fancy
     npm install --global diff-so-fancy
 
-    echo "Dotfiles successfully initialized"
+    echo 'Dotfiles successfully initialized'
     ;;
 
 # Default
