@@ -9,8 +9,15 @@ case "$(uname)" in
 
     # Install Xcode Command Line Tools if not installed
     if ! xcode-select -p &> /dev/null; then
-        xcode-select --install
-        echo 'Xcode Command Line Tools not installed yet. Please run init script again after installation has finished.'
+        read -p 'Xcode Command Line Tools not installed. You will have to run the script again after successfully installing them. Install now? (Y/n)' -r
+        echo
+        if [[ ! $REPLY =~ ^[Nn]$ ]]
+        then
+            xcode-select --install
+            echo 'Please run the script again after the installation has finished'
+        else
+            echo 'Please install the Xcode Command Line Tools and run then script again.'
+        fi
         exit
     fi
 
