@@ -15,8 +15,10 @@ let g:user_emmet_leader_key='<C-i>'
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+if has("autocmd")
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
+endif
 function! s:goyo_enter()
   set noshowcmd
   set scrolloff=999
@@ -71,7 +73,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-if has('nvim')
+if has('nvim') && has('python3')
   let g:deoplete#enable_at_startup = 1
 endif
 
