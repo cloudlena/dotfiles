@@ -64,7 +64,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 Plug 'airblade/vim-gitgutter'
 
 " Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<cr>
 
