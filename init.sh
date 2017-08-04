@@ -2,6 +2,8 @@
 
 # This script installs these dotfiles.
 
+set -e -u
+
 case "$(uname)" in
 
 # On Linux, use the respective package manager
