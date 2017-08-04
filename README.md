@@ -6,7 +6,9 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 
 ## Installation
 
-1. Run the following command (warning: this may install and/or remove software and change your configs!):
+1. Run the following command:
+
+    **WARNING: This may install and/or remove software and change your configs!**
 
     ```shell
     $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
@@ -19,3 +21,10 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 * `pacu`: Installs and updates everything in `Brewfile` and removes everything else
 * `nvim`: Starts neovim with all plugins
 * and many more...
+
+## Customize
+
+1. Fork this repo
+1. Change the `git clone` command in `init.sh` to use your own repo
+1. Change `Brewfile` to your liking
+1. Run the above installation command substituting the repo URL with your own
