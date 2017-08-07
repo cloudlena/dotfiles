@@ -16,6 +16,7 @@ brew "python"
 
 # Tools
 brew "fzf"
+brew "dep"
 brew "asciinema"
 brew "git"
 brew "htop"
