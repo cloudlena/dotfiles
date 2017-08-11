@@ -17,11 +17,6 @@ let mapleader=","
 " Enable relative line numbers
 set relativenumber
 set number
-" Use spaces instead of tabs
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -46,14 +41,6 @@ set spelllang=en_us
 if has("autocmd")
   " Enable file type detection
   filetype on
-  " Treat .json files as .js
-  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  " Treat .md files as Markdown
-  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-  " Use tabs with width 8 for Go
-  autocmd FileType go setlocal ts=8 sts=8 sw=8 noexpandtab
-  " Use tabs for make files
-  autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   " Strip trailing whitespaces on save
   autocmd BufWritePre * %s/\s\+$//e
   " Unify indentation on save

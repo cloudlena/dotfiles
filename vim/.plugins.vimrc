@@ -77,6 +77,9 @@ if has('nvim') && has('python3')
   let g:deoplete#enable_at_startup = 1
 endif
 
+" Detect indent settings
+Plug 'tpope/vim-sleuth'
+
 " Crystal language support
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 
@@ -105,6 +108,7 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+let g:jsx_ext_required = 0
 
 " Initialize plugin system
 call plug#end()
