@@ -53,6 +53,7 @@ case "$(uname)" in
     done
 
     # Use vimrc as Neovim config
+    mkdir -p ~/.config/nvim
     rm ~/.config/nvim/init.vim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
@@ -143,6 +144,7 @@ case "$(uname)" in
     fi
 
     # Use vimrc as Neovim config
+    mkdir -p ~/.config/nvim
     rm ~/.config/nvim/init.vim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
