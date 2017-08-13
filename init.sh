@@ -68,7 +68,14 @@ case "$(uname)" in
     pacu
 
     # Install diff-so-fancy
-    npm install --global diff-so-fancy
+    if [ ! -x "$(command -v pip3)" ]; then
+        npm install --global diff-so-fancy
+    fi
+
+    # Use zsh
+    if [ ! -x "$(command -v zsh)" ]; then
+        chsh -s "$(which zsh)"
+    fi
 
     echo 'Dotfiles successfully initialized'
     ;;
