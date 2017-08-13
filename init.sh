@@ -139,7 +139,7 @@ case "$(uname)" in
         cloudfoundry-cli
 
     # Change npm folder
-    if [ ! -x "$(command -v npm)" ]; then
+    if [ -x "$(command -v npm)" ]; then
         npm config set prefix ~
     fi
 
