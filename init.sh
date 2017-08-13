@@ -127,6 +127,7 @@ case "$(uname)" in
         python-neovim \
         zsh \
         go \
+        go-tools \
         nodejs \
         npm \
         fzf \
