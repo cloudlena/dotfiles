@@ -50,6 +50,7 @@ case "$(uname)" in
     done
 
     # Use vimrc as Neovim config
+    rm ~/.config/nvim/init.vim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Install Python3 and pip3 if not installed
@@ -67,8 +68,87 @@ case "$(uname)" in
     source ~/dotfiles/bash/.functions
     pacu
 
+    # Symlink Neovim to vim
+    sudo rm /usr/bin/vim
+    sudo ln -s /usr/bin/nvim /usr/bin/vim
+
     # Install diff-so-fancy
-    if [ ! -x "$(command -v pip3)" ]; then
+    if [ ! -x "$(command -v npm)" ]; then
+        npm install --global diff-so-fancy
+    fi
+
+    # Use zsh
+    if [ ! -x "$(command -v zsh)" ]; then
+        chsh -s "$(which zsh)"
+    fi
+
+    echo 'Dotfiles successfully initialized'
+    ;;
+
+'Linux')
+    if [ ! -x "$(command -v pacman)" ]; then
+        echo 'Only Arch Linux is currently supported'
+        exit 1
+    fi
+
+    # Install git if not installed
+    if [ ! -x "$(command -v git)" ]; then
+        sudo pacman -S git --noconfirm
+    fi
+
+    # git clone these dotfiles if not done yet
+    if [ ! -d ~/dotfiles ]; then
+        git clone https://github.com/mastertinner/dotfiles.git
+    fi
+
+    # Install stow if not installed
+    if [ ! -x "$(command -v stow)" ]; then
+        sudo pacman -S stow --noconfirm
+    fi
+    # Stow subdirectories of dotfiles
+    for dir in ~/dotfiles/*/; do
+        stow --dir ~/dotfiles "$(basename "${dir}")"
+    done
+
+    # Install vim-plug
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    # Use vimrc as Neovim config
+    rm ~/.config/nvim/init.vim
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+    # Install tools
+    sudo pacman -S --noconfirm \
+        tmux \
+        neovim \
+        python-neovim \
+        zsh \
+        go \
+        nodejs \
+        npm \
+        fzf \
+        the_silver_searcher
+    yaourt -S --noconfirm \
+        oh-my-zsh-git \
+        spotify \
+        cloudfoundry-cli
+
+    # Change npm folder
+    if [ ! -x "$(command -v npm)" ]; then
+        npm config set prefix ~
+    fi
+
+    # Run full system upgrade
+    source ~/dotfiles/bash/.functions
+    pacu
+
+    # Symlink Neovim to vim
+    sudo rm /usr/bin/vim
+    sudo ln -s /usr/bin/nvim /usr/bin/vim
+
+    # Install diff-so-fancy
+    if [ ! -x "$(command -v npm)" ]; then
         npm install --global diff-so-fancy
     fi
 
@@ -83,5 +163,6 @@ case "$(uname)" in
 # Default
 *)
     echo "OS not supported. Please install manually."
+    exit 1
     ;;
 esac
