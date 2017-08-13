@@ -97,7 +97,7 @@ case "$(uname)" in
 
     # Install git if not installed
     if [ ! -x "$(command -v git)" ]; then
-        sudo pacman -S git --noconfirm
+        sudo pacman -S git --noconfirm --needed
     fi
 
     # git clone these dotfiles if not done yet
@@ -107,7 +107,7 @@ case "$(uname)" in
 
     # Install stow if not installed
     if [ ! -x "$(command -v stow)" ]; then
-        sudo pacman -S stow --noconfirm
+        sudo pacman -S stow --noconfirm --needed
     fi
     # Remove existing config files
     rm ~/.bashrc
@@ -122,7 +122,7 @@ case "$(uname)" in
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Install tools
-    sudo pacman -S --noconfirm \
+    sudo pacman -S --noconfirm --needed \
         tmux \
         neovim \
         python-neovim \
@@ -133,7 +133,7 @@ case "$(uname)" in
         npm \
         fzf \
         the_silver_searcher
-    yaourt -S --noconfirm \
+    yaourt -S --noconfirm --needed \
         oh-my-zsh-git \
         spotify \
         cloudfoundry-cli
