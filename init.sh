@@ -43,6 +43,9 @@ case "$(uname)" in
     if [ ! -x "$(command -v stow)" ]; then
         brew install stow
     fi
+    # Remove existing config files
+    rm ~/.bashrc
+    rm ~/.bash_profile
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/
     do
@@ -105,6 +108,9 @@ case "$(uname)" in
     if [ ! -x "$(command -v stow)" ]; then
         sudo pacman -S stow --noconfirm
     fi
+    # Remove existing config files
+    rm ~/.bashrc
+    rm ~/.bash_profile
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
@@ -113,10 +119,6 @@ case "$(uname)" in
     # Install vim-plug
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # Use vimrc as Neovim config
-    rm ~/.config/nvim/init.vim
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Install tools
     sudo pacman -S --noconfirm \
@@ -138,6 +140,10 @@ case "$(uname)" in
     if [ ! -x "$(command -v npm)" ]; then
         npm config set prefix ~
     fi
+
+    # Use vimrc as Neovim config
+    rm ~/.config/nvim/init.vim
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Run full system upgrade
     source ~/dotfiles/bash/.functions
