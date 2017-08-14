@@ -21,12 +21,6 @@ ZSH_THEME="zhann"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# Load the shell dotfiles
-for file in ~/.{path,exports,aliases,functions,extra}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
 # update oh-my-zsh bi weekly and other useful helpers
 source $ZSH/oh-my-zsh.sh
 
