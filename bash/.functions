@@ -80,6 +80,7 @@ function pacu() {
         # Arch Linux
         if [ -x "$(command -v pacman)" ]; then
             sudo pacman -Syu --noconfirm
+            sudo pacman -Rns $(pacman -Qtdq) --noconfirm
         fi
         if [ -x "$(command -v yaourt)" ]; then
             yaourt -Syua --noconfirm
@@ -89,6 +90,7 @@ function pacu() {
             sudo apt-get update
             sudo apt-get upgrade -y
             sudo apt-get dist-upgrade -y
+            sudo apt-get autoremove -y
         fi
         ;;
     # On macOS, use mas and Homebrew in parallel
@@ -109,7 +111,7 @@ function pacu() {
 
 # Go
     if [ -x "$(command -v go)" ]; then
-        ("${HOME}/dotfiles/bash/update-go.sh") &
+        ("${HOME}/dotfiles/update-go.sh") &
         go_pid="$!"
     fi
 
@@ -120,7 +122,7 @@ function pacu() {
 
         wait "${npm_global_pid}"
         npm outdated -g
-        ("${HOME}/dotfiles/bash/update-js.sh") &
+        ("${HOME}/dotfiles/update-js.sh") &
         npm_pid="$!"
     fi
 
