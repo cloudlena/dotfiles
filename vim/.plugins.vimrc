@@ -1,11 +1,10 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
-" seoul256 Color scheme
-Plug 'junegunn/seoul256.vim'
-let g:seoul256_background = 233
+" Color scheme
+Plug 'trevordmiller/nova-vim'
 if has("autocmd")
-  autocmd! VimEnter * colorscheme seoul256
+  autocmd! VimEnter * colorscheme nova
 endif
 
 " Emmet for HTML editing
