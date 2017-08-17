@@ -1,3 +1,9 @@
+" Import plugins
+source ~/.plugins.vimrc
+
+" Set color scheme
+colorscheme nova
+
 " Make Vim more useful
 set nocompatible
 " Disable vim welcome message
@@ -29,7 +35,7 @@ set nostartofline
 set showcmd
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-" More natural splitting of windows and easier split navigation
+" More natural splitting of windows
 set splitbelow
 set splitright
 " Soft wrapping of lines
@@ -48,6 +54,3 @@ if has("autocmd")
   " Enable spell checking for certain files
   autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 endif
-
-" Import plugin configuration
-source ~/.plugins.vimrc
