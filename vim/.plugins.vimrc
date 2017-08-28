@@ -99,8 +99,7 @@ endif
 
 " Typescript language support
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'Shougo/vimproc.vim', { 'do': 'make', 'for': 'typescript' }
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 
 " JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
