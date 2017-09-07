@@ -8,7 +8,6 @@ tap "go-delve/delve"
 # Languages
 brew "go"
 brew "node"
-brew "crystal-lang"
 brew "ruby"
 brew "python3"
     brew "sqlite"
