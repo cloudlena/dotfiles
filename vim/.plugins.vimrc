@@ -12,20 +12,20 @@ let g:user_emmet_leader_key='<C-i>'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 if has("autocmd")
-  autocmd! User GoyoEnter nested call <SID>goyo_enter()
-  autocmd! User GoyoLeave nested call <SID>goyo_leave()
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
 endif
 function! s:goyo_enter()
-  set noshowcmd
-  set scrolloff=999
-  ALEDisable
-  Limelight
+    set noshowcmd
+    set scrolloff=999
+    ALEDisable
+    Limelight
 endfunction
 function! s:goyo_leave()
-  set showcmd
-  set scrolloff=3
-  ALEEnable
-  Limelight!
+    set showcmd
+    set scrolloff=3
+    ALEEnable
+    Limelight!
 endfunction
 
 " Git integration
@@ -70,7 +70,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascri
 Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 if has('nvim') && has('python3')
-  let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 1
 endif
 
 " Detect indent settings
@@ -82,12 +82,12 @@ let g:go_fmt_command = 'goimports'
 let g:go_auto_type_info = 1
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
 endfunction
 if has("autocmd")
     autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>

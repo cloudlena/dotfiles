@@ -45,12 +45,12 @@ set spelllang=en_us
 
 " Automatic commands
 if has("autocmd")
-  " Enable file type detection
-  filetype on
-  " Strip trailing whitespaces on save
-  autocmd BufWritePre * %s/\s\+$//e
-  " Unify indentation on save
-  autocmd BufWritePre * retab
-  " Enable spell checking for certain files
-  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
+    " Enable file type detection
+    filetype on
+    " Strip trailing whitespaces on save
+    autocmd BufWritePre * %s/\s\+$//e
+    " Unify indentation on save
+    autocmd BufWritePre * retab
+    " Enable spell checking for certain files
+    autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 endif

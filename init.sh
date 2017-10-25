@@ -142,9 +142,9 @@ case "$(uname)" in
         fzf \
         the_silver_searcher
     yaourt -Sy --noconfirm --needed \
-        oh-my-zsh-git \
+        prezto-git \
         spotify \
-        cloudfoundry-cli
+        cloudfoundry-cli \
 
     # Change npm folder
     if [ -x "$(command -v npm)" ]; then

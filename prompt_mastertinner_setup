@@ -1,0 +1,34 @@
+function prompt_mastertinner_precmd {
+  git-info
+}
+
+function prompt_mastertinner_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command
+  add-zsh-hook precmd prompt_mastertinner_precmd
+
+  # Set git-info parameters
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:branch' format '%b'
+  zstyle ':prezto:module:git:info:position' format '%p'
+  zstyle ':prezto:module:git:info:commit' format '%.7c'
+  zstyle ':prezto:module:git:info:action' format '%F{yellow}[%s]%f'
+  zstyle ':prezto:module:git:info:dirty' format '%F{yellow}●%f'
+  zstyle ':prezto:module:git:info:added' format '%F{green}●%f'
+  zstyle ':prezto:module:git:info:behind' format '%F{yellow}⬇%f'
+  zstyle ':prezto:module:git:info:stashed' format '%F{yellow}✭%f'
+  zstyle ':prezto:module:git:info:keys' format \
+    'prompt' ' %F{cyan}[$(coalesce "%b" "%p" "%c")%f${(e)git_info[status]}%F{cyan}]%f%s' \
+    'status' '$(coalesce "%a" "%D")%B%S' \
+
+  # Define prompts
+  PROMPT='%F{magenta}%c%f${(e)git_info[prompt]} '
+}
+
+prompt_mastertinner_setup "$@"
