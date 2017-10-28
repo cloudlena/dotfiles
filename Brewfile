@@ -2,12 +2,14 @@
 tap "homebrew/core"
 tap "caskroom/cask"
 tap "homebrew/bundle"
+tap "buo/cask-upgrade"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
 
 # Languages
 brew "go"
 brew "node"
+    brew "icu4c"
 brew "ruby"
 brew "python3"
     brew "sqlite"
