@@ -10,29 +10,24 @@ tap "go-delve/delve"
 brew "go"
 brew "node"
     brew "icu4c"
-brew "ruby"
+brew "python"
 brew "python3"
     brew "sqlite"
-brew "python"
+brew "ruby"
 
 # Tools
-brew "fzf"
-brew "dep"
-brew "asciinema"
-brew "git"
-brew "htop"
-brew "mas"
-brew "reattach-to-user-namespace"
-brew "shellcheck"
-brew "the_silver_searcher"
-brew "tmux"
-    brew "openssl"
-brew "tmate"
-brew "wget"
-    brew "openssl@1.1"
-brew "zsh"
-    brew "pcre"
+brew "cloudfoundry/tap/cf-cli"
 brew "cmake"
+brew "dep"
+brew "fzf"
+brew "git"
+brew "go-delve/delve/delve"
+brew "htop"
+brew "jq"
+    brew "oniguruma"
+brew "kubectl"
+brew "mas"
+brew "mongodb"
 brew "neovim"
     brew "gettext"
     brew "jemalloc"
@@ -41,27 +36,34 @@ brew "neovim"
     brew "libvterm"
     brew "msgpack"
     brew "unibilium"
-brew "cloudfoundry/tap/cf-cli"
-brew "go-delve/delve/delve"
-brew "mongodb"
-brew "jq"
-    brew "oniguruma"
+brew "reattach-to-user-namespace"
+brew "shellcheck"
+brew "the_silver_searcher"
+brew "tmate"
+brew "tmux"
+    brew "openssl"
+brew "wget"
+    brew "openssl@1.1"
+brew "zsh"
+    brew "pcre"
 
 # Desktop Applications
-cask 'alfred'
-cask 'appcleaner'
-cask 'docker'
-cask 'dropbox'
-cask 'google-chrome'
-cask 'graphiql'
-cask 'imageoptim'
-cask 'iterm2'
-cask 'mongodb-compass'
-cask 'postman'
-cask 'rambox'
-cask 'spotify'
-cask 'sqlectron'
-cask 'virtualbox'
+cask "alfred"
+cask "appcleaner"
+cask "docker"
+cask "dropbox"
+cask "google-chrome"
+cask "graphiql"
+cask "imageoptim"
+cask "iterm2"
+cask "microsoft-office"
+cask "mongodb-compass"
+cask "postman"
+cask "rambox"
+cask "spotify"
+cask "skype-for-business"
+cask "sqlectron"
+cask "virtualbox"
 
 mas "1Password", id: 443987910
 mas "Affinity Designer", id: 824171161
