@@ -96,6 +96,8 @@ if has("autocmd")
     autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
     autocmd FileType go nmap <leader>t <Plug>(go-test)
 endif
+" Debugging
+Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 " Typescript language support
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
