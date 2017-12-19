@@ -65,6 +65,30 @@ function ide() {
     fi
 }
 
+# Update dependencies
+funcion depu() {
+
+    # npm
+    pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
+    if [ "${pkg_count}" -gt 0 ]; then
+        echo "Updating npm dependencies...\n"
+        npm install
+        npm update
+        npm prune
+        npm outdated
+    fi
+
+    # Go dep
+    pkg_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
+    if [ "${pkg_count}" -gt 0 ]; then
+        echo "Updating Dep dependencies...\n"
+        dep ensure
+        dep ensure -update
+        dep prune
+    fi
+
+}
+
 # System update
 function pacu() {
 
