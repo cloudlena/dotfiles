@@ -81,7 +81,7 @@ funcion depu() {
     # Go dep
     pkg_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
     if [ "${pkg_count}" -gt 0 ]; then
-        echo "Updating Go dep dependencies...\n"
+        echo "Updating Dep dependencies...\n"
         dep ensure
         dep ensure -update
         dep prune
