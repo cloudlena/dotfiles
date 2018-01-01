@@ -103,6 +103,8 @@ function pacu() {
         if [ -x "$(command -v pacman)" ]; then
             sudo pacman -Syu --noconfirm
             sudo pacman -Rns $(pacman -Qtdq) --noconfirm
+            sudo pacman -Sc --noconfirm
+            sudo pacman-optimize
         fi
         if [ -x "$(command -v yaourt)" ]; then
             yaourt -Syua --noconfirm
