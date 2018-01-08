@@ -8,11 +8,11 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 
 1. Run the following command:
 
-    **WARNING: This may install and/or remove software and change your configs!**
+   **WARNING: This may install and/or remove software and change your configs!**
 
-    ```shell
-    $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
-    ```
+   ```shell
+   $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
+   ```
 
 1. Run command again if Xcode Command Line Tools needed to be installed
 
@@ -30,6 +30,6 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 1. Change `Brewfile` to your liking
 1. If you have apps installed which you didn't install through `brew cask` but that you now added to `Brewfile` as `cask`, you need to remove the respective `.app` file from your applications folder.
 
-    Note: This won't delete any of your data. The app will just be reinstalled with `brew cask` and everything will be back to normal once the installation script has run.
+   Note: This won't delete any of your data. The app will just be reinstalled with `brew cask` and everything will be back to normal once the installation script has run.
 
 1. Run the above installation command substituting the repo URL with your own
