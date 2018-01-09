@@ -77,11 +77,6 @@ case "$(uname)" in
         sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
     fi
 
-    # Install diff-so-fancy
-    if [ -x "$(command -v npm)" ]; then
-        npm install --global diff-so-fancy
-    fi
-
     # Use zsh
     if [ -x "$(command -v zsh)" ]; then
         chsh -s "$(which zsh)"
@@ -129,7 +124,8 @@ case "$(uname)" in
         nodejs \
         npm \
         fzf \
-        the_silver_searcher
+        the_silver_searcher \
+        diff-so-fancy
     yaourt -Sy --noconfirm --needed \
         prezto-git \
         spotify \
@@ -155,11 +151,6 @@ case "$(uname)" in
     # Symlink Neovim to vim if vim not installed
     if [ ! -f /usr/bin/vim ]; then
         sudo ln -s /usr/bin/nvim /usr/bin/vim
-    fi
-
-    # Install diff-so-fancy
-    if [ -x "$(command -v npm)" ]; then
-        npm install --global diff-so-fancy
     fi
 
     # Use zsh
