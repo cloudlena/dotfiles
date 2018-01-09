@@ -3,6 +3,7 @@ tap "caskroom/cask"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
 tap "minio/stable"
+tap "buo/cask-upgrade"
 
 # Languages
 brew "go"
