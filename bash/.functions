@@ -72,7 +72,6 @@ function depu() {
     pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
     if [ "${pkg_count}" -gt 0 ]; then
         printf 'Updating npm dependencies...\n\n'
-        npm install
         npm update
         npm prune
         npm outdated
