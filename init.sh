@@ -54,8 +54,7 @@ case "$(uname)" in
         rm ~/.bash_profile
     fi
     # Stow subdirectories of dotfiles
-    for dir in ~/dotfiles/*/
-    do
+    for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
 
@@ -136,19 +135,14 @@ case "$(uname)" in
         go \
         go-tools \
         nodejs \
-        npm \
+        yarn \
         fzf \
         the_silver_searcher \
         diff-so-fancy
     yaourt -Sy --noconfirm --needed \
         prezto-git \
         spotify \
-        cloudfoundry-cli \
-
-    # Change npm folder
-    if [ -x "$(command -v npm)" ]; then
-        npm config set prefix ~
-    fi
+        cloudfoundry-cli
 
     # Use vimrc as Neovim config
     printf '\e[1mSetting up Neovim\e[0m\n'

@@ -34,6 +34,7 @@ brew "tig"
 brew "tmate"
 brew "tmux"
 brew "wget"
+brew "yarn"
 brew "zsh"
 
 # Desktop Applications
