@@ -163,6 +163,11 @@ case "$(uname)" in
         spotify \
         tmate
 
+    # Change npm folder
+    if [ -x "$(command -v npm)" ]; then
+        npm config set prefix ~
+    fi
+
     # Use vimrc as Neovim config
     printf '\e[1mSetting up Neovim\e[0m\n'
     if [ -f ~/.config/nvim/init.vim ]; then
