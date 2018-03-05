@@ -123,6 +123,11 @@ function pacu() {
             printf '\e[1mUpdating yaourt packages\e[0m\n'
             yaourt -Syua --noconfirm
         fi
+        # Solus
+        if [ -x "$(command -v eopkg)" ]; then
+            printf '\e[1mUpdating eopkg packages\e[0m\n'
+            sudo eopkg upgrade
+        fi
         # Debian
         if [ -x "$(command -v apt-get)" ]; then
             printf '\e[1mUpdating apt packages\e[0m\n'
