@@ -9,7 +9,6 @@ tap "buo/cask-upgrade"
 brew "go"
 brew "node"
 brew "python"
-brew "python3"
 brew "ruby"
 
 # Tools
