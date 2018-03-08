@@ -80,12 +80,10 @@ function depu() {
 
     # Yarn
     pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
-    lock_count=$(ls -1 yarn.json 2>/dev/null | wc -l)
+    lock_count=$(ls -1 yarn.lock 2>/dev/null | wc -l)
     if [ "${pkg_count}" -gt 0 ] && [ "${lock_count}" -gt 0 ]; then
         printf "Updating Yarn dependencies for ${PWD##*/}...\n\n"
         yarn upgrade > /dev/null
-        yarn prune
-        yarn dedupe
         yarn outdated
     fi
 
