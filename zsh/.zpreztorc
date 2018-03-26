@@ -24,7 +24,7 @@ zstyle ':prezto:load' pmodule \
     'prompt' \
     'history' \
     'history-substring-search' \
-    'autosuggestions' \
+    'autosuggestions'
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
