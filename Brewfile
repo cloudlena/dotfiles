@@ -57,6 +57,5 @@ mas "1Password", id: 443987910
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
-mas "Caffeine", id: 411246225
 mas "PopClip", id: 445189367
 mas "The Unarchiver", id: 425424353
