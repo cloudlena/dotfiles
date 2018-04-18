@@ -32,8 +32,8 @@ brew "terraform"
 brew "the_silver_searcher"
 brew "tmate"
 brew "tmux"
+brew "watchman"
 brew "wget"
-brew "yarn"
 brew "zsh"
 
 # Desktop Applications

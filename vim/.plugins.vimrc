@@ -11,10 +11,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Color scheme
 Plug 'trevordmiller/nova-vim'
 
-" Emmet for HTML editing
-Plug 'mattn/emmet-vim', { 'for': ['html','xml'] }
-let g:user_emmet_leader_key='<C-i>'
-
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -35,12 +31,26 @@ function! s:goyo_leave()
     Limelight!
 endfunction
 
-" Git integration
-Plug 'tpope/vim-fugitive'
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+nnoremap <C-P> :Files<cr>
+
+" Time tracking
+Plug 'wakatime/vim-wakatime'
 
 " Diff directories
 Plug 'will133/vim-dirdiff'
 let g:DirDiffExcludes = ".git,node_modules,vendor,dist,.DS_Store,.*.swp"
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+
+" Show Git indicators with line numbers
+Plug 'airblade/vim-gitgutter'
+
+" Detect indent settings
+Plug 'tpope/vim-sleuth'
 
 " Edit surrounds
 Plug 'tpope/vim-surround'
@@ -71,30 +81,13 @@ let g:ale_fix_on_save = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" Show Git indicators with line numbers
-Plug 'airblade/vim-gitgutter'
-
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-nnoremap <C-P> :Files<cr>
-
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-Plug 'mhartington/deoplete-typescript', { 'do': ':UpdateRemotePlugins', 'for': 'typescript' }
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
 endif
 
-" Detect indent settings
-Plug 'tpope/vim-sleuth'
-
-" Time tracking
-Plug 'wakatime/vim-wakatime'
-
-" Go language support
+" Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
 let g:go_auto_type_info = 1
@@ -111,28 +104,31 @@ if has("autocmd")
     autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
     autocmd FileType go nmap <leader>t <Plug>(go-test)
 endif
-" Debugging
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'sebdah/vim-delve', { 'for': 'go' }
 
-" Improved JavaScript language support
+" JavaScript
 Plug 'pangloss/vim-javascript'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
-
-" JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
 
-" Typescript language support
+" Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
+Plug 'mhartington/deoplete-typescript', { 'do': ':UpdateRemotePlugins', 'for': 'typescript' }
 
-" GraphQL schema support
+" GraphQL
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
-" Terraform support
-Plug 'hashivim/vim-terraform'
+" Terraform
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 let g:terraform_fmt_on_save = 1
+Plug 'juliosueiras/vim-terraform-completion', { 'for': 'terraform' }
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 
 " Initialize plugin system
 call plug#end()
