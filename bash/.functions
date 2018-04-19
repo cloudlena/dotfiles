@@ -54,14 +54,10 @@ function ide() {
     fi
 
     if [ ! -n "${TMUX}" ]; then
-        tmux new-session -d -s ide 'vim +NERDTree'
-        tmux split-window -v -p 10
-        tmux select-pane -t 0
-        tmux attach-session -d -t ide
+        tmux new-session -d -s ide
+        tmux split-window -v -p 90 'vim +NERDTree'
     else
-        tmux split-window -v -p 10
-        tmux select-pane -t 0
-        vim +NERDTree
+        tmux split-window -vb -p 90 'vim +NERDTree'
     fi
 }
 
