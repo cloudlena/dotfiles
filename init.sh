@@ -23,6 +23,9 @@ case "$(uname)" in
         exit
     fi
 
+    # Set dark mode
+    sudo defaults delete /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
     # Install Homebrew if not installed
     if [ ! -x "$(command -v brew)" ]; then
         printf '\e[1mInstalling Homebrew\e[0m\n'
