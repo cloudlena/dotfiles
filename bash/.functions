@@ -175,6 +175,7 @@ function pacu() {
 
         printf '\e[1mUpdating Node.js projects\e[0m\n'
         ("${HOME}/dotfiles/update-js.sh") &
+        npm_pid="$!"
     fi
 
     # Yarn
@@ -205,6 +206,7 @@ function pacu() {
 
     # Wait for all processes to finish
     wait "${go_pid}" &> /dev/null
+    wait "${npm_pid}" &> /dev/null
     wait "${ruby_pid}" &> /dev/null
     wait "${python_pid}" &> /dev/null
     wait "${python3_pid}" &> /dev/null
