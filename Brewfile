@@ -2,7 +2,6 @@
 tap "caskroom/cask"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
-tap "minio/stable"
 tap "buo/cask-upgrade"
 
 # Languages
@@ -21,9 +20,7 @@ brew "git"
 brew "go-delve/delve/delve"
 brew "htop"
 brew "jq"
-brew "kubectl"
 brew "mas"
-brew "minio/stable/mc"
 brew "mongodb"
 brew "neovim"
 brew "reattach-to-user-namespace"
