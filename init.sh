@@ -180,6 +180,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         dep \
         delve \
         dropbox \
+        hadolint-git \
         prezto-git \
         spotify \
         tmate
