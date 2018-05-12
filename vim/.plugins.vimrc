@@ -110,7 +110,6 @@ Plug 'sebdah/vim-delve', { 'for': 'go' }
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
