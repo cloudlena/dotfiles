@@ -75,6 +75,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['json'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['less'] = ['prettier']
