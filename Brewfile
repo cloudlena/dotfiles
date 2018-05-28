@@ -1,5 +1,5 @@
 # Taps
-tap "caskroom/cask"
+tap "homebrew/cask"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
 tap "buo/cask-upgrade"
