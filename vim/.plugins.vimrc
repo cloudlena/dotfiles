@@ -149,5 +149,8 @@ let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
+" NGINX
+Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+
 " Initialize plugin system
 call plug#end()
