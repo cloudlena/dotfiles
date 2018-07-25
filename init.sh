@@ -77,9 +77,9 @@ case "$(uname)" in
     mkdir -p ~/.config/nvim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-    # Install Python and pip if not installed
+    # Install pip if not installed
     if [ ! -x "$(command -v pip)" ]; then
-        brew install python
+        sudo easy_install pip
     fi
     # Install the Python neovim package
     pip install --upgrade --user neovim
@@ -182,6 +182,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         dep \
         delve \
         dropbox \
+        grv \
         hadolint-git \
         prezto-git \
         spotify \
