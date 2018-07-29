@@ -155,6 +155,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         npm \
         python \
         python-pip \
+        prettier \
         ruby \
         aws-cli \
         chromium \
