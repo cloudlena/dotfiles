@@ -133,7 +133,7 @@ let g:javascript_plugin_flow = 1
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Flow
-Plug 'wokalski/autocomplete-flow', { 'for': 'javascript' }
+Plug 'wokalski/autocomplete-flow', { 'for': 'javascript.jsx' }
 
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
