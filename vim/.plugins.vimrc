@@ -8,8 +8,8 @@ endif
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Color scheme
-Plug 'trevordmiller/nova-vim'
+" Colorscheme
+Plug 'tyrannicaltoucan/vim-quantum'
 
 " Enable hard mode
 Plug 'takac/vim-hardtime'
@@ -130,13 +130,14 @@ Plug 'sebdah/vim-delve', { 'for': 'go' }
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 let g:javascript_plugin_flow = 1
-Plug 'wokalski/autocomplete-flow', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
+" Flow
+Plug 'wokalski/autocomplete-flow', { 'for': 'javascript' }
+
 " Typescript
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
-Plug 'mhartington/deoplete-typescript', { 'do': ':UpdateRemotePlugins', 'for': 'typescript' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh', 'for': 'typescript' }
 
 " GraphQL
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }

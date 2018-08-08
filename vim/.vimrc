@@ -2,7 +2,7 @@
 source ~/.plugins.vimrc
 
 " Set color scheme
-colorscheme nova
+colorscheme quantum
 
 " Make Vim more useful
 set nocompatible
