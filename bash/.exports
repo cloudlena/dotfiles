@@ -13,4 +13,4 @@ export HISTCONTROL='ignoreboth';
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore vendor --ignore node_modules --filename-pattern ""'
 
 # Enable Go 1.11 module support everywhere
-export GO111MODULE=on
+# export GO111MODULE=on

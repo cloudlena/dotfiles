@@ -138,9 +138,9 @@ function pacu() {
         if [ -x "$(command -v apt-get)" ]; then
             printf '\e[1mUpdating apt packages\e[0m\n'
             sudo apt-get update
-            sudo apt-get upgrade -y
             sudo apt-get dist-upgrade -y
             sudo apt-get autoremove -y
+            sudo apt-get autoclean -y
         fi
         ;;
     # On macOS, use mas and Homebrew in parallel
