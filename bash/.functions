@@ -7,14 +7,15 @@ function mkcd() {
 function fcd() {
     local dir
     dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) &&
+        -o -type d -print 2> /dev/null | fzf +m) &&
     cd "$dir"
 }
 
 # Checkout branches or tags with fzf
 function fco() {
     local tags branches target
-    tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+    tags=$(
+        git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
     branches=$(
         git branch --all | grep -v HEAD             |
         sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
@@ -28,10 +29,15 @@ function fco() {
 # fkill - kill process
 function fkill() {
     local pid
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
 
-    if [ "x$pid" != "x" ]; then
-      echo $pid | xargs kill -${1:-9}
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
     fi
 }
 
@@ -41,9 +47,9 @@ function fshow() {
         --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
     fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
         --bind "ctrl-m:execute:
-        (grep -o '[a-f0-9]\{7\}' | head -1 |
-        xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-        {}
+            (grep -o '[a-f0-9]\{7\}' | head -1 |
+            xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+            {}
 FZF-EOF"
 }
 

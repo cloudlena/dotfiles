@@ -3,14 +3,11 @@ export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
 # Make vim the default editor.
-export VISUAL='vim'
-export EDITOR="${VISUAL}";
+export EDITOR='vim';
+export VISUAL="${EDITOR}"
 
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
 
 # Don't search files which are gitignored in fzf
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore vendor --ignore node_modules --filename-pattern ""'
-
-# Enable Go 1.11 module support everywhere
-# export GO111MODULE=on
+export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!vendor/*" --glob "!/node_modules/*" --glob "!.DS_Store"'
