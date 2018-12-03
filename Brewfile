@@ -1,8 +1,8 @@
 # Taps
-tap "homebrew/cask"
-tap "golangci/tap"
-tap "cloudfoundry/tap"
 tap "buo/cask-upgrade"
+tap "cloudfoundry/tap"
+tap "golangci/tap"
+tap "homebrew/cask"
 
 # Languages
 brew "go"
