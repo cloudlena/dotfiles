@@ -81,6 +81,7 @@ let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier','tslint']
 let g:ale_fixers['json'] = ['prettier']
 let g:ale_fixers['html'] = ['prettier']
+let g:ale_fixers['vue'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['less'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
@@ -134,6 +135,7 @@ Plug 'sebdah/vim-delve', { 'for': 'go' }
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
 
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
