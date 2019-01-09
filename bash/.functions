@@ -98,12 +98,11 @@ function depu() {
         go mod tidy
     fi
 
-    # Go dep
-    file_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
+    # Rust
+    file_count=$(ls -1 Cargo.toml 2>/dev/null | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating Dep dependencies for ${PWD##*/}...\n\n"
-        GO111MODULE=off dep ensure
-        GO111MODULE=off dep ensure -update
+        printf "Updating Cargo dependencies for ${PWD##*/}...\n\n"
+        cargo update
     fi
 
     # Git submodules
@@ -169,7 +168,7 @@ function pacu() {
             cat ~/dotfiles/Brewfile* | brew bundle --file=-
             cat ~/dotfiles/Brewfile* | brew bundle cleanup --force --file=-
             brew cu --all --yes --cleanup
-            brew cleanup
+            brew cleanup --prune 7
         fi
         if typeset -f zprezto-update > /dev/null; then
             printf '\e[1mUpdating zprezto\e[0m\n'
@@ -183,6 +182,13 @@ function pacu() {
     if [ -x "$(command -v go)" ]; then
         printf '\e[1mUpdating Go binaries\e[0m\n'
         ("${HOME}/dotfiles/update-go.sh") &
+        processes+=("$!")
+    fi
+
+    # Rust
+    if [ -x "$(command -v rustup)" ]; then
+        printf '\e[1mUpdating rustup components\e[0m\n'
+        ("rustup update") &
         processes+=("$!")
     fi
 
