@@ -10,7 +10,7 @@ export VISUAL="${EDITOR}"
 export HISTCONTROL='ignoreboth';
 
 # Search only desired files with fzf
-export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.DS_Store" --glob "!.git/*" --glob "!vendor/*" --glob "!node_modules/*" --glob "!.terraform/*" --glob "!bin/*" --glob "!build/*" --glob "!coverage/*" --glob "!dist/*"'
+export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.DS_Store" --glob "!.git/*" --glob "!vendor/*" --glob "!node_modules/*" --glob "!.terraform/*" --glob "!bin/*" --glob "!build/*" --glob "!coverage/*" --glob "!dist/*" --glob "!target/*"'
 
 # Enable Go modules by default
 export GO111MODULE=on

@@ -134,6 +134,10 @@ endif
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'sebdah/vim-delve', { 'for': 'go' }
 
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+let g:rustfmt_autosave = 1
+
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
