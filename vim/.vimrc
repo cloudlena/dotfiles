@@ -1,6 +1,8 @@
 " Import plugins
 source ~/.plugins.vimrc
 
+" Many basic options are already set by the tpope/vim-sensible plugin
+
 " Set color scheme
 colorscheme quantum
 
@@ -35,12 +37,11 @@ set wrap linebreak
 " Set spell check language to en_us
 set spelllang=en_us
 
-" Automatic commands
 if has("autocmd")
     " Strip trailing whitespaces on save
     autocmd BufWritePre * %s/\s\+$//e
     " Unify indentation on save
     autocmd BufWritePre * retab
-    " Enable spell checking for certain files
+    " Enable spell checking for certain file types
     autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 endif
