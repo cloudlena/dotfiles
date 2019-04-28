@@ -236,7 +236,7 @@ function pacu() {
     # Vim
     if [ -x "$(command -v nvim)" ]; then
         printf '\e[1mUpdating Vim plugins\e[0m\n'
-        nvim -c 'PlugClean! | PlugUpgrade | PlugUpdate --sync | qa'
+        nvim -c 'PlugUpgrade | PlugClean! | PlugUpdate! | qa'
     fi
 
     # Wait for all processes to finish
