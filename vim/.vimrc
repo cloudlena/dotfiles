@@ -45,3 +45,8 @@ if has("autocmd")
     " Enable spell checking for certain file types
     autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 endif
+
+if has("nvim")
+    " Preview for find-replace command
+    set inccommand=split
+endif
