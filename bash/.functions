@@ -170,7 +170,7 @@ function pacu() {
             brew cu --all --yes --cleanup
             brew cleanup --prune 7
         fi
-        if typeset -f zprezto-update > /dev/null; then
+        if "$(command -v zprezto-update)"; then
             printf '\e[1mUpdating zprezto\e[0m\n'
             zprezto-update &
             processes+=("$!")

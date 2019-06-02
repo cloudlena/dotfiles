@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # This script installs these dotfiles.
 
@@ -12,11 +12,11 @@ case "$(uname)" in
 'Darwin')
 
     # Install Xcode Command Line Tools if not installed
-    if ! xcode-select -p &> /dev/null; then
-        read -p 'Xcode Command Line Tools not installed. You will have to run the script again after successfully installing them. Install now? (Y/n)' -r
+    if ! xcode-select -p > /dev/null; then
+        printf 'Xcode Command Line Tools not installed. You will have to run the script again after successfully installing them. Install now? (Y/n)'
+        read -r
         echo
-        if [[ ! $REPLY =~ ^[Nn] ]]
-        then
+        if ! "$REPLY" | grep -Eq '^[Nn]'; then
             xcode-select --install
             echo 'Please run the script again after the installation has finished'
         else
@@ -89,8 +89,8 @@ case "$(uname)" in
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
-    source ~/dotfiles/bash/.path
-    source ~/dotfiles/bash/.functions
+    . ~/dotfiles/bash/.path
+    . ~/dotfiles/bash/.functions
     pacu
 
     # Install prezto
@@ -208,8 +208,8 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
-    source ~/dotfiles/bash/.path
-    source ~/dotfiles/bash/.functions
+    . ~/dotfiles/bash/.path
+    . ~/dotfiles/bash/.functions
     pacu
 
     # Symlink nvim to vim if Vim not installed
@@ -228,8 +228,8 @@ esac
 # Use zsh
 if [ -x "$(command -v zsh)" ]; then
     printf '\e[1mChanging your shell to zsh\e[0m\n'
-    grep -q -F "$(which zsh)" /etc/shells || sudo sh -c 'echo "$(which zsh)" >> /etc/shells'
-    chsh -s "$(which zsh)"
+    grep -q -F "$(command -v zsh)" /etc/shells || sudo sh -c 'echo "$(command -v zsh)" >> /etc/shells'
+    chsh -s "$(command -v zsh)"
 fi
 
 printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
