@@ -1,18 +1,18 @@
 # Create a new directory and enter it
-function mkcd() {
+mkcd() {
     mkdir -p "$@" && cd "$_" || exit;
 }
 
 # cd into directory with fzf
-function fcd() {
+fcd() {
     local dir
-    dir=$(find ${1:-.} -path '*/\.*' -prune \
+    dir=$(find "${1:-.}" -path '*/\.*' -prune \
         -o -type d -print 2> /dev/null | fzf +m) &&
-    cd "$dir"
+    cd "$dir" || exit
 }
 
 # Checkout branches or tags with fzf
-function fco() {
+fco() {
     local tags branches target
     tags=$(
         git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
@@ -23,11 +23,11 @@ function fco() {
     target=$(
         (echo "$tags"; echo "$branches") |
         fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
-    git checkout $(echo "$target" | awk '{print $2}')
+    git checkout "$(echo "$target" | awk '{print $2}')"
 }
 
 # fkill - kill process
-function fkill() {
+fkill() {
     local pid
     if [ "$UID" != "0" ]; then
         pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
@@ -37,12 +37,12 @@ function fkill() {
 
     if [ "x$pid" != "x" ]
     then
-        echo $pid | xargs kill -${1:-9}
+        echo "$pid" | xargs kill "-${1:-9}"
     fi
 }
 
 # fshow - git commit browser
-function fshow() {
+fshow() {
     git log --graph --color=always \
         --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
     fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -54,12 +54,12 @@ FZF-EOF"
 }
 
 # Open tmux and Vim in an IDE like layout
-function ide() {
-    if [ ! -z "$1" ]; then
+ide() {
+    if [ -n "$1" ]; then
         cd "$1" || exit
     fi
 
-    if [ ! -n "${TMUX}" ]; then
+    if [ -z "${TMUX}" ]; then
         tmux new-session -d -s ide
         tmux split-window -vb -p 90
         tmux select-pane -t 0
@@ -72,50 +72,50 @@ function ide() {
 }
 
 # Update dependencies
-function depu() {
+depu() {
 
     # npm
-    file_count=$(ls -1 package-lock.json 2>/dev/null | wc -l)
+    file_count=$(find . -maxdepth 1 -name package-lock.json | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating npm dependencies for ${PWD##*/}...\n\n"
+        printf "Updating npm dependencies for %s...\n\n" "${PWD##*/}"
         npm update
         npm outdated
     fi
 
     # Yarn
-    file_count=$(ls -1 yarn.lock 2>/dev/null | wc -l)
+    file_count=$(find . -maxdepth 1 -name yarn.lock | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating Yarn dependencies for ${PWD##*/}...\n\n"
+        printf "Updating Yarn dependencies for %s...\n\n" "${PWD##*/}"
         yarn upgrade > /dev/null
         yarn outdated
     fi
 
     # Go
-    file_count=$(ls -1 go.mod 2>/dev/null | wc -l)
+    file_count=$(find . -maxdepth 1 -name go.mod | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating Go dependencies for ${PWD##*/}...\n\n"
+        printf "Updating Go dependencies for %s...\n\n" "${PWD##*/}"
         go get -u
         go mod tidy
     fi
 
     # Rust
-    file_count=$(ls -1 Cargo.toml 2>/dev/null | wc -l)
+    file_count=$(find . -maxdepth 1 -name Cargo.toml | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating Cargo dependencies for ${PWD##*/}...\n\n"
+        printf "Updating Cargo dependencies for %s...\n\n" "${PWD##*/}"
         cargo update
     fi
 
     # Git submodules
-    file_count=$(ls -1 .gitmodules 2>/dev/null | wc -l)
+    file_count=$(find . -maxdepth 1 -name .gitmodules | wc -l)
     if [ "${file_count}" -gt 0 ]; then
-        printf "Updating Git submodules for ${PWD##*/}...\n\n"
+        printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
         git submodule update --init
     fi
 
 }
 
 # System update
-function pacu() {
+pacu() {
     processes=()
 
     # Dotfiles repo
@@ -131,7 +131,7 @@ function pacu() {
             printf '\e[1mUpdating pacman packages\e[0m\n'
             sudo pacman -Syu --noconfirm
             orphans=$(sudo pacman -Qtdq) || orphans=''
-            if [ ! -z "${orphans}" ]; then
+            if [ -n "${orphans}" ]; then
                 sudo pacman -Rns $orphans --noconfirm
             fi
             sudo pacman -Sc --noconfirm
@@ -170,7 +170,7 @@ function pacu() {
             brew cu --all --yes --cleanup
             brew cleanup --prune 7
         fi
-        if "$(command -v zprezto-update)"; then
+        if [ -x "$(command -v zprezto-update)" ]; then
             printf '\e[1mUpdating zprezto\e[0m\n'
             zprezto-update &
             processes+=("$!")
