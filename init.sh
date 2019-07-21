@@ -225,6 +225,13 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
     ;;
 esac
 
+# Install custom vifm theme
+if [ -x "$(command -v vifm)" ]; then
+    printf '\e[1mInstalling custom vifm theme\e[0m\n'
+    ln -f -s ~/dotfiles/quantum-black.vifm ~/.config/vifm/colors/quantum-black.vifm
+    sed -i '' 's/colorscheme Default/colorscheme quantum-black/' ~/.config/vifm/vifmrc
+fi
+
 # Use zsh
 if [ -x "$(command -v zsh)" ]; then
     printf '\e[1mChanging your shell to zsh\e[0m\n'
