@@ -50,7 +50,7 @@ let g:DirDiffExcludes = ".git,node_modules,vendor,dist,.DS_Store,.*.swp"
 
 " Git integration
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
@@ -61,7 +61,7 @@ Plug 'tpope/vim-sleuth'
 " Edit surrounds
 Plug 'tpope/vim-surround'
 
-" Repeat plugin commands
+" Allow to repeat plugin commands
 Plug 'tpope/vim-repeat'
 
 " Source tree
@@ -79,8 +79,8 @@ Plug 'jiangmiao/auto-pairs'
 " Linting and auto fixing
 Plug 'w0rp/ale'
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['typescript'] = ['prettier','tslint']
+let g:ale_fixers['javascript'] = ['prettier','eslint']
+let g:ale_fixers['typescript'] = ['prettier','eslint']
 let g:ale_fixers['json'] = ['prettier']
 let g:ale_fixers['html'] = ['prettier']
 let g:ale_fixers['vue'] = ['prettier']
@@ -95,10 +95,14 @@ let g:ale_sign_warning = '●'
 let g:ale_fix_on_save = 1
 
 " Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-if has('nvim') && has('python3')
-    let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+let g:deoplete#enable_at_startup = 1
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'
@@ -148,7 +152,9 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh', 'for': 'typescript' }
+if has('nvim')
+    Plug 'mhartington/nvim-typescript', { 'do': './install.sh', 'for': 'typescript' }
+endif
 
 " GraphQL
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }
