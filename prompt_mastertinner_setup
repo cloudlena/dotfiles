@@ -7,7 +7,7 @@ function prompt_mastertinner_precmd {
 function prompt_mastertinner_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+  prompt_opts=(cr percent sp subst)
 
   # Load required functions
   autoload -Uz add-zsh-hook
@@ -34,6 +34,10 @@ function prompt_mastertinner_setup {
 
   # Define prompts
   PROMPT='%F{magenta}%c%f${(e)git_info[prompt]} '
+}
+
+function prompt_mastertinner_help {
+  echo 'This prompt is as minimalist as possible and cannot be customized.'
 }
 
 prompt_mastertinner_setup "$@"
