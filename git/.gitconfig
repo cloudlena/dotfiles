@@ -3,6 +3,8 @@
     email = tobias.fuhrimann@gmail.com
 [github]
     user = mastertinner
+[commit]
+    gpgsign = true
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
