@@ -14,3 +14,6 @@ export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follo
 
 # Enable Go modules by default
 export GO111MODULE=on
+
+# Set correct TTY for GPG
+export GPG_TTY="$(tty)"

@@ -1,14 +1,14 @@
 #!/bin/sh
 
 if [ -f ~/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-	. ~/.gpg-agent-info
+	source ~/.gpg-agent-info
 	export GPG_AGENT_INFO
 else
-	eval "$(gpg-agent --daemon)"
+	eval $(gpg-agent --daemon)
 fi
 
-GPG_TTY="$(tty)"
-export GPG_TTY
+export PATH="$PATH:/usr/local/bin" # required on MacOS/brew
+export GPG_TTY="$(tty)"
 
 /usr/local/bin/gopass jsonapi listen
 

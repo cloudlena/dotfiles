@@ -21,7 +21,9 @@ brew "diff-so-fancy"
 brew "fd"
 brew "fzf"
 brew "git"
+brew "gnupg"
 brew "golangci/tap/golangci-lint"
+brew "gopass"
 brew "hadolint"
 brew "htop"
 brew "jq"
@@ -59,7 +61,6 @@ cask "skype"
 cask "spotify"
 cask "virtualbox"
 
-mas "1Password", id: 443987910
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
