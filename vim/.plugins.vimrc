@@ -112,8 +112,6 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' ,'for': ['go','gomod'] }
 let g:go_fmt_command = 'goimports'
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
@@ -134,7 +132,6 @@ if has("autocmd")
     autocmd FileType go nmap <leader>t <Plug>(go-test)
 endif
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
