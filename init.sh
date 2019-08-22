@@ -82,7 +82,7 @@ case "$(uname)" in
         sudo easy_install pip
     fi
     # Install the Python neovim package
-    pip install --upgrade --user neovim
+    pip install --upgrade --user pynvim
 
     # Install vim-plug
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -201,7 +201,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Install the Python neovim package
-    pip install neovim --upgrade --user
+    pip install --upgrade --user pynvim
 
     # Install vim-plug
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
