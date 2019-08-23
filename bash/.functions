@@ -206,7 +206,7 @@ pacu() {
     # Ruby gems
     if [ -x "$(command -v gem)" ]; then
         printf '\e[1mUpdating Ruby gems\e[0m\n'
-        (gem update --system --force && gem update --force && gem cleanup) &
+        (sudo gem update --system --force && gem update --force && gem cleanup) &
         processes+=("$!")
     fi
 
