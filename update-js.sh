@@ -2,7 +2,7 @@
 
 set -u
 
-. ~/dotfiles/bash/.functions
+. ~/dotfiles/zsh/.zsh.d/.functions
 
 js_dir="${HOME}/js"
 
