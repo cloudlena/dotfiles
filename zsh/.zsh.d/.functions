@@ -124,9 +124,9 @@ pacu() {
             sudo pacman -Sc --noconfirm
             sudo pacman-optimize
         fi
-        if [ -x "$(command -v yaourt)" ]; then
-            printf '\e[1mUpdating yaourt packages\e[0m\n'
-            yaourt -Syua --noconfirm
+        if [ -x "$(command -v yay)" ]; then
+            printf '\e[1mUpdating yay packages\e[0m\n'
+            yay -Syua --noconfirm
         fi
         # Solus
         if [ -x "$(command -v eopkg)" ]; then
