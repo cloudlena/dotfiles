@@ -110,12 +110,6 @@ case "$(uname)" in
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
-    # Add Yaourt repo to pacman conf
-    grep -q -F "repo.archlinux.fr" /etc/pacman.conf || sudo sh -c 'echo '\''
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
-
     # Install git if not installed
     if [ ! -x "$(command -v git)" ]; then
         printf '\e[1mInstalling Git\e[0m\n'
@@ -153,6 +147,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         ruby \
         aws-cli \
         chromium \
+        base-devel \
         cmake \
         diff-so-fancy \
         docker \
@@ -168,10 +163,18 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         the_silver_searcher \
         tmux \
         wget \
-        yaourt \
         zsh \
         zsh-completions
-    yaourt -Sy --noconfirm --needed \
+
+    # Install Yay if not installed
+    if [ ! -x "$(command -v yay)"]; then
+        printf '\e[1mInstalling Yay\e[0m\n'
+        git clone https://aur.archlinux.org/yay.git && cd yay
+        makepkg -si
+        cd .. && rm -rf yay/
+    fi
+    
+    yay -Sy --noconfirm --needed \
         cloudfoundry-cli \
         delve \
         dropbox \
