@@ -125,7 +125,7 @@ pacu() {
             sudo pacman-optimize
         fi
         if [ -x "$(command -v yay)" ]; then
-            printf '\e[1mUpdating yay packages\e[0m\n'
+            printf '\e[1mUpdating Yay packages\e[0m\n'
             yay -Syua --noconfirm
         fi
         # Solus
