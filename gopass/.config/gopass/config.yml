@@ -1,4 +1,5 @@
 root:
   autosync: true
+  noconfirm: true
   safecontent: true
   usesymbols: true
