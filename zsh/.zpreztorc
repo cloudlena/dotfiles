@@ -11,6 +11,7 @@ zstyle ':prezto:load' pmodule \
     'git' \
     'tmux' \
     'prompt' \
+    'history' \
     'autosuggestions' \
     'editor'
 
