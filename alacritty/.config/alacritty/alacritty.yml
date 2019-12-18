@@ -16,7 +16,7 @@ font:
 # The quantum-black color scheme
 colors:
   primary:
-    background: "0x212120"
+    background: "0x263238"
     foreground: "0xbbbebf"
   normal:
     black: "0x464545"

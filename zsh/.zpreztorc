@@ -10,6 +10,8 @@ zstyle ':prezto:load' pmodule \
     'completion' \
     'git' \
     'tmux' \
+    'syntax-highlighting' \
+    'history-substring-search' \
     'prompt' \
     'history' \
     'autosuggestions' \
@@ -20,6 +22,10 @@ zstyle ':prezto:*:*' color 'yes'
 
 # Auto load tmux when zsh starts
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
+
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
