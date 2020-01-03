@@ -34,5 +34,5 @@ I mainly work with [Go](https://golang.org), [Rust](https://www.rust-lang.org), 
     **WARNING: This may install and/or remove software and change your configs!**
 
     ```shell
-    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh | bash
+    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh | sh
     ```
