@@ -134,12 +134,11 @@ pacu() {
             sudo eopkg upgrade
         fi
         # Debian
-        if [ -x "$(command -v apt-get)" ]; then
+        if [ -x "$(command -v apt)" ]; then
             printf '\e[1mUpdating apt packages\e[0m\n'
-            sudo apt-get update
-            sudo apt-get dist-upgrade -y
-            sudo apt-get autoremove -y
-            sudo apt-get autoclean -y
+            sudo apt update
+            sudo apt full-upgrade -y
+            sudo apt autoremove -y
         fi
         ;;
 
