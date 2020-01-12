@@ -122,7 +122,6 @@ pacu() {
                 sudo pacman -Rns $orphans --noconfirm
             fi
             sudo pacman -Sc --noconfirm
-            sudo pacman-optimize
         fi
         if [ -x "$(command -v yay)" ]; then
             printf '\e[1mUpdating Yay packages\e[0m\n'

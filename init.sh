@@ -90,11 +90,6 @@ case "$(uname)" in
     . ~/dotfiles/zsh/.zsh.d/.functions
     pacu
 
-    # Install prezto
-    if [ ! -d ~/.zprezto ]; then
-        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    fi
-
     # Symlink nvim to vim if Vim not installed
     if [ ! -f /usr/local/bin/vim ]; then
         sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
@@ -138,33 +133,46 @@ case "$(uname)" in
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
+        base-devel \
         go \
         nodejs \
         npm \
         python \
         python-pip \
-        prettier \
         ruby \
+        ansible \
+        ansible-lint \
         aws-cli \
-        chromium \
-        base-devel \
         cmake \
+        curl \
         diff-so-fancy \
-        docker \
+        fd \
         fzf \
         git \
-        go-tools \
+        gnupg \
         htop \
         jq \
+        lolcat \
         neovim \
+        nitrogen \
+        prettier \
         protobuf \
+        ripgrep \
         shellcheck \
+        sxiv \
         terraform \
-        the_silver_searcher \
+        tmate \
         tmux \
+        tree \
+        typescript \
+        vifm \
         wget \
+        zathura \
+        zathura-pdf-poppler \
         zsh \
-        zsh-completions
+        alacritty \
+        docker \
+        firefox
 
     # Install Yay if not installed
     if [ ! -x "$(command -v yay)" ]; then
@@ -173,15 +181,18 @@ case "$(uname)" in
         (cd /tmp/yay && makepkg -si)
     fi
 
-    yay -Sy --noconfirm --needed \
+    yay -Syu --noconfirm --needed \
+        awslogs \
         cloudfoundry-cli \
-        delve \
+        golangci-lint \
+        gopass \
+        sc-im \
+        tflint \
         dropbox \
-        grv \
-        hadolint-git \
-        prezto-git \
-        spotify \
-        tmate
+        slack-desktop \
+        spotify
+        # hadolint \
+        # origin-client \
 
     # Enable docker service and allow user to run it without sudo
     sudo systemctl enable docker.service
@@ -221,11 +232,9 @@ case "$(uname)" in
     ;;
 esac
 
-# Install custom vifm theme
-if [ -x "$(command -v vifm)" ]; then
-    printf '\e[1mInstalling custom vifm theme\e[0m\n'
-    ln -f -s ~/dotfiles/quantum.vifm ~/.config/vifm/colors/quantum.vifm
-    sed -i '' 's/colorscheme Default/colorscheme quantum/' ~/.config/vifm/vifmrc
+# Install prezto
+if [ ! -d ~/.zprezto ]; then
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
 # Use zsh
