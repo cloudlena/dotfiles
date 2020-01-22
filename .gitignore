@@ -1,5 +1,4 @@
-/bash/.extra
-/Brewfile.extra
+/extra.Brewfile
 
 # Vifm creates additional files which need to be ignored
 vifm/.config/vifm/
