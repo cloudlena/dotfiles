@@ -4,7 +4,7 @@
 
 set -e -u
 
-printf '\e[1mInitializing dotfiles\e[0m\n'
+printf '\e[1mInstalling dotfiles\e[0m\n'
 
 case "$(uname)" in
 
@@ -258,4 +258,4 @@ fi
 # Remove existing bash config files
 rm -f ~/.bash*
 
-printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
+printf '\e[1mDotfiles successfully installed. Please reboot to finalize.\e[0m\n'
