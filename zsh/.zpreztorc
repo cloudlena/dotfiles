@@ -1,23 +1,23 @@
 # vim: ft=zsh
 
 fpath=(
-    ${HOME}/dotfiles
-    ${fpath}
+  ${HOME}/dotfiles
+  ${fpath}
 )
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-    'utility' \
-    'completion' \
-    'git' \
-    'tmux' \
-    'syntax-highlighting' \
-    'history-substring-search' \
-    'prompt' \
-    'history' \
-    'autosuggestions' \
-    'editor'
+  'utility' \
+  'completion' \
+  'git' \
+  'tmux' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt' \
+  'history' \
+  'autosuggestions' \
+  'editor'
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
