@@ -8,7 +8,7 @@ colorscheme quantum
 
 " Make Vim more useful
 set nocompatible
-" Disable vim welcome message
+" Disable Vim welcome message
 set shortmess=I
 " Set true terminal colors
 set termguicolors
