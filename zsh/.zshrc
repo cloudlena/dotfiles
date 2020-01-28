@@ -1,7 +1,7 @@
 # Load the shell dotfiles
 # .path can be used to extend `$PATH`.
 # .extra can be used for other settings you don’t want to commit.
-for file in ~/.zsh.d/.{path,exports,aliases,functions,extra}; do
+for file in ~/.zsh.d/*.zsh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 

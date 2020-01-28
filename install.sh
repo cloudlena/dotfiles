@@ -226,8 +226,8 @@ fi
 rm -rf ~/.bash*
 
 # Run full system upgrade
-. ~/dotfiles/zsh/.zsh.d/.path
-. ~/dotfiles/zsh/.zsh.d/.functions
+. ~/dotfiles/zsh/.zsh.d/path.zsh
+. ~/dotfiles/zsh/.zsh.d/functions.zsh
 pacu
 
 printf '\e[1mDotfiles successfully installed. Please reboot to finalize.\e[0m\n'
