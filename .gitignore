@@ -1,4 +1,5 @@
-/extra.Brewfile
+extra.Brewfile
+zsh/.zsh.d/extra.zsh
 
 # Vifm creates additional files which need to be ignored
 vifm/.config/vifm/

@@ -1,3 +1,5 @@
+# extra.Brewfile can be used for packages you don't want to commit.
+
 # Taps
 tap "buo/cask-upgrade"
 tap "cloudfoundry/tap"
