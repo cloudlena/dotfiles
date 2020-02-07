@@ -104,21 +104,30 @@ case "$(uname)" in
         ansible \
         ansible-lint \
         aws-cli \
+        base \
         base-devel \
+        bspwm \
         cmake \
         curl \
         diff-so-fancy \
+        dmenu \
         fd \
         firefox \
         fzf \
         git \
         gnupg \
+        grub \
         go \
         htop \
+        iputils \
         jq \
+        linux \
+        linux-firmware \
         lolcat \
         man-db \
+        mpv \
         neovim \
+        networkmanager \
         nitrogen \
         nodejs \
         npm \
@@ -131,15 +140,21 @@ case "$(uname)" in
         ripgrep \
         ruby \
         shellcheck \
+        sxhkd \
         sxiv \
+        sudo \
         terraform \
         tmate \
         tmux \
         tree \
         typescript \
+        vi \
         vifm \
         wget \
         xclip \
+        xorg-xrandr \
+        xorg-server \
+        xorg-xinit \
         zathura \
         zathura-pdf-poppler \
         zsh
