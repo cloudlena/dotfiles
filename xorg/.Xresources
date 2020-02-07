@@ -1,0 +1,42 @@
+*.scrollBar: false
+*.font: xft:Monaco:size=10
+*.boldFont: xft:Monaco:size=10:style=bold
+
+! Quantum color scheme
+
+! special
+*.foreground:   #aebbc5
+*.background:   #263238
+*.cursorColor:  #c5ced5
+
+! black
+*.color0:       #425762
+*.color8:       #658494
+
+! red
+*.color1:       #dd7186
+*.color9:       #ed8499
+
+! green
+*.color2:       #87bb7c
+*.color10:      #97d589
+
+! yellow
+*.color3:       #d5b875
+*.color11:      #e9cb88
+
+! blue
+*.color4:       #70ace5
+*.color12:      #87bff5
+
+! purple
+*.color5:       #a48add
+*.color13:      #b9a0ef
+
+! cyan
+*.color6:       #69c5ce
+*.color14:      #7bdbe4
+
+! white
+*.color7:       #aebbc5
+*.color15:      #c5ced5

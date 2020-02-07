@@ -1,0 +1,63 @@
+#####################
+# Application start #
+#####################
+
+# Program launcher
+super + @space
+	dmenu_run
+
+# Terminal emulator
+super + Return
+	urxvt
+
+# Web browser
+super + BackSpace
+	firefox
+
+# Lockscreen
+super + ctrl + q
+	betterlockscreen --lock blur
+
+#####################
+# Window management #
+#####################
+
+# Alternate between tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# Swap current node and biggest node
+super + g
+	bspc node -s biggest
+
+# Focus node in given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# Focus next/previous node in current desktop
+super + {n,p}
+	bspc node -f {next,prev}.local
+
+# Focus next/previous desktop in current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Focus last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# Focus or send to given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Expand window by moving one of its sides outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract window by moving one of its sides inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
