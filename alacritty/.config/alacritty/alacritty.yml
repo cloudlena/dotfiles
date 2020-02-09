@@ -7,38 +7,38 @@ window:
 
 font:
   normal:
-    family: Monaco
-  size: 12
+    family: Fira
+  size: 13
   offset:
     x: 1
     y: 1
 
 # The quantum color scheme
-# Copied from https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/xresources/quantum.xresources
+# Copied from https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/xresources/quantum-black.xresources
 colors:
   primary:
-    background: "#263238"
-    foreground: "#aebbc5"
+    background: "#212121"
+    foreground: "#bcbec0"
   cursor:
-    cursor: "#c5ced5"
+    cursor: "#d0d2d3"
   normal:
-    black: "#425762"
+    black: "#474646"
     red: "#dd7186"
     green: "#87bb7c"
     yellow: "#d5b875"
     blue: "#70ace5"
     magenta: "#a48add"
     cyan: "#69c5ce"
-    white: "#aebbc5"
+    white: "#bcbec0"
   bright:
-    black: "#658494"
+    black: "#6a6c6c"
     red: "#ed8499"
     green: "#97d589"
     yellow: "#e9cb88"
     blue: "#87bff5"
     magenta: "#b9a0ef"
     cyan: "#7bdbe4"
-    white: "#c5ced5"
+    white: "#d0d2d3"
 
 key_bindings:
   - { key: Key0, mods: Command, action: ResetFontSize }

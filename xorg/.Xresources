@@ -1,17 +1,17 @@
 *.scrollBar: false
-*.font: xft:Monaco:size=10
-*.boldFont: xft:Monaco:size=10:style=bold
+*.font: xft:Fira Mono:size=10
 
 ! Quantum color scheme
+! Copied from https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/xresources/quantum-black.xresources
 
 ! special
-*.foreground:   #aebbc5
-*.background:   #263238
-*.cursorColor:  #c5ced5
+*.foreground:   #bcbec0
+*.background:   #212121
+*.cursorColor:  #d0d2d3
 
 ! black
-*.color0:       #425762
-*.color8:       #658494
+*.color0:       #474646
+*.color8:       #6a6c6c
 
 ! red
 *.color1:       #dd7186
@@ -38,5 +38,5 @@
 *.color14:      #7bdbe4
 
 ! white
-*.color7:       #aebbc5
-*.color15:      #c5ced5
+*.color7:       #bcbec0
+*.color15:      #d0d2d3

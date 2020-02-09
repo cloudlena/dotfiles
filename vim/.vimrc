@@ -4,14 +4,14 @@ source ~/.plugins.vimrc
 " Many basic options are already set by the tpope/vim-sensible plugin
 
 " Set color scheme
+set background=dark
+set termguicolors
 colorscheme quantum
 
 " Make Vim more useful
 set nocompatible
 " Disable Vim welcome message
 set shortmess=I
-" Set true terminal colors
-set termguicolors
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Change mapleader

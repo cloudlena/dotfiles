@@ -147,6 +147,7 @@ case "$(uname)" in
         tmate \
         tmux \
         tree \
+        ttf-fira-mono \
         typescript \
         unclutter \
         vi \
@@ -180,7 +181,6 @@ case "$(uname)" in
         siji-git \
         spotify \
         tflint \
-        ttf-monaco
         # hadolint \
         # origin-client \
 
