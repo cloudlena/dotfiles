@@ -8,11 +8,11 @@ super + @space
 
 # Terminal emulator
 super + Return
-	urxvt
+	$TERMINAL
 
 # Web browser
 super + BackSpace
-	firefox
+	$BROWSER
 
 # Lockscreen
 super + ctrl + q
