@@ -72,7 +72,8 @@ label-empty-padding = ${self.label-focused-padding}
 type = internal/date
 interval = 5
 time = %H:%M
-label = %time%
+date = %a %d %b
+label = %date%  %time%
 
 [module/mpd]
 type = internal/mpd
