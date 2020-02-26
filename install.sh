@@ -108,20 +108,24 @@ case "$(uname)" in
         base \
         base-devel \
         bspwm \
+        clipmenu \
         cmake \
         curl \
         diff-so-fancy \
         dmenu \
+        dunst \
         fd \
         firefox \
         fzf \
         git \
         gnupg \
         go \
+        gopass \
         grub \
         htop \
         iputils \
         jq \
+        kubectl \
         linux \
         linux-firmware \
         lolcat \
@@ -133,6 +137,7 @@ case "$(uname)" in
         nodejs \
         npm \
         openssh \
+        pacman-contrib \
         podman \
         prettier \
         protobuf \
@@ -155,7 +160,6 @@ case "$(uname)" in
         vi \
         vifm \
         wget \
-        xclip \
         xorg-server \
         xorg-xinit \
         xorg-xrandr \
@@ -175,16 +179,15 @@ case "$(uname)" in
         betterlockscreen \
         cloudfoundry-cli \
         dropbox \
-        golangci-lint \
-        gopass \
+        golangci-lint-bin \
+        hadolint-bin \
+        origin-client-bin \
         polybar \
         slack-desktop \
         sc-im \
         siji-git \
         spotify \
-        tflint \
-        # hadolint \
-        # origin-client \
+        tflint-bin
 
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
@@ -194,6 +197,12 @@ case "$(uname)" in
         mkdir -p ~/.node_modules/lib
         npm config set prefix ~/.node_modules
     fi
+
+    # Enable clipmenu
+    systemctl --user enable clipmenud.service --now
+
+    # Enable Dunst
+    systemctl --user enable dunst.service --now
 
     # Configure betterlockscreen
     betterlockscreen --update ~/.config/wallpapers/small-memory.jpg

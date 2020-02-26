@@ -4,6 +4,7 @@ background-light = #444
 foreground = ${xrdb:foreground}
 foreground-dim = #555
 red = ${xrdb:color1}
+purple = ${xrdb:color5}
 
 [bar/main]
 fixed-center = false
@@ -19,7 +20,7 @@ font-0 = fira mono:size=10;3
 font-1 = siji:pixelsize=10;2
 modules-left = bspwm
 modules-center = mpd
-modules-right = alsa wlan eth battery date
+modules-right = updates alsa wlan eth battery date
 wm-restack = bspwm
 enable-ipc = true
 cursor-click = pointer
@@ -104,3 +105,9 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-dim}
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-arch-combined.sh
+interval = 600
+format-foreground = ${colors.purple}

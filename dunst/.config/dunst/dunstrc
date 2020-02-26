@@ -1,0 +1,15 @@
+[global]
+follow = keyboard
+geometry = "300x0-20+20"
+padding = 10
+horizontal_padding = 15
+font = Fira Mono 10
+format = "<b>%s</b>\n%b"
+ellipsize = end
+
+[urgency_normal]
+background = "#a48add"
+
+[urgency_critical]
+background = "#dd7186"
+timeout = 0

@@ -14,6 +14,10 @@ super + Return
 super + BackSpace
 	$BROWSER
 
+# Clipboard Manager
+super + v
+	clipmenu
+
 # Lockscreen
 super + ctrl + q
 	betterlockscreen --lock blur
