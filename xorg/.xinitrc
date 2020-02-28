@@ -12,9 +12,17 @@ setxkbmap -option compose:ralt
 # Load Xresources file
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-# Import display environment variable
-# Necessary for Dunst to work properly
+# Import display environment variable for Dunst to work properly
 systemctl --user import-environment DISPLAY
+
+# Set wallpaper
+nitrogen --restore &
+
+# Hide cursor when not used
+unclutter &
+
+# Adjust color temperature to reduce eye strain
+redshift -l '46.94:7.46' &
 
 # Start window manager
 exec bspwm
