@@ -63,11 +63,11 @@ ide() {
         tmux new-session -d -s ide
         tmux split-window -vb -p 90
         tmux select-pane -t 0
-        tmux send-keys 'vim +NERDTree' C-m
+        tmux send-keys 'nvim +NERDTree' C-m
     else
         tmux split-window -vb -p 90
         tmux select-pane -t 0
-        tmux send-keys 'vim +NERDTree' C-m
+        tmux send-keys 'nvim +NERDTree' C-m
     fi
 }
 
@@ -126,6 +126,9 @@ pacu() {
         if [ -x "$(command -v yay)" ]; then
             printf '\e[1mUpdating Yay packages\e[0m\n'
             yay -Syua --noconfirm
+        fi
+        if [ -x "$(command -v paccache)" ]; then
+            sudo paccache -r
         fi
         if [ -x "$(command -v pacdiff)" ]; then
             sudo pacdiff
@@ -205,10 +208,11 @@ pacu() {
         processes+=("$!")
     fi
 
-    # Vim
+    # NeoVim
     if [ -x "$(command -v nvim)" ]; then
         printf '\e[1mUpdating Vim plugins\e[0m\n'
-        nvim --headless -c 'PlugUpgrade | PlugClean! | PlugUpdate | UpdateRemotePlugins | qa'
+        nvim --headless -c 'PlugUpgrade | PlugClean! | PlugUpdate | qa'
+        nvim --headless -c 'UpdateRemotePlugins | qa'
     fi
 
     # Wait for all processes to finish

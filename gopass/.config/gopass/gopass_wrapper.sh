@@ -10,6 +10,6 @@ fi
 export PATH="$PATH:/usr/local/bin" # required on MacOS/brew
 export GPG_TTY="$(tty)"
 
-/usr/local/bin/gopass jsonapi listen
+gopass jsonapi listen
 
 exit $?

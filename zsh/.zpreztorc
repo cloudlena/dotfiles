@@ -23,9 +23,7 @@ zstyle ':prezto:load' pmodule \
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
 
-# Auto load tmux when zsh starts
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-
+# Advanced syntax highlighting for commands
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
