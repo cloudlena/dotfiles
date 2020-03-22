@@ -1,5 +1,4 @@
 {
-  "layer": "top",
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-right": [
     "custom/updates",
