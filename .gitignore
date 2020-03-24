@@ -1,6 +1,11 @@
 extra.Brewfile
 zsh/.zsh.d/extra.zsh
 
+# NeoVim creates additional files which need to be ignored
+nvim/.config/nvim
+!gopass/.config/gopass/init.vim
+!gopass/.config/gopass/plugins.vim
+
 # gopass creates additional files which need to be ignored
 gopass/.config/gopass
 !gopass/.config/gopass/config.yml

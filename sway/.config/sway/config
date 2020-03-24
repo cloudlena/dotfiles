@@ -48,7 +48,7 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec bemenu-run | xargs swaymsg exec --
+bindsym $mod+space exec bemenu-run --list 8 | xargs swaymsg exec --
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
