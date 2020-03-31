@@ -1,4 +1,5 @@
 {
+  "layer": "top",
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-right": [
     "custom/updates",
@@ -14,26 +15,25 @@
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
-    "format-plugged": "",
     "tooltip-format": "{time}",
     "format-icons": ["", "", "", "", ""]
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
     "format-linked": "",
     "format-disconnected": "Disconnected ⚠",
-    "tooltip-format": "{essid} at {signalStrength}%"
+    "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
     "format": "{icon}",
+    "format-muted": " ",
     "format-bluetooth": "{icon}",
     "format-bluetooth-muted": " {icon}",
-    "format-muted": " ",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",

@@ -22,12 +22,12 @@ output * bg $wallpaper fill
 # all displays after another 300 seconds, and turn the screens back on when
 # resumed. It will also lock the screen before the computer goes to sleep.
 exec swayidle -w \
-    timeout 300 $lock_cmd \
+    timeout 300 '$lock_cmd' \
     timeout 600 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
-    timeout 900 $sleep_cmd \
-    before-sleep $lock_cmd \
-    lock $lock_cmd
+    timeout 900 '$sleep_cmd' \
+    before-sleep '$lock_cmd' \
+    lock '$lock_cmd'
 
 ### Input configuration
 
@@ -52,7 +52,7 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec bemenu-run --list 8 | xargs swaymsg exec --
+bindsym $mod+space exec bemenu-run --no-overlap --ignorecase --list 8 | xargs swaymsg exec --
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
@@ -61,25 +61,22 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 $BROWSER
 
 # Take screenshots
-bindsym $mod+Shift+p exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
-bindsym $mod+ctrl+p exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print+$mod exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').png"
 
 # Lock screen
 bindsym $mod+ctrl+q exec loginctl lock-session
 
-# Sleep
-bindsym $mod+ctrl+Delete exec $sleep_cmd
-
-# Volume control
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Media control
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessDown exec light -U 5
+bindsym --locked XF86MonBrightnessUp exec light -A 5
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Kill focused window
 bindsym $mod+q kill
@@ -125,8 +122,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # Splitting direction
-bindsym $mod+b splith
-bindsym $mod+v splitv
+bindsym $mod+b split toggle
 
 # Make current focus fullscreen
 bindsym $mod+f fullscreen
