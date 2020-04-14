@@ -164,6 +164,7 @@ case "$(uname)" in
         otf-fira-mono \
         otf-font-awesome \
         pacman-contrib \
+        pkgconf \
         playerctl \
         podman-compose \
         podman-docker \
@@ -172,6 +173,7 @@ case "$(uname)" in
         pulseaudio \
         pulseaudio-alsa \
         pulseaudio-bluetooth \
+        pulsemixer \
         python \
         python-pip \
         qemu \
@@ -181,7 +183,7 @@ case "$(uname)" in
         shellcheck \
         slurp \
         smartmontools \
-        spotifyd-full-bin \
+        spotifyd-bin-full \
         spotify-tui-bin \
         sudo \
         svgo \
@@ -189,7 +191,7 @@ case "$(uname)" in
         swayidle \
         swaylock \
         terraform \
-        tflint-bin
+        tflint-bin \
         tlp \
         tlp-rdw \
         tmate \
@@ -201,7 +203,7 @@ case "$(uname)" in
         vi \
         vifm \
         waybar \
-        wf-recorder-git \
+        wf-recorder \
         wget \
         wl-clipboard \
         zathura \

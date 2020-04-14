@@ -10,13 +10,8 @@ fi
 
 update_count=$(("$update_count_pacman" + "$update_count_aur"))
 
-suffix=''
-if [ "$update_count" -gt 1 ]; then
-    suffix='s'
-fi
-
 if [ "$update_count" -gt 0 ]; then
-    echo "${update_count} update${suffix} available"
+    echo "$update_count"
 else
     echo ''
 fi
