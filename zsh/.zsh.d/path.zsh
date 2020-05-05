@@ -1,9 +1,8 @@
-PATH="/sbin"
-PATH="/bin:${PATH}"
 PATH="/usr/sbin:${PATH}"
 PATH="/usr/bin:${PATH}"
 PATH="/usr/local/sbin:${PATH}"
 PATH="/usr/local/bin:${PATH}"
+PATH="${HOME}/.local/bin:${PATH}"
 
 PATH="${HOME}/.node_modules/bin:${PATH}"
 
