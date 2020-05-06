@@ -116,8 +116,8 @@ case "$(uname)" in
         aws-cli \
         awslogs \
         base \
+        base-devel \
         bemenu \
-        binutils \
         bluez \
         bluez-utils \
         clipman \
@@ -127,11 +127,12 @@ case "$(uname)" in
         dropbox \
         efibootmgr \
         ethtool \
+        eslint \
         fd \
         firefox \
         fwupd \
         fzf \
-        gcc \
+        gimp \
         git \
         gnupg \
         go \
@@ -143,6 +144,7 @@ case "$(uname)" in
         htop \
         imv \
         informant \
+        inkscape \
         iputils \
         jq \
         kanshi \
@@ -188,6 +190,7 @@ case "$(uname)" in
         redshift-wlr-gamma-control-git \
         ripgrep \
         ruby \
+        sed \
         shellcheck \
         slurp \
         smartmontools \
