@@ -12,16 +12,25 @@ Supported operating systems are macOS and Arch Linux (and its derivates).
 
 This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/alacritty), [tmux](https://github.com/tmux/tmux) and [zsh](https://www.zsh.org/) with a very minimalistic prompt.
 
+### Commands
+
 - `pacu`: Update and upgrade the whole system (using `Brewfile` on macOS)
 - `depu`: Update and upgrade the dependencies for the current project
+- `mkcd`: Create a directory and enter it
+- `fcd`: cd into a directory using fuzzy search
+- `fe`: Edit a directory or file using fuzzy search
+- `fco`: Checkout Git branches or tags using fuzzy search
+- `fkill`: Kill any process with fuzzy search
+- `fshow`: Git commit browser with fuzzy search
 
-### IDE
+### Text Editor
 
-[NeoVim](https://neovim.io/) configured to be an IDE. The whole setup with all plugins can also be run as a [Docker Container](https://github.com/mastertinner/vide).
+Text editing is based on [NeoVim](https://neovim.io/) configured to be an "IDE". The whole setup with all plugins can also be run as a [Docker Container](https://github.com/mastertinner/vide).
 
-- `v`: Start Neovim with all plugins
-- `ctrl + p`: Fuzzy search across whole project
-- `ctrl + n`: Visual file explorer
+- `e`: Start NeoVim with all plugins
+- `ide`: Start NeoVim with all plugins in an IDE like window layout
+- `ctrl + p`: Fuzzy search files across whole project
+- `ctrl + n`: Open visual file explorer
 
 ## Installation
 
@@ -36,7 +45,7 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 
    **WARNING: This may install and/or remove software and change your configs!**
 
-1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-gpg-key) guide. You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your commits.
+1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-gpg-key) guide. You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your Git commits.
 1. Either import an existing SSH key pair by copying it to `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) guide.
 
 ## Quick Installation without customization (not recommended unless you're the owner of this repo :wink:)
