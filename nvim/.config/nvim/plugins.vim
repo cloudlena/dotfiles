@@ -38,7 +38,7 @@ function! s:goyo_leave()
 endfunction
 
 " Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<cr>
 
