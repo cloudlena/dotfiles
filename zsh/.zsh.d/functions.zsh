@@ -196,13 +196,15 @@ pacu() {
             brew cu --all --yes --cleanup
             brew cleanup --prune 7
         fi
-        if typeset -f zprezto-update > /dev/null; then
-            printf '\e[1mUpdating zprezto\e[0m\n'
-            zprezto-update &
-            processes+=("$!")
-        fi
         ;;
     esac
+
+    # zprezto
+    if type zprezto-update 2>/dev/null | grep -q function; then
+        printf '\e[1mUpdating zprezto\e[0m\n'
+        zprezto-update &
+        processes+=("$!")
+    fi
 
     # Go
     if [ -x "$(command -v go)" ]; then
