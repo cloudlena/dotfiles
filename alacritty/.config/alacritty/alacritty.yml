@@ -10,8 +10,6 @@ font:
     family: Fira Mono
   size: 12
 
-background_opacity: 0.9
-
 # The quantum color scheme
 # Copied from https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/xresources/quantum-black.xresources
 colors:

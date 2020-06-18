@@ -1,13 +1,13 @@
 /* General */
 * {
+  border-radius: 0;
   font-family: "Fira Mono";
   font-size: 13px;
-  border-radius: 0;
   color: #bcbec0;
 }
 
 window#waybar {
-  background: rgba(33, 33, 33, 0.9);
+  background-color: #212121;
 }
 
 /* Workspaces */
@@ -15,9 +15,16 @@ window#waybar {
   padding: 0 5px;
 }
 
-#workspaces button.focused {
-  border-top: 2px solid #a48add;
+/* Workspaces */
+#workspaces button:hover {
   background: #414141;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+#workspaces button.focused {
+  background-color: #414141;
+  border-top: 2px solid #a48add;
 }
 
 /* Modules */
@@ -27,8 +34,8 @@ window#waybar {
 #pulseaudio,
 #custom-updates,
 #mode {
-  margin: 0 8px;
   padding: 0 3px;
+  margin: 0 8px;
 }
 
 #mode,

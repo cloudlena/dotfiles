@@ -46,7 +46,7 @@
     }
   },
   "custom/updates": {
-    "format": "{}⬆",
+    "format": "⬆{}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 600,
     "on-click": "alacritty -e 'yay'; pkill -SIGRTMIN+8 waybar",
