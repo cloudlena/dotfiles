@@ -161,18 +161,6 @@ pacu() {
             printf '\e[1mChecking for Pacman maintenance issues\e[0m\n'
             sudo DIFFPROG="${EDITOR} -d" pacdiff
         fi
-        # Solus
-        if [ -x "$(command -v eopkg)" ]; then
-            printf '\e[1mUpdating eopkg packages\e[0m\n'
-            sudo eopkg upgrade
-        fi
-        # Debian
-        if [ -x "$(command -v apt)" ]; then
-            printf '\e[1mUpdating apt packages\e[0m\n'
-            sudo apt update
-            sudo apt full-upgrade --yes
-            sudo apt autoremove --yes
-        fi
         # Firmwares
         if [ -x "$(command -v fwupdmgr)" ]; then
             printf '\e[1mUpdating firmwares\e[0m\n'
