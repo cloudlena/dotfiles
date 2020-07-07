@@ -188,7 +188,6 @@ case "$(uname)" in
         python-pynvim \
         qemu \
         rclone \
-        redshift-wlr-gamma-control-git \
         ripgrep \
         ruby \
         sed \
