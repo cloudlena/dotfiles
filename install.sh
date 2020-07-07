@@ -62,7 +62,7 @@ case "$(uname)" in
         sudo easy_install pip
     fi
 
-    # Install the Python NeoVim package
+    # Install the Python Neovim package
     pip install --upgrade --user pynvim
 
     # Set dark mode

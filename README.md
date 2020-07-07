@@ -25,10 +25,10 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 
 ### Text Editor
 
-Text editing is based on [NeoVim](https://neovim.io/) configured to be an "IDE". The whole setup with all plugins can also be run as a [Docker Container](https://github.com/mastertinner/vide).
+Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE". The whole setup with all plugins can also be run as a [Docker Container](https://github.com/mastertinner/vide).
 
-- `e`: Start NeoVim with all plugins
-- `ide`: Start NeoVim with all plugins in an IDE like window layout
+- `e`: Start Neovim with all plugins
+- `ide`: Start Neovim with all plugins in an IDE like window layout
 - `ctrl + p`: Fuzzy search files across whole project
 - `ctrl + n`: Open visual file explorer
 

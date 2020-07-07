@@ -244,7 +244,7 @@ pacu() {
         processes+=("$!")
     fi
 
-    # NeoVim
+    # Neovim
     if [ -x "$(command -v nvim)" ]; then
         printf '\e[1mUpdating Vim plugins\e[0m\n'
         nvim --headless -c 'PlugUpgrade | PlugClean! | PlugUpdate | qa'
