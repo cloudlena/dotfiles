@@ -52,7 +52,7 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec bemenu-run --no-overlap --ignorecase --list 8 | xargs swaymsg exec --
+bindsym $mod+space exec wofi --show run | xargs swaymsg exec --
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
@@ -165,6 +165,6 @@ exec redshift -l '46.95:7.45'
 
 # Clipboard manager
 exec wl-paste --type text --watch clipman store
-bindsym $mod+v exec clipman pick --tool bemenu
+bindsym $mod+v exec clipman pick --tool wofi
 
 include /etc/sway/config.d/*
