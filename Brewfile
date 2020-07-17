@@ -2,8 +2,9 @@
 
 # Taps
 tap "buo/cask-upgrade"
+tap "homebrew/cask-fonts"
 tap "cloudfoundry/tap"
-tap "github/gh/gh"
+tap "github/gh"
 tap "golangci/tap"
 tap "homebrew/cask"
 tap "nickolasburr/pfa"
