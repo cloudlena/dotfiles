@@ -139,6 +139,7 @@ case "$(uname)" in
         golangci-lint-bin \
         gopass \
         grim \
+        gron-bin \
         grub \
         hadolint-bin \
         htop \
