@@ -5,13 +5,13 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.local/share/nvim/plugged')
+" Specify a directory for plugins
+call plug#begin(stdpath('data') . '/plugged')
 
 " Sensible defaults everyone can agree on
 Plug 'tpope/vim-sensible'
 
-" Colorscheme
+" Color scheme
 Plug 'tyrannicaltoucan/vim-quantum'
 let g:quantum_black=1
 
