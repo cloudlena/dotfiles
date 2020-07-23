@@ -167,6 +167,8 @@ pacu() {
             fwupdmgr refresh
             fwupdmgr update
         fi
+        # Update status bar indicator for pending updates
+        pkill -SIGRTMIN+8 waybar
         ;;
 
     # On macOS, use mas and Homebrew
