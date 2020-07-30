@@ -133,7 +133,7 @@ case "$(uname)" in
         gammastep \
         gimp \
         git \
-        github-cli-bin \
+        github-cli \
         gnupg \
         go \
         golangci-lint-bin \
