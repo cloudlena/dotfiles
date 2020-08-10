@@ -124,8 +124,8 @@ case "$(uname)" in
         curl \
         diff-so-fancy \
         efibootmgr \
-        ethtool \
         eslint \
+        ethtool \
         fd \
         firefox \
         fwupd \
@@ -165,6 +165,7 @@ case "$(uname)" in
         neovim \
         networkmanager \
         nftables \
+        nikto \
         nodejs \
         noto-fonts-cjk \
         noto-fonts-emoji \
@@ -201,6 +202,7 @@ case "$(uname)" in
         sway \
         swayidle \
         swaylock \
+        termshark \
         terraform \
         tflint-bin \
         tlp \
