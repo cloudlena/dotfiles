@@ -45,8 +45,8 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
 
    **WARNING: This may install and/or remove software and change your configs!**
 
-1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-gpg-key) guide. You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your Git commits.
-1. Either import an existing SSH key pair by copying it to `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) guide.
+1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc` or create a new one by following the [GitHub guide](https://help.github.com/en/articles/generating-a-new-gpg-key). You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your Git commits.
+1. Either import an existing SSH key pair by copying it to `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` or create a new one by following the [GitHub guide](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ## Quick Installation without customization (not recommended unless you're the owner of this repo :wink:)
 
