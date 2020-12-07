@@ -54,7 +54,7 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec wofi --show run | xargs swaymsg exec --
+bindsym $mod+space exec wofi --show drun --no-actions | xargs swaymsg exec --
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
