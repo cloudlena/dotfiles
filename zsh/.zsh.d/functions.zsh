@@ -10,7 +10,7 @@ fcd() {
     cd "$dir"
 }
 
-# Edit a firectory or a file using fuzzy search
+# Edit a directory or a file using fuzzy search
 fe() {
     local target fzf_cmd
     fzf_cmd='fd --follow --hidden --no-ignore \
