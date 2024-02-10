@@ -130,4 +130,5 @@ xorg-xwayland
 yq
 zathura
 zathura-pdf-poppler
+zip
 zsh
