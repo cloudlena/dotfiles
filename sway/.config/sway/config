@@ -153,9 +153,6 @@ bar {
 default_border pixel
 hide_edge_borders smart
 
-# Make specific windows float
-for_window [title="Firefox - Sharing Indicator"] floating enable; move to workspace 10
-
 # Start notification daemon
 exec mako
 
