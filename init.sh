@@ -180,7 +180,6 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         zsh-completions
     yaourt -Sy --noconfirm --needed \
         cloudfoundry-cli \
-        dep \
         delve \
         dropbox \
         grv \
