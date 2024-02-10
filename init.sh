@@ -174,7 +174,8 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         tmux \
         wget \
         yaourt \
-        zsh
+        zsh \
+        zsh-completions
     yaourt -Sy --noconfirm --needed \
         cloudfoundry-cli \
         dep \

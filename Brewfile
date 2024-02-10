@@ -34,6 +34,7 @@ brew "tmux"
 brew "watchman"
 brew "wget"
 brew "zsh"
+brew "zsh-completions"
 
 # Desktop Applications
 cask "alfred"
