@@ -14,8 +14,6 @@ set shortmess=I
 set termguicolors
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
-" Add the g flag to search/replace by default
-set gdefault
 " Change mapleader
 let mapleader=","
 " Enable relative line numbers
