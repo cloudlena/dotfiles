@@ -7,6 +7,9 @@ set dotfiles
 " File preview
 view
 fileviewer *.png,*.jpg,*.jpeg,*.webp,*.svg chafa %c
+fileviewer *.pdf pdftotext %c -
+fileviewer *.zip unzip -l %c
+fileviewer *.tar,*.tar.gz tar tf %c
 
 " Open files
 filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c &
