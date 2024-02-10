@@ -47,6 +47,7 @@ imv
 informant
 inkscape
 intel-ucode
+jless
 jpegoptim
 jq
 kanshi
