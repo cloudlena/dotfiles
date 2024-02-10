@@ -1,6 +1,9 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Status bar
+Plug 'vim-airline/vim-airline'
+
 " Git integration
 Plug 'tpope/vim-fugitive'
 
