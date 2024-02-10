@@ -47,7 +47,7 @@
     "format": "⬆{}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 600,
-    "on-click": "alacritty -e 'pacu'; pkill -SIGRTMIN+8 waybar",
+    "on-click": "alacritty --command paru -Syu --noconfirm",
     "signal": 8
   }
 }
