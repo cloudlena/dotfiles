@@ -354,6 +354,9 @@ return require("packer").startup(function()
         "simrat39/symbols-outline.nvim",
         opt = true,
         cmd = { "SymbolsOutline", "SymbolsOutlineOpen" },
+        config = function()
+            require("symbols-outline").setup()
+        end,
     })
     vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", { silent = true })
 
