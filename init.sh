@@ -38,7 +38,7 @@ case "$(uname)" in
     # git clone these dotfiles if not done yet
     if [ ! -d ~/dotfiles ]; then
         printf '\e[1mCloning dotfiles repo\e[0m\n'
-        git clone git@github.com:mastertinner/dotfiles.git ~
+        git clone git@github.com:mastertinner/dotfiles.git ~/dotfiles
     fi
 
     # Install stow if not installed
