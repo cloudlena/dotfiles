@@ -88,7 +88,7 @@ if has('nvim') && has('python3')
 endif
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
 let g:go_auto_type_info = 1
 " run :GoBuild or :GoTestCompile based on the go file
