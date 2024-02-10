@@ -78,8 +78,6 @@ let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['markdown'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier','tslint']
 let g:ale_fix_on_save = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -87,9 +85,26 @@ if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
 endif
 
+" Snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
 let g:go_auto_type_info = 1
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()

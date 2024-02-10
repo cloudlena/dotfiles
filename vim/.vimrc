@@ -4,6 +4,10 @@ source ~/.plugins.vimrc
 " Set color scheme
 colorscheme nova
 
+set autoread
+set autowrite
+set autowriteall
+
 " Make Vim more useful
 set nocompatible
 " Disable vim welcome message
@@ -14,8 +18,6 @@ set termguicolors
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
-" Allow backspace in insert mode
-set backspace=indent,eol,start
 " Add the g flag to search/replace by default
 set gdefault
 " Change mapleader
