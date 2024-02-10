@@ -16,6 +16,7 @@ brave-bin
 brightnessctl
 clipman
 curl
+delve
 diff-so-fancy
 driftctl-bin
 efibootmgr
@@ -133,6 +134,7 @@ terraform-ls-bin
 texinfo
 tflint-bin
 timew
+tldr
 tlp
 tlp-rdw
 tmate

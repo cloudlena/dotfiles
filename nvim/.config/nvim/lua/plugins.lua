@@ -436,6 +436,50 @@ return require("packer").startup(function()
         end,
     })
 
+    -- Debugging
+    use({
+        "mfussenegger/nvim-dap",
+        requires = {
+            {
+                "theHamsta/nvim-dap-virtual-text",
+                config = function()
+                    require("nvim-dap-virtual-text").setup()
+                end,
+            },
+            {
+                "rcarriga/nvim-dap-ui",
+                config = function()
+                    local dapui = require("dapui")
+
+                    dapui.setup()
+
+                    vim.keymap.set("n", "<Leader>du", dapui.toggle, km_opts)
+                    vim.keymap.set("n", "<Leader>dK", function()
+                        dapui.eval(nil, { enter = true })
+                    end, km_opts)
+                end,
+            },
+            {
+                "leoluz/nvim-dap-go",
+                config = function()
+                    require("dap-go").setup()
+                end,
+            },
+        },
+        opt = true,
+        cmd = { "DapToggleBreakpoint" },
+        config = function()
+            local dap = require("dap")
+
+            vim.keymap.set("n", "<Leader>dd", dap.continue, km_opts)
+            vim.keymap.set("n", "<Leader>dn", dap.step_over, km_opts)
+            vim.keymap.set("n", "<Leader>di", dap.step_into, km_opts)
+            vim.keymap.set("n", "<Leader>do", dap.step_out, km_opts)
+        end,
+    })
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
+    vim.keymap.set("n", "<Leader>db", "<Cmd>DapToggleBreakpoint<CR>", km_opts)
+
     -- Diff directories
     use({
         "will133/vim-dirdiff",

@@ -59,6 +59,16 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 - `<space>ta`: Run all tests
 - `<space>tu`: Toggle extended testing UI
 
+#### Debugging
+
+- `<space>db`: Toggle breakpoint on current line
+- `<space>dd`: Start debugger or continue to next breakpoint
+- `<space>dn`: Step over
+- `<space>di`: Step into
+- `<space>do`: Step out
+- `<space>dK`: Show evaluation of symbol under cursor
+- `<space>du`: Toggle extended debugging UI
+
 ## Installation
 
 1. Clone this repo to `~/dotfiles` by running `git clone git@github.com:cloudlena/dotfiles.git ~/dotfiles`
