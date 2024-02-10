@@ -1,5 +1,6 @@
 aardvark-dns
 alacritty
+apparmor
 auto-cpufreq
 autotiling-rs
 aws-cli-v2
@@ -17,7 +18,6 @@ curl
 diff-so-fancy
 efibootmgr
 fd
-firejail
 fuse-overlayfs
 fwupd
 fx
