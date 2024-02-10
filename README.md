@@ -6,7 +6,7 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 
 ## Installation
 
-1. Run the following command (warning: this may install and/or remove software!):
+1. Run the following command (warning: this may install and/or remove software and change your configs!):
 
     ```shell
     $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
