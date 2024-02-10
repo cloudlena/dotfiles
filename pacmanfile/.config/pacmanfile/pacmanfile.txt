@@ -55,6 +55,7 @@ linux
 linux-firmware
 lolcat
 lostfiles
+lua-format
 m4
 make
 mako
