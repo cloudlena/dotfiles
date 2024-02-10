@@ -116,8 +116,8 @@ case "$(uname)" in
         fzf \
         git \
         gnupg \
-        grub \
         go \
+        grub \
         htop \
         iputils \
         jq \
@@ -140,9 +140,9 @@ case "$(uname)" in
         ripgrep \
         ruby \
         shellcheck \
+        sudo \
         sxhkd \
         sxiv \
-        sudo \
         terraform \
         tmate \
         tmux \
@@ -154,9 +154,9 @@ case "$(uname)" in
         vifm \
         wget \
         xclip \
-        xorg-xrandr \
         xorg-server \
         xorg-xinit \
+        xorg-xrandr \
         zathura \
         zathura-pdf-poppler \
         zsh
