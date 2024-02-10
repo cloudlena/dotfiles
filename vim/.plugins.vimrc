@@ -18,6 +18,10 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'takac/vim-hardtime'
 let g:hardtime_default_on = 1
 
+" Personal Wiki
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{ 'path': '~/Dropbox/wiki', 'syntax': 'markdown', 'ext': '.md' }]
+
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
