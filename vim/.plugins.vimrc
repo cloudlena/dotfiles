@@ -13,7 +13,6 @@ Plug 'tpope/vim-sensible'
 
 " Colorscheme
 Plug 'tyrannicaltoucan/vim-quantum'
-let g:quantum_black=1
 
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }

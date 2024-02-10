@@ -1,0 +1,10 @@
+highlight clear
+
+highlight Win cterm=none ctermfg=default ctermbg=none
+
+highlight TopLine cterm=none ctermfg=default ctermbg=black
+highlight StatusLine cterm=bold ctermfg=default ctermbg=black
+highlight Border cterm=none ctermfg=default ctermbg=black
+
+highlight Selected cterm=bold ctermfg=magenta ctermbg=default
+highlight CurrLine cterm=bold ctermfg=236 ctermbg=magenta
