@@ -79,7 +79,7 @@ return require("packer").startup(function()
                 vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, opts)
 
                 -- Format on save
-                if client.resolved_capabilities.document_formatting then
+                if client.server_capabilities.document_formatting then
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         callback = vim.lsp.buf.formatting_sync,
                     })
@@ -87,8 +87,8 @@ return require("packer").startup(function()
             end
 
             local on_attach_without_formatting = function(client, bufnr)
-                client.resolved_capabilities.document_formatting = false
-                client.resolved_capabilities.document_range_formatting = false
+                client.server_capabilities.document_formatting = false
+                client.server_capabilities.document_range_formatting = false
                 on_attach(client, bufnr)
             end
 
@@ -209,7 +209,7 @@ return require("packer").startup(function()
             null_ls.setup({
                 sources = sources,
                 on_attach = function(client)
-                    if client.resolved_capabilities.document_formatting then
+                    if client.server_capabilities.document_formatting then
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             callback = function()
                                 vim.lsp.buf.formatting_sync(nil, 10000)
