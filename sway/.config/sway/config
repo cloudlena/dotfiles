@@ -24,10 +24,10 @@ output * bg $wallpaper fill
 # all displays after another 300 seconds, and turn the screens back on when
 # resumed. It will also lock the screen before the computer goes to sleep.
 exec swayidle -w \
-    timeout 300 '$lock_cmd' \
-    timeout 600 'swaymsg "output * dpms off"' \
+    timeout 900 '$lock_cmd' \
+    timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    timeout 900 '$sleep_cmd' \
+    timeout 1800 '$sleep_cmd' \
     before-sleep '$lock_cmd' \
     lock '$lock_cmd'
 
