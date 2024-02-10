@@ -303,7 +303,7 @@ return require("packer").startup(function()
 
             nvim_tree.setup({
                 filters = {
-                    custom = { ".DS_Store", ".git" },
+                    custom = { "^.DS_Store$", "^.git$" },
                 },
             })
 
