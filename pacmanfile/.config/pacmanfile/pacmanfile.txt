@@ -18,6 +18,7 @@ dropbox
 efibootmgr
 eslint
 ethtool
+fakeroot
 fd
 firefox
 flex
@@ -36,6 +37,7 @@ gopass-jsonapi
 gopls
 go-tools
 grim
+groff
 gron-bin
 grub
 hadolint-bin
@@ -52,6 +54,7 @@ kubectl
 kubectx
 libimobiledevice
 libnotify
+libtool
 light
 linux
 linux-firmware
@@ -112,6 +115,7 @@ swaylock
 termshark
 terraform
 terraform-ls-bin
+texinfo
 tflint-bin
 tlp
 tlp-rdw
@@ -126,6 +130,7 @@ vifm
 waybar
 wf-recorder
 wget
+which
 whois
 wl-clipboard
 wofi
