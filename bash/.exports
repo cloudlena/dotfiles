@@ -9,5 +9,5 @@ export VISUAL="${EDITOR}"
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
 
-# Don't search files which are gitignored in fzf
-export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!vendor/*" --glob "!/node_modules/*" --glob "!.DS_Store"'
+# Search only desired files with fzf
+export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.DS_Store" --glob "!.git/*" --glob "!vendor/*" --glob "!node_modules/*" --glob "!.terraform/"'
