@@ -18,6 +18,7 @@ return {
     },
     linter = {
         "flake8",
+        "hadolint",
     },
     formatter = {
         "black",

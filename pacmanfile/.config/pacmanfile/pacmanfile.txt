@@ -18,7 +18,6 @@ chafa
 clipman
 curl
 diff-so-fancy
-driftctl-bin
 efibootmgr
 fakeroot
 fd
@@ -41,13 +40,11 @@ go
 golangci-lint-bin
 gopass
 gopass-jsonapi
-go-tools
 grep
 grim
 groff
 gron
 gzip
-hadolint-bin
 htop
 hugo
 imv
@@ -99,6 +96,7 @@ prettier
 protobuf
 pulsemixer
 pwgen
+python-poetry
 python-pynvim
 qemu-desktop
 reflector
