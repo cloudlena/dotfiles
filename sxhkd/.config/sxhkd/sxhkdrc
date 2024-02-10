@@ -11,7 +11,7 @@ super + Return
 	$TERMINAL
 
 # Web browser
-super + BackSpace
+super + w
 	$BROWSER
 
 # Clipboard Manager
@@ -63,5 +63,5 @@ super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # Close and kill
-super + {_,shift + }w
+super + {_,shift + }q
 	bspc node -{c,k}

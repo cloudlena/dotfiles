@@ -1,0 +1,158 @@
+### Variables
+
+# Set logo key as main modifier
+set $mod Mod4
+
+# Colors
+set $background #212121
+set $background_dim #555555
+set $foreground #bcbec0
+set $wallpaper ~/.config/wallpapers/small-memory.jpg
+
+### Output configuration
+
+# Set wallpaper
+output * bg $wallpaper fill
+
+### Idle configuration
+
+# Lock the screen after 300 seconds of inactivity, then turn off
+# all displays after another 300 seconds, and turn the screens back on when
+# resumed. It will also lock the screen before the computer goes to sleep.
+exec swayidle -w \
+    timeout 300 'swaylock --daemonize --image ~/.config/wallpapers/small-memory.jpg' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock --daemonize --image ~/.config/wallpapers/small-memory.jpg'
+
+### Input configuration
+
+# Mouse
+# Hide mouse cursor when not used
+seat * hide_cursor 8000
+
+# Touchpad
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+# Keyboard
+input type:keyboard {
+    # Map caps lock to escape and use right alt as compose key to create umlauts
+    # To actually create them, type the following keys in a sequence:
+    # ralt + " + u --> ü
+    xkb_options caps:escape,compose:ralt
+}
+
+### Key bindings
+
+# App launcher
+bindsym $mod+space exec bemenu-run | xargs swaymsg exec --
+
+# Launch terminal
+bindsym $mod+Return exec $TERMINAL
+
+# Launch browser
+bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 $BROWSER
+
+# Launch clipboard manager
+bindsym $mod+c exec clipmenu
+
+# Take screenshots
+bindsym $mod+Shift+p exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym $mod+ctrl+p exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').png"
+
+# Lock screen
+bindsym $mod+ctrl+q exec swaylock --daemonize --image $wallpaper
+
+# Volume control
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Move focus around
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+tab workspace back_and_forth
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Splitting direction
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Make current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Resizing containers:
+bindsym $mod+r mode 'resize'
+mode 'resize' {
+    # Resizing keys
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+
+    # Return to default mode
+    bindsym Escape mode 'default'
+}
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
+
+# Hide window title bars
+default_border pixel
+
+# Start notification daemon
+exec mako
+
+# Adjust color temperature to reduce eye strain
+exec redshift -l '46.94:7.46'
+
+include /etc/sway/config.d/*
