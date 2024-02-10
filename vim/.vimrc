@@ -68,4 +68,4 @@ if has("autocmd")
 endif
 
 " Import Vundle configuration
-source ~/.vundlerc
+source ~/.plugins
