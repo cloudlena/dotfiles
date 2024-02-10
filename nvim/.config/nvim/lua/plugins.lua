@@ -13,9 +13,9 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- Automatically Run PackerCompile when this file changes
-local packer_compile_augroup = vim.api.nvim_create_augroup("PackerCompile", { clear = true })
+local packer_group = vim.api.nvim_create_augroup("PackerCompile", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-    group = packer_compile_augroup,
+    group = packer_group,
     pattern = "plugins.lua",
     command = "source <afile> | PackerCompile",
 })
@@ -80,7 +80,7 @@ return require("packer").startup(function()
             -- Add additional capabilities supported by nvim-cmp
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+            local formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
@@ -102,9 +102,9 @@ return require("packer").startup(function()
 
                 -- Format on save
                 if client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
+                    vim.api.nvim_clear_autocmds({ group = formatting_group, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = formatting_augroup,
+                        group = formatting_group,
                         buffer = bufnr,
                         callback = function()
                             vim.lsp.buf.format()
