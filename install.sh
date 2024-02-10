@@ -135,7 +135,7 @@ case "$(uname)" in
         eslint_d
 
     # Install additional Go tooling currently not available via Homebrew
-    go get golang.org/x/tools/cmd/goimports
+    go install golang.org/x/tools/cmd/goimports@latest
 
     # Set dark mode
     sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
