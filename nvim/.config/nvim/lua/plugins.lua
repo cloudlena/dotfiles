@@ -292,18 +292,18 @@ return require("packer").startup(function()
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            vim.g.nvim_tree_show_icons = {
-                git = 0,
-                folders = 1,
-                files = 1,
-                folder_arrows = 1,
-            }
-
             local nvim_tree = require("nvim-tree")
 
             nvim_tree.setup({
                 filters = {
                     custom = { "^.DS_Store$", "^.git$" },
+                },
+                renderer = {
+                    icons = {
+                        show = {
+                            git = false,
+                        },
+                    },
                 },
             })
 
