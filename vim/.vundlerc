@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdtree'
 
 " Auto completion
 Plugin 'valloric/youcompleteme'
+let NERDTreeShowHidden=1
 
 " Golang Plugin
 Plugin 'fatih/vim-go'
