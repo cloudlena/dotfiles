@@ -4,8 +4,6 @@
 
 I mainly work with [Go](https://golang.org), [Rust](https://www.rust-lang.org), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [TypeScript](https://www.typescriptlang.org), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
 
-On macOS, it is recommended to use these dotfiles with [iTerm2](https://www.iterm2.com/) and the [quantum-black](https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/iterm/quantum-black.itermcolors) color scheme.
-
 ## Usage
 
 - `pacu`: Updates and upgrades the whole system (using `Brewfile` on macOS)
