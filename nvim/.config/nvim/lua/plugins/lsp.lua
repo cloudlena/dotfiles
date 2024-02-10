@@ -8,8 +8,8 @@ return {
         config = function()
             -- Set correct icons in sign column
             local signs = {
-                Error = "󰀨 ",
-                Warn = "󰗖 ",
+                Error = "󰅚 ",
+                Warn = "󰀪 ",
                 Hint = "󰌶 ",
                 Info = "󰋽 ",
             }
