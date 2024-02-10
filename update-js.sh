@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 set -u
 
-source ~/dotfiles/bash/.functions
+. ~/dotfiles/bash/.functions
 
 js_dir="${HOME}/js"
 
