@@ -133,12 +133,10 @@ case "$(uname)" in
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
+        alacritty \
         base-devel \
-        go \
-        nodejs \
-        npm \
-        python \
-        python-pip \
+        docker \
+        firefox
         ruby \
         ansible \
         ansible-lint \
@@ -150,13 +148,19 @@ case "$(uname)" in
         fzf \
         git \
         gnupg \
+        go \
         htop \
         jq \
         lolcat \
+        man-db \
         neovim \
         nitrogen \
+        nodejs \
+        npm \
         prettier \
         protobuf \
+        python \
+        python-pip \
         ripgrep \
         shellcheck \
         sxiv \
@@ -169,10 +173,7 @@ case "$(uname)" in
         wget \
         zathura \
         zathura-pdf-poppler \
-        zsh \
-        alacritty \
-        docker \
-        firefox
+        zsh
 
     # Install Yay if not installed
     if [ ! -x "$(command -v yay)" ]; then
@@ -184,13 +185,16 @@ case "$(uname)" in
     yay -Syu --noconfirm --needed \
         awslogs \
         cloudfoundry-cli \
+        dropbox \
         golangci-lint \
         gopass \
-        sc-im \
-        tflint \
-        dropbox \
+        polybar \
         slack-desktop \
-        spotify
+        sc-im \
+        siji-git \
+        spotify \
+        tflint \
+        ttf-monaco
         # hadolint \
         # origin-client \
 
@@ -243,5 +247,8 @@ if [ -x "$(command -v zsh)" ]; then
     grep -q -F "$(command -v zsh)" /etc/shells || sudo sh -c 'echo "$(command -v zsh)" >> /etc/shells'
     chsh -s "$(command -v zsh)"
 fi
+
+# Remove existing bash config files
+rm -f ~/.bash*
 
 printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
