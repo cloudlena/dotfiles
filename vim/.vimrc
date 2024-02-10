@@ -8,8 +8,6 @@ set termguicolors
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Add the g flag to search/replace by default
@@ -32,8 +30,6 @@ set ignorecase
 set incsearch
 " Do not reset cursor to start of line when moving around
 set nostartofline
-" Show the filename in the window title bar
-set title
 " Show the (partial) command as it is being typed
 set showcmd
 " Start scrolling three lines before the horizontal window border
