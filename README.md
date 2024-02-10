@@ -6,16 +6,16 @@ I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescrip
 
 ## Installation
 
-1. Run the following command:
+1. Run the following command (warning: this may install and/or remove software!):
 
     ```shell
-    $ bash <(curl -s http://mywebsite.com/myscript.txt)
+    $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
     ```
 
 1. Run command again if Xcode Command Line Tools needed to be installed
 
 ## Usage
 
-* `pacu`: Installs everything in `Brewfile` and removes everything else
+* `pacu`: Installs and updates everything in `Brewfile` and removes everything else
 * `nvim`: Starts neovim with all plugins
 * and many more...
