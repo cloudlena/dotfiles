@@ -12,6 +12,7 @@ brew "ruby"
 
 # Tools
 brew "awscli"
+brew "awslogs"
 brew "cloudfoundry/tap/cf-cli"
 brew "cmake"
 brew "diff-so-fancy"
