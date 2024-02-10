@@ -17,7 +17,7 @@ return {
     {
         "jay-babu/mason-null-ls.nvim",
         dependencies = { "williamboman/mason.nvim" },
-        event = "VeryLazy",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             local mason_null_ls = require("mason-null-ls")
 
@@ -28,24 +28,18 @@ return {
 
             mason_null_ls.setup({
                 ensure_installed = null_ls_tools,
-                automatic_setup = true,
+                handlers = {},
             })
-            mason_null_ls.setup_handlers()
         end,
     },
     {
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = { "williamboman/mason.nvim" },
-        event = "VeryLazy",
-        config = function()
-            local mason_dap = require("mason-nvim-dap")
-
-            mason_dap.setup({
-                ensure_installed = tools.dap,
-                automatic_setup = true,
-            })
-            mason_dap.setup_handlers()
-        end,
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            ensure_installed = tools.dap,
+            handlers = {},
+        },
     },
     {
         "RubixDev/mason-update-all",
