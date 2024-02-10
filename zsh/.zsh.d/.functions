@@ -71,7 +71,7 @@ ide() {
     fi
 }
 
-# Update dependencies
+# Update project dependencies
 depu() {
     # Git submodules
     if [ -e .gitmodules ]; then

@@ -3,29 +3,19 @@ fpath=(
     ${fpath}
 )
 
-# Color output (auto set to 'no' on dumb terminals).
-zstyle ':prezto:*:*' color 'yes'
-
-# Set the Zsh modules to load (man zshmodules).
-# zstyle ':prezto:load' zmodule 'attr' 'stat'
-
-# Set the Zsh functions to load (man zshcontrib).
-# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
-
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-    'environment' \
     'utility' \
-    'spectrum' \
     'completion' \
     'git' \
     'tmux' \
     'prompt' \
-    'history' \
-    'history-substring-search' \
     'autosuggestions' \
     'editor'
+
+# Color output (auto set to 'no' on dumb terminals).
+zstyle ':prezto:*:*' color 'yes'
 
 # Auto load tmux when zsh starts
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
