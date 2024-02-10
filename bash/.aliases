@@ -5,12 +5,6 @@ alias sudo='sudo '
 alias ..="cd .."
 alias ...="cd ../.."
 
-# System Update
-case $(uname) in
-	'Linux')  alias pacu='(cd ~/dotfiles && git pull) && sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm  && npm update -g && npm outdated -g && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
-	'Darwin') alias pacu='(cd ~/dotfiles && git pull) && mas upgrade && brew update && brew upgrade && brew cleanup && npm update -g && npm outdated -g && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
-esac
-
 # npm update
 alias npmu='npm install && npm update && npm prune && npm outdated'
 
