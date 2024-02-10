@@ -27,8 +27,6 @@ set hlsearch
 set ignorecase
 " Do not reset cursor to start of line when moving around
 set nostartofline
-" Show the (partial) command as it is being typed
-set showcmd
 " More natural splitting of windows
 set splitbelow
 set splitright
@@ -36,6 +34,8 @@ set splitright
 set wrap linebreak
 " Set spell check language to en_us
 set spelllang=en_us
+" Search whole project
+nnoremap \ :Rg<space>
 
 if has("autocmd")
     " Strip trailing whitespaces on save
