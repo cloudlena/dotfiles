@@ -1,13 +1,12 @@
-GOPATH="$HOME/go"
-
 PATH="/usr/local/bin"
 PATH="$PATH:/usr/bin"
 PATH="$PATH:/bin"
 PATH="$PATH:/usr/local/sbin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
-
 PATH="$PATH:$HOME/bin"
+
+GOPATH="$HOME/go"
 PATH="$PATH:$GOPATH/bin"
 
 export GOPATH

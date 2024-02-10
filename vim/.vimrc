@@ -66,4 +66,4 @@ if has("autocmd")
 endif
 
 " Import plugin configuration
-source ~/.plugins
+source ~/.vim-plugins
