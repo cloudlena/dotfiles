@@ -1,5 +1,5 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -21,13 +21,12 @@ Plug 'jiangmiao/auto-pairs'
 
 " Syntax Highlighting
 Plug 'neomake/neomake'
-autocmd! BufWritePost,BufEnter * Neomake
+if has("autocmd")
+  autocmd! BufWritePost,BufEnter * Neomake
+endif
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
-
-" Highlight trailing whitespaces
-Plug 'bronson/vim-trailing-whitespace'
 
 " Ctrl P
 Plug 'ctrlpvim/ctrlp.vim'
@@ -46,7 +45,7 @@ Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 let g:deoplete#enable_at_startup = 1
 
-" Golang Plugin
+" Golang
 Plug 'fatih/vim-go', { 'for': 'go' }
 
 " Typescript
