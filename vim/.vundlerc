@@ -30,6 +30,8 @@ Plugin 'fatih/vim-go'
 " Node Plugin
 Plugin 'moll/vim-node'
 
+" Wakatime
+Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
