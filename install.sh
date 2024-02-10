@@ -117,12 +117,12 @@ case "$(uname)" in
         awslogs \
         base \
         base-devel \
+        bind \
         bluez \
         bluez-utils \
         clipman \
         curl \
         diff-so-fancy \
-        dnsutils \
         efibootmgr \
         ethtool \
         eslint \
