@@ -79,14 +79,12 @@ pacmanfile
 paru-bin
 patch
 pipewire
+pipewire-pulse
 pkgconf
 playerctl
 podman
 prettier
 protobuf
-pulseaudio
-pulseaudio-alsa
-pulseaudio-bluetooth
 pulsemixer
 pwgen
 python
