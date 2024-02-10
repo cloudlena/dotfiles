@@ -70,7 +70,6 @@ cask "brave-browser"
 cask "font-fira-code-nerd-font"
 cask "gimp"
 cask "inkscape"
-cask "maestral"
 cask "signal"
 cask "virtualbox"
 mas "BetterSnapTool", id: 417375580

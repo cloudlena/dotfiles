@@ -48,7 +48,6 @@ linux
 linux-firmware
 lolcat
 lostfiles
-maestral
 mako
 man-db
 mpv
