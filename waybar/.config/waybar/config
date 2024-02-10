@@ -16,8 +16,7 @@
     },
     "format": "{capacity}% {icon}",
     "format-charging": " {capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "format-icons": ["", "", "", "", ""]
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
@@ -56,6 +55,7 @@
     "format": "⚠{}",
     "exec": "~/.config/waybar/scripts/failed-services.sh",
     "interval": 1200,
-    "on-click": "alacritty -e 'systemctl --failed'"
+    "on-click": "alacritty -e 'systemctl --failed'",
+    "signal": 8
   }
 }
