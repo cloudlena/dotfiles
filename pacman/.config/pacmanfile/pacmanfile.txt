@@ -17,6 +17,7 @@ curl
 diff-so-fancy
 efibootmgr
 fd
+firejail
 fuse-overlayfs
 fwupd
 fx
