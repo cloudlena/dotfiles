@@ -8,6 +8,9 @@ endif
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Sensible defaults everyone can agree on
+Plug 'tpope/vim-sensible'
+
 " Colorscheme
 Plug 'tyrannicaltoucan/vim-quantum'
 

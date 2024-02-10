@@ -12,8 +12,6 @@ set shortmess=I
 set termguicolors
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
 " Add the g flag to search/replace by default
 set gdefault
 " Change mapleader
@@ -25,14 +23,10 @@ set number
 set hlsearch
 " Ignore case of searches
 set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
 " Do not reset cursor to start of line when moving around
 set nostartofline
 " Show the (partial) command as it is being typed
 set showcmd
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 " More natural splitting of windows
 set splitbelow
 set splitright
@@ -43,8 +37,6 @@ set spelllang=en_us
 
 " Automatic commands
 if has("autocmd")
-    " Enable file type detection
-    filetype on
     " Strip trailing whitespaces on save
     autocmd BufWritePre * %s/\s\+$//e
     " Unify indentation on save
