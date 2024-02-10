@@ -137,6 +137,7 @@ wf-recorder
 wget
 which
 whois
+wireplumber
 wl-clipboard
 wofi
 workstyle-git
