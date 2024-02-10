@@ -26,6 +26,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --follow --hidden --no-ignore \
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 export GPG_TTY="$(tty)"
 
-if [[ ! -z "${WAYLAND_DISPLAY}" ]]; then
+if [[ -n "${WAYLAND_DISPLAY}" ]]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
