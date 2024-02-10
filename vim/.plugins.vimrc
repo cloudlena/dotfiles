@@ -73,6 +73,8 @@ Plug 'jiangmiao/auto-pairs'
 
 " Linting and auto fixing
 Plug 'w0rp/ale'
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint', 'flow']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['json'] = ['prettier']
