@@ -1,6 +1,6 @@
 # vim: ft=zsh
 
-fpath=(~/dotfiles $fpath)
+fpath=(${HOME}/.zsh.d/themes $fpath)
 
 # Load Prezto modules
 # The order matters.
