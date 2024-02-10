@@ -57,6 +57,11 @@ return require("packer").startup(function()
         config = function()
             local nvim_lsp = require("lspconfig")
 
+            local opts = { noremap = true, silent = true }
+            vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+
             -- Add additional capabilities supported by nvim-cmp
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -66,29 +71,35 @@ return require("packer").startup(function()
             local on_attach = function(client, bufnr)
                 local telescope_builtin = require("telescope.builtin")
 
-                local opts = { buffer = bufnr, silent = true }
-                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
-                vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
-                vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-                vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-                vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-                vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
+                local bufopts = { silent = true, buffer = bufnr }
+                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, bufopts)
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, bufopts)
+                vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, bufopts)
+                vim.keymap.set("n", "<leader>f", function()
+                    vim.lsp.buf.format({ async = true })
+                end, bufopts)
 
                 -- Format on save
-                if client.server_capabilities.document_formatting then
+                if client.supports_method("textDocument/formatting") then
+                    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
-                        callback = vim.lsp.buf.formatting_sync,
+                        group = augroup,
+                        buffer = bufnr,
+                        callback = function()
+                            vim.lsp.buf.format()
+                        end,
                     })
                 end
             end
 
             local on_attach_without_formatting = function(client, bufnr)
-                client.server_capabilities.document_formatting = false
-                client.server_capabilities.document_range_formatting = false
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentOnTypeFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
                 on_attach(client, bufnr)
             end
 
@@ -208,11 +219,15 @@ return require("packer").startup(function()
             -- Format on save
             null_ls.setup({
                 sources = sources,
-                on_attach = function(client)
-                    if client.server_capabilities.document_formatting then
+                on_attach = function(client, bufnr)
+                    if client.supports_method("textDocument/formatting") then
+                        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                         vim.api.nvim_create_autocmd("BufWritePre", {
+                            group = augroup,
+                            buffer = bufnr,
                             callback = function()
-                                vim.lsp.buf.formatting_sync(nil, 10000)
+                                vim.lsp.buf.format({ timeout_ms = 5000 })
                             end,
                         })
                     end
