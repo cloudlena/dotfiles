@@ -73,18 +73,16 @@ Plug 'jiangmiao/auto-pairs'
 
 " Linting and auto fixing
 Plug 'w0rp/ale'
-let g:ale_linters = {}
-let g:ale_linters['javascript'] = ['eslint', 'flow']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['typescript'] = ['prettier','tslint']
 let g:ale_fixers['json'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
-let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['less'] = ['prettier']
+let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['markdown'] = ['prettier']
 let g:ale_fixers['yaml'] = ['prettier']
-let g:ale_fixers['typescript'] = ['prettier','tslint']
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
 let g:ale_fix_on_save = 1
@@ -131,11 +129,7 @@ Plug 'sebdah/vim-delve', { 'for': 'go' }
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-let g:javascript_plugin_flow = 1
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
-
-" Flow
-Plug 'wokalski/autocomplete-flow', { 'for': 'javascript.jsx' }
 
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
