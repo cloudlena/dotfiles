@@ -75,35 +75,42 @@ function ide() {
 function depu() {
 
     # npm
-    lock_count=$(ls -1 package-lock.json 2>/dev/null | wc -l)
-    if [ "${lock_count}" -gt 0 ]; then
+    file_count=$(ls -1 package-lock.json 2>/dev/null | wc -l)
+    if [ "${file_count}" -gt 0 ]; then
         printf "Updating npm dependencies for ${PWD##*/}...\n\n"
         npm update
         npm outdated
     fi
 
     # Yarn
-    lock_count=$(ls -1 yarn.lock 2>/dev/null | wc -l)
-    if [ "${lock_count}" -gt 0 ]; then
+    file_count=$(ls -1 yarn.lock 2>/dev/null | wc -l)
+    if [ "${file_count}" -gt 0 ]; then
         printf "Updating Yarn dependencies for ${PWD##*/}...\n\n"
         yarn upgrade > /dev/null
         yarn outdated
     fi
 
     # Go
-    pkg_count=$(ls -1 go.mod 2>/dev/null | wc -l)
-    if [ "${pkg_count}" -gt 0 ]; then
+    file_count=$(ls -1 go.mod 2>/dev/null | wc -l)
+    if [ "${file_count}" -gt 0 ]; then
         printf "Updating Go dependencies for ${PWD##*/}...\n\n"
         go get -u
         go mod tidy
     fi
 
     # Go dep
-    pkg_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
-    if [ "${pkg_count}" -gt 0 ]; then
-        echo "Updating Go dep dependencies...\n"
+    file_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
+    if [ "${file_count}" -gt 0 ]; then
+        printf "Updating Dep dependencies for ${PWD##*/}...\n\n"
         dep ensure
         dep ensure -update
+    fi
+
+    # Git submodules
+    file_count=$(ls -1 .gitmodules 2>/dev/null | wc -l)
+    if [ "${file_count}" -gt 0 ]; then
+        printf "Updating Git submodules for ${PWD##*/}...\n\n"
+        git submodule update --init
     fi
 
 }
