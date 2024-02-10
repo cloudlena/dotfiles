@@ -9,4 +9,5 @@ colorscheme tokyonight
 
 " Configure programs to open files
 filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c &
+filetype *.mp3,*.mp4,*.mov,*.wav mpv --quiet %c &
 filetype *.pdf zathura %c &
