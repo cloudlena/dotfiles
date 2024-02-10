@@ -5,7 +5,7 @@ autoconf
 auto-cpufreq
 automake
 autotiling-rs
-aws-cli-v2-bin
+aws-cli-v2
 base
 bash-language-server
 bc
