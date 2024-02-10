@@ -28,7 +28,7 @@ case "$(uname)" in
     # Install Homebrew if not installed
     if [ ! -x "$(command -v brew)" ]; then
         printf '\e[1mInstalling Homebrew\e[0m\n'
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     # Install git if not installed
