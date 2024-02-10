@@ -213,6 +213,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 if [ ! -x "$(command -v rustup)" ]; then
     printf '\e[1mInstalling Rust\e[0m\n'
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    rustup component add rls rust-analysis rust-src
 fi
 
 # Install prezto

@@ -75,6 +75,11 @@ Plug 'jiangmiao/auto-pairs'
 
 " Linting and auto fixing
 Plug 'dense-analysis/ale'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '●'
+let g:ale_linters = {}
+let g:ale_linters['go'] = ['gopls']
+let g:ale_linters['rust'] = ['rls']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier','eslint']
 let g:ale_fixers['typescript'] = ['prettier','eslint']
@@ -87,8 +92,6 @@ let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['markdown'] = ['prettier']
 let g:ale_fixers['yaml'] = ['prettier']
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '●'
 let g:ale_fix_on_save = 1
 
 " Autocompletion
@@ -100,15 +103,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-
-" Snippets
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' ,'for': ['go','gomod'] }
@@ -132,7 +126,6 @@ if has("autocmd")
     autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
     autocmd FileType go nmap <leader>t <Plug>(go-test)
 endif
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -140,7 +133,6 @@ let g:rustfmt_autosave = 1
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install --global tern', 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 
@@ -157,8 +149,6 @@ Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 let g:terraform_fmt_on_save = 1
 Plug 'juliosueiras/vim-terraform-completion', { 'for': 'terraform' }
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
