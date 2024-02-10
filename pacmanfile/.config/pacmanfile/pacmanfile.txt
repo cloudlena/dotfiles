@@ -48,7 +48,6 @@ grep
 grim
 groff
 gron
-grub
 gzip
 hadolint-bin
 htop
