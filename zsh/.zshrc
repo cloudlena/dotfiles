@@ -15,3 +15,6 @@ bindkey '^N' history-beginning-search-forward
 
 # Start tmux for every terminal session
 [[ -z "$TMUX" && $(tty) != /dev/tty[0-9] ]] && { tmux || exec tmux new-session && exit }
+
+# Initiate zoxide
+eval "$(zoxide init zsh)"
