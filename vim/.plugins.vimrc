@@ -15,10 +15,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tyrannicaltoucan/vim-quantum'
 let g:quantum_black=1
 
-" Enable hard mode
-Plug 'takac/vim-hardtime'
-let g:hardtime_default_on = 1
-
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
