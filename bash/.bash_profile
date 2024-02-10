@@ -13,10 +13,10 @@ done;
 
 # Add tab completion for many Bash commands
 if [ "$(uname)" == 'Darwin' ]; then
-    if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+    if command -v brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
         source "$(brew --prefix)/share/bash-completion/bash_completion";
     elif [ -f /etc/bash_completion ]; then
-        source /etc/bash_completion;
+        . /etc/bash_completion;
     fi;
 fi;
 
@@ -24,11 +24,11 @@ fi;
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
 # Autocompletions for fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`
 # * ~/.extra can be used for other settings you don’t want to commit
 for file in ~/.{path,exports,aliases,functions,extra}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+    [ -r "$file" ] && [ -f "$file" ] && . "$file";
 done;
