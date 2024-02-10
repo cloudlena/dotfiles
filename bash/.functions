@@ -1,6 +1,6 @@
 # Create a new directory and enter it
 function mkcd() {
-	mkdir -p "$@" && cd "$_" || exit;
+  mkdir -p "$@" && cd "$_" || exit;
 }
 
 # Open tmux and vim in an IDE like layout
@@ -39,7 +39,7 @@ function pacu() {
   ("${HOME}/dotfiles/bash/update-go.sh") &
   go_pid="$!"
 
-  vim -c 'PlugUpgrade | PlugUpdate | qa'
+  vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
 
   (npm update -g) &
   npm_pid="$!"
