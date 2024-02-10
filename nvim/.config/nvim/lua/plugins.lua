@@ -320,6 +320,9 @@ return require("packer").startup(function()
                     lualine_z = {},
                 },
                 extensions = { "nvim-tree" },
+                options = {
+                    theme = "tokyonight",
+                },
             })
         end,
     })
