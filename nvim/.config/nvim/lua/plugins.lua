@@ -148,6 +148,7 @@ return require("packer").startup(function()
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
             "onsails/lspkind-nvim",
         },
         config = function()
@@ -158,7 +159,6 @@ return require("packer").startup(function()
                 { name = "nvim_lsp" },
                 { name = "path" },
                 { name = "buffer" },
-                { name = "vsnip" },
             }
 
             cmp.setup({
@@ -279,12 +279,6 @@ return require("packer").startup(function()
             -- Toggle diagnostics
             vim.keymap.set("n", "<C-s>", telescope_builtin.diagnostics)
         end,
-    })
-
-    -- Snippets
-    use({
-        "hrsh7th/vim-vsnip",
-        requires = "rafamadriz/friendly-snippets",
     })
 
     -- File tree
