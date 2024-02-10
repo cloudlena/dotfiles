@@ -23,7 +23,10 @@ alias sudo='sudo '
 alias bellring="tput bel"
 
 # ARCH Pacman Update
-alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm && sudo npm update -g && (cd ~/dotfiles && git pull)'
+case $(uname) in
+	'Linux')  alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
+	'Darwin') alias pacu='brew update && brew upgrade --all && brew cleanup && sudo npm update -g && (cd ~/dotfiles && git pull)' ;;
+esac
 
 # NPM update folder (also Bower)
 alias npmu='npm-check-updates -u && npm update && bower update'
