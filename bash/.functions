@@ -130,6 +130,7 @@ function pacu() {
         if [ -x "$(command -v brew)" ]; then
             printf '\e[1mUpdating Homebrew packages\e[0m\n'
             brew update
+            brew upgrade
             cat ~/dotfiles/Brewfile* | brew bundle --file=-
             cat ~/dotfiles/Brewfile* | brew bundle cleanup --force --file=-
             brew cu --all --yes --cleanup
