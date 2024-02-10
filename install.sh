@@ -159,6 +159,7 @@ case "$(uname)" in
 
     yay -Syu --noconfirm --needed \
         awslogs \
+        betterlockscreen \
         cloudfoundry-cli \
         dropbox \
         golangci-lint \
@@ -180,6 +181,10 @@ case "$(uname)" in
 
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
+    # Configure betterlockscreen
+    betterlockscreen --update ~/.config/wallpapers/small-memory.jpg
+    systemctl enable "betterlockscreen@$USER"
     ;;
 
 # Default
