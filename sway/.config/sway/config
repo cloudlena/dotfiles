@@ -4,12 +4,14 @@
 set $mod Mod4
 
 # Colors
-set $background #212121
-set $background_dim #555555
 set $foreground #bcbec0
+set $highlight #a48add
 set $wallpaper ~/.config/wallpapers/small-memory.jpg
 set $lock_cmd swaylock --daemonize --image $wallpaper
 set $sleep_cmd systemctl suspend
+
+# Set color for focused window
+client.focused $highlight $highlight $foreground
 
 ### Output configuration
 
