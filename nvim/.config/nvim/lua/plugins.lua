@@ -13,7 +13,9 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function()
-    local km_opts = { noremap = true, silent = true }
+    local function km_opts(desc)
+        return { noremap = true, silent = true, desc = desc }
+    end
 
     -- Packer manages itself
     use("wbthomason/packer.nvim")
@@ -59,9 +61,13 @@ return require("packer").startup(function()
         config = function()
             local nvim_lsp = require("lspconfig")
 
-            vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, km_opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, km_opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, km_opts)
+            local function opts(desc)
+                return { noremap = true, silent = true, desc = desc }
+            end
+
+            vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts("Show diagnostics of current line"))
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Move to previous diagnostic"))
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Move to next diagnostic"))
 
             -- Add additional capabilities supported by nvim-cmp
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -73,16 +79,18 @@ return require("packer").startup(function()
             local on_attach = function(client, bufnr)
                 local telescope_builtin = require("telescope.builtin")
 
-                local buf_opts = { silent = true, buffer = bufnr }
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, buf_opts)
-                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, buf_opts)
-                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, buf_opts)
-                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, buf_opts)
-                vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, buf_opts)
-                vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, buf_opts)
+                local function buf_opts(desc)
+                    return { noremap = true, silent = true, buffer = bufnr, desc = desc }
+                end
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, buf_opts("Show signature of current symbol"))
+                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, buf_opts("Go to definiton"))
+                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, buf_opts("Go to implementation"))
+                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, buf_opts("Go to reference"))
+                vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, buf_opts("Rename current symbol"))
+                vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, buf_opts("Run code action"))
                 vim.keymap.set("n", "<Leader>f", function()
                     vim.lsp.buf.format({ async = true })
-                end, buf_opts)
+                end, buf_opts("Format current file"))
 
                 -- Format on save
                 if client.supports_method("textDocument/formatting") then
@@ -390,7 +398,7 @@ return require("packer").startup(function()
             require("symbols-outline").setup()
         end,
     })
-    vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", km_opts)
+    vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", km_opts("Toggle tree view for symbols"))
 
     -- Testing
     use({
@@ -404,6 +412,10 @@ return require("packer").startup(function()
         },
         config = function()
             local neotest = require("neotest")
+
+            local function opts(desc)
+                return { noremap = true, silent = true, desc = desc }
+            end
 
             neotest.setup({
                 icons = {
@@ -420,18 +432,18 @@ return require("packer").startup(function()
 
             vim.keymap.set("n", "<Leader>tn", function()
                 neotest.run.run()
-            end, km_opts)
+            end, opts("Run nearest test"))
             vim.keymap.set("n", "<Leader>tf", function()
                 neotest.run.run(vim.fn.expand("%"))
                 neotest.summary.open()
-            end, km_opts)
+            end, opts("Run all tests in file"))
             vim.keymap.set("n", "<Leader>ta", function()
                 neotest.run.run(vim.fn.getcwd())
                 neotest.summary.open()
-            end, km_opts)
+            end, opts("Run all tests in suite"))
             vim.keymap.set("n", "<Leader>tu", function()
                 neotest.summary.toggle()
-            end, km_opts)
+            end, opts("Toggle testing UI"))
         end,
     })
 
@@ -452,10 +464,10 @@ return require("packer").startup(function()
 
                     dapui.setup()
 
-                    vim.keymap.set("n", "<Leader>du", dapui.toggle, km_opts)
+                    vim.keymap.set("n", "<Leader>du", dapui.toggle, km_opts("Toggle debugging UI"))
                     vim.keymap.set("n", "<Leader>dK", function()
                         dapui.eval(nil, { enter = true })
-                    end, km_opts)
+                    end, km_opts("Debug symbol under cursor"))
                 end,
             },
             {
@@ -470,14 +482,14 @@ return require("packer").startup(function()
         config = function()
             local dap = require("dap")
 
-            vim.keymap.set("n", "<Leader>dd", dap.continue, km_opts)
-            vim.keymap.set("n", "<Leader>dn", dap.step_over, km_opts)
-            vim.keymap.set("n", "<Leader>di", dap.step_into, km_opts)
-            vim.keymap.set("n", "<Leader>do", dap.step_out, km_opts)
+            vim.keymap.set("n", "<Leader>dd", dap.continue, km_opts("Start/continue debugging"))
+            vim.keymap.set("n", "<Leader>dn", dap.step_over, km_opts("Step over"))
+            vim.keymap.set("n", "<Leader>di", dap.step_into, km_opts("Step into"))
+            vim.keymap.set("n", "<Leader>do", dap.step_out, km_opts("Step out"))
         end,
     })
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-    vim.keymap.set("n", "<Leader>db", "<Cmd>DapToggleBreakpoint<CR>", km_opts)
+    vim.keymap.set("n", "<Leader>db", "<Cmd>DapToggleBreakpoint<CR>", km_opts("Toggle breakpoint"))
 
     -- Diff directories
     use({
