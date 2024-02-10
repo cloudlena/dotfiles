@@ -11,6 +11,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Color scheme
 Plug 'trevordmiller/nova-vim'
 
+" Enable hard mode
+Plug 'takac/vim-hardtime'
+let g:hardtime_default_on = 1
+
 " Goyo mode for focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -93,9 +97,6 @@ Plug 'Shougo/neosnippet-snippets'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' ,'for': 'go' }
