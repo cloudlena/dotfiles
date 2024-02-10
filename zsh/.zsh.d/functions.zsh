@@ -120,6 +120,12 @@ depu() {
         printf "Updating Cargo dependencies for %s...\n\n" "${PWD##*/}"
         cargo update
     fi
+
+    # Terraform
+    if [ -e .terraform.lock.hcl ]; then
+        printf "Updating Terraform dependencies for %s...\n\n" "${PWD##*/}"
+        terraform init -upgrade
+    fi
 }
 
 # System update
