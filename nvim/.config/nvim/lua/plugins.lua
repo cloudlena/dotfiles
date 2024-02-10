@@ -123,12 +123,22 @@ return require('packer').startup(function()
 
     -- Autocompletions
     use {
-        'hrsh7th/nvim-compe',
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer'
+        },
         config = function()
-            vim.opt.completeopt = {'menuone', 'noselect'}
-            require('compe').setup {
-                enabled = true,
-                source = {buffer = true, path = true, nvim_lsp = true}
+            require('cmp').setup {
+                sources = {
+                    {name = 'nvim_lsp'}, {name = 'path'}, {
+                        name = 'buffer',
+                        opts = {
+                            get_bufnrs = function()
+                                return vim.api.nvim_list_bufs()
+                            end
+                        }
+                    }
+                }
             }
         end
     }
