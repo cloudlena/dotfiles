@@ -85,12 +85,12 @@ case "$(uname)" in
     fi
 
     # Install diff-so-fancy
-    if [ ! -x "$(command -v npm)" ]; then
+    if [ -x "$(command -v npm)" ]; then
         npm install --global diff-so-fancy
     fi
 
     # Use zsh
-    if [ ! -x "$(command -v zsh)" ]; then
+    if [ -x "$(command -v zsh)" ]; then
         chsh -s "$(which zsh)"
     fi
 
@@ -169,12 +169,12 @@ case "$(uname)" in
     fi
 
     # Install diff-so-fancy
-    if [ ! -x "$(command -v npm)" ]; then
+    if [ -x "$(command -v npm)" ]; then
         npm install --global diff-so-fancy
     fi
 
     # Use zsh
-    if [ ! -x "$(command -v zsh)" ]; then
+    if [ -x "$(command -v zsh)" ]; then
         chsh -s "$(which zsh)"
     fi
 
