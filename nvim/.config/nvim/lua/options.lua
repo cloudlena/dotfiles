@@ -1,3 +1,4 @@
+vim.g.mapleader = " " -- Set leader key
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.ignorecase = true -- Ignore case
 vim.opt.inccommand = "split" -- Preview for find-replace command
