@@ -216,6 +216,7 @@ case "$(uname)" in
         waybar \
         wf-recorder \
         wget \
+        whois \
         wl-clipboard \
         zathura \
         zathura-pdf-poppler \
