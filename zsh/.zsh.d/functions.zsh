@@ -226,13 +226,6 @@ pacu() {
         processes+=("$!")
     fi
 
-    # Python pip
-    if [ -x "$(command -v pip)" ]; then
-        printf '\e[1mUpdating pip packages\e[0m\n'
-        (pip list --user --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install --user --upgrade) &
-        processes+=("$!")
-    fi
-
     # Neovim
     if [ -x "$(command -v nvim)" ]; then
         printf '\e[1mUpdating Vim plugins\e[0m\n'
