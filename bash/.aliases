@@ -6,4 +6,4 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 # npm update
-alias npmu='npm install && npm update && npm prune && npm outdated'
+alias npmu='npm install && npm update && npm prune && npm dedupe && npm outdated'
