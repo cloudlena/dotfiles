@@ -139,13 +139,13 @@ return require('packer').startup(function()
             -- Set correct icons in sign column
             local signs = {
                 Error = " ",
-                Warning = " ",
+                Warn = " ",
                 Hint = " ",
-                Information = " "
+                Info = " "
             }
             for type, icon in pairs(signs) do
-                local hl = "LspDiagnosticsSign" .. type
-                vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, {text = icon, texthl = hl})
             end
         end
     }
@@ -161,13 +161,17 @@ return require('packer').startup(function()
     use {
         'hrsh7th/nvim-cmp',
         requires = {
-            'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
             'onsails/lspkind-nvim'
         },
         config = function()
             require('cmp').setup {
                 sources = {
-                    {name = 'nvim_lsp'}, {name = 'path'}, {
+                    {name = 'nvim_lsp'},
+                    {name = 'path'},
+                    {
                         name = 'buffer',
                         option = {
                             get_bufnrs = function()

@@ -1,8 +1,5 @@
 local opts = {noremap = true, silent = true}
 
--- Clear highlights
-vim.api.nvim_set_keymap('n', '<C-l>', '<Cmd>nohlsearch<CR>', opts)
-
 -- Toggle fuzzy search
 vim.api.nvim_set_keymap('n', '<C-P>',
                         '<Cmd>lua require("telescope.builtin").find_files{ find_command = { "fd", "--type=f", "--type=l", "--hidden", "--no-ignore", "--exclude=.DS_Store", "--exclude=.git", "--exclude=.terraform", "--exclude=bin", "--exclude=build", "--exclude=coverage", "--exclude=dist", "--exclude=node_modules", "--exclude=target", "--exclude=vendor" }}<CR>',
