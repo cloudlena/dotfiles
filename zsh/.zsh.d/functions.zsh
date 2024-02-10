@@ -144,6 +144,7 @@ pacu() {
                 yay -Rns $orphans --noconfirm
             fi
             yay -Sc --noconfirm
+            yay -Yc --noconfirm
         elif [ -x "$(command -v pacman)" ]; then
             printf '\e[1mUpdating pacman packages\e[0m\n'
             sudo pacman -Syu --noconfirm
