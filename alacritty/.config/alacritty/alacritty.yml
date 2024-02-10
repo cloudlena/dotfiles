@@ -39,5 +39,5 @@ colors:
 
 key_bindings:
   - { key: Key0, mods: Command, action: ResetFontSize }
-  - { key: Add, mods: Command, action: IncreaseFontSize }
+  - { key: Plus, mods: Command, action: IncreaseFontSize }
   - { key: Minus, mods: Command, action: DecreaseFontSize }
