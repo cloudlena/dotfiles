@@ -2,6 +2,8 @@
 
 # This script installs these dotfiles.
 
+printf '\e[1mInitializing dotfiles\e[0m\n'
+
 case "$(uname)" in
 
 # On Linux, use the respective package manager
@@ -23,21 +25,25 @@ case "$(uname)" in
 
     # Install Homebrew if not installed
     if [ ! -x "$(command -v brew)" ]; then
+        printf '\e[1mInstalling Homebrew\e[0m\n'
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
     # Install git if not installed
     if [ ! -x "$(command -v git)" ]; then
+        printf '\e[1mInstalling Git\e[0m\n'
         brew install git
     fi
 
     # git clone these dotfiles if not done yet
     if [ ! -d ~/dotfiles ]; then
+        printf '\e[1mCloning dotfiles repo\e[0m\n'
         git clone git@github.com:mastertinner/dotfiles.git ~
     fi
 
     # Install stow if not installed
     if [ ! -x "$(command -v stow)" ]; then
+        printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
         brew install stow
     fi
     # Remove existing config files
@@ -55,6 +61,7 @@ case "$(uname)" in
 
     # Use vimrc as Neovim config
     if [ -f ~/.config/nvim/init.vim ]; then
+        printf '\e[1mSetting up Neovim\e[0m\n'
         rm ~/.config/nvim/init.vim
     fi
     mkdir -p ~/.config/nvim
@@ -79,27 +86,33 @@ case "$(uname)" in
 
     # Use zsh
     if [ -x "$(command -v zsh)" ]; then
+        printf '\e[1mChanging your shell to zsh\e[0m\n'
         chsh -s "$(which zsh)"
     fi
 
-    echo 'Dotfiles successfully initialized. Please reboot to finalize.'
+    printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
     ;;
 
 'Linux')
     if [ ! -x "$(command -v pacman)" ]; then
-        echo 'Only Arch Linux is currently supported'
+        printf '\e[1mArch Linux is the only distro currently supported for automated setup\e[0m\n'
         exit 1
     fi
 
     # Install git if not installed
-    sudo pacman -Syu git --noconfirm --needed
+    if [ ! -x "$(command -v git)" ]; then
+        printf '\e[1mInstalling Git\e[0m\n'
+        sudo pacman -Syu git --noconfirm
+    fi
 
     # git clone these dotfiles if not done yet
     if [ ! -d ~/dotfiles ]; then
+        printf '\e[1mCloning dotfiles repo\e[0m\n'
         git clone https://github.com/mastertinner/dotfiles.git
     fi
 
     # Install stow if not installed
+    printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
     sudo pacman -Syu stow --noconfirm --needed
     # Remove existing config files
     if [ -f ~/.bashrc ]; then
@@ -114,6 +127,7 @@ case "$(uname)" in
     done
 
     # Install tools
+    printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
         tmux \
         neovim \
@@ -137,6 +151,7 @@ case "$(uname)" in
     fi
 
     # Use vimrc as Neovim config
+    printf '\e[1mSetting up Neovim\e[0m\n'
     if [ -f ~/.config/nvim/init.vim ]; then
         rm ~/.config/nvim/init.vim
     fi
@@ -155,15 +170,16 @@ case "$(uname)" in
 
     # Use zsh
     if [ -x "$(command -v zsh)" ]; then
+        printf '\e[1mChanging your shell to zsh\e[0m\n'
         chsh -s "$(which zsh)"
     fi
 
-    echo 'Dotfiles successfully initialized. Please reboot to finalize.'
+    printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
     ;;
 
 # Default
 *)
-    echo "OS not supported. Please install manually."
+    printf '\e[1mOS not supported for automated setup. Please install manually.\e[0m\n'
     exit 1
     ;;
 esac
