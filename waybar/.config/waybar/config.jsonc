@@ -1,11 +1,6 @@
 {
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode"
-  ],
-  "modules-center": [
-    "custom/tasks"
-  ],
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["custom/tasks"],
   "modules-right": [
     "custom/updates",
     "pulseaudio",
@@ -21,32 +16,9 @@
     },
     "format": "<span size=\"96%\">{icon}</span>",
     "format-icons": {
-      "default": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ],
-      "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "critical": [
-        "󱃍"
-      ]
+      "default": ["󰁺", "󰁻", "󰁼", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "critical": ["󱃍"]
     },
     "tooltip-format": "Battery at {capacity}%"
   },
@@ -59,22 +31,13 @@
     "format-wifi": "{icon}",
     "format-linked": "󰈀",
     "format-disconnected": "󰖪",
-    "format-icons": [
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
     "format": "<span size=\"110%\">{icon}</span>",
     "format-muted": "<span size=\"110%\"></span>",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", ""],
     "tooltip-format": "Volume at {volume}%"
   },
   "bluetooth": {
