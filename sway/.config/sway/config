@@ -9,6 +9,7 @@ set $highlight #bb9af7
 set $wallpaper ~/.config/wallpapers/bespinian.png
 set $lock_cmd swaylock --daemonize --image $wallpaper
 set $sleep_cmd systemctl suspend
+set $launcher_cmd wofi --show drun --no-actions --insensitive --prompt 'Run' | xargs swaymsg exec --
 
 # Set color for focused window
 client.focused $highlight $highlight $foreground
@@ -28,11 +29,15 @@ exec swayidle -w \
     timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     timeout 1800 '$sleep_cmd' \
+    before-sleep 'playerctl pause' \
     before-sleep '$lock_cmd' \
     lock '$lock_cmd'
 
 # Inhibit idle if a window is in fullscreen
 for_window [shell=".*"] inhibit_idle fullscreen
+
+# Prevent Brave from inhibiting shortcuts
+for_window [app_id="^brave-.*-.*$"] shortcuts_inhibitor disable
 
 ### Input configuration
 
@@ -57,7 +62,7 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' | xargs swaymsg exec --
+bindsym $mod+space exec $launcher_cmd
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
@@ -73,15 +78,16 @@ bindsym Print+$mod exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').pn
 bindsym $mod+ctrl+q exec loginctl lock-session
 
 # Media control
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec $launcher_cmd
 
 # Kill focused window
 bindsym $mod+q kill
@@ -163,7 +169,7 @@ exec mako
 exec kanshi
 
 # Adjust color temperature to reduce eye strain
-exec gammastep -l '46.95:7.45'
+exec gammastep
 
 # Enable autotiling
 exec autotiling
