@@ -21,6 +21,8 @@ vim.api
 vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',
                         opts)
 
+-- Strip trailing whitespaces on save
+vim.cmd 'autocmd BufWritePre * %s/\\s\\+$//e'
 -- Unify indentation on save
 vim.cmd 'autocmd BufWritePre * retab'
 -- Enable spell checking for certain file types
