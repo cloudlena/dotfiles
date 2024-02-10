@@ -22,6 +22,7 @@ output * bg $wallpaper fill
 exec swayidle -w \
     timeout 300 'swaylock --daemonize --image ~/.config/wallpapers/small-memory.jpg' \
     timeout 600 'swaymsg "output * dpms off"' \
+    timeout 900 'systemctl suspend' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock --daemonize --image ~/.config/wallpapers/small-memory.jpg'
 
@@ -62,6 +63,9 @@ bindsym $mod+ctrl+p exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').p
 
 # Lock screen
 bindsym $mod+ctrl+q exec swaylock --daemonize --image $wallpaper
+
+# Sleep
+bindsym $mod+ctrl+Delete exec systemctl suspend
 
 # Volume control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%

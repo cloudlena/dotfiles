@@ -128,10 +128,12 @@ pacu() {
             yay -Syua --noconfirm
         fi
         if [ -x "$(command -v paccache)" ]; then
+            printf '\e[1mCleaning Pacman cache\e[0m\n'
             sudo paccache -r
         fi
         if [ -x "$(command -v pacdiff)" ]; then
-            sudo pacdiff
+            printf '\e[1mChecking for Pacman maintenance issues\e[0m\n'
+            sudo DIFFPROG="${EDITOR} -d" pacdiff
         fi
         # Solus
         if [ -x "$(command -v eopkg)" ]; then
@@ -144,6 +146,12 @@ pacu() {
             sudo apt update
             sudo apt full-upgrade --yes
             sudo apt autoremove --yes
+        fi
+        # Firmwares
+        if [ -x "$(command -v fwupdmgr)" ]; then
+            printf '\e[1mUpdating firmwares\e[0m\n'
+            fwupdmgr refresh
+            fwupdmgr update
         fi
         ;;
 
