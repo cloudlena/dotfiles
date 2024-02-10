@@ -106,7 +106,7 @@ protobuf
 pulsemixer
 pwgen
 python-pynvim
-qemu
+qemu-desktop
 reflector
 ripgrep
 rust
