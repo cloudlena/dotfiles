@@ -133,6 +133,7 @@ case "$(uname)" in
         fzf \
         gimp \
         git \
+        github-cli-bin \
         gnupg \
         go \
         golangci-lint-bin \
