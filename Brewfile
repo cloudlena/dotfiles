@@ -55,13 +55,13 @@ cask "graphql-playground"
 cask "imageoptim"
 cask "iterm2"
 cask "skype"
-cask "slack"
 cask "spotify"
 cask "virtualbox"
-cask "whatsapp"
 
 mas "1Password", id: 443987910
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
 mas "PopClip", id: 445189367
+mas "Slack", id: 803453959
+mas "WhatsApp", id: 1147396723
