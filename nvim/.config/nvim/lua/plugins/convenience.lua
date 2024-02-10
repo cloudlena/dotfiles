@@ -3,7 +3,7 @@ return {
     { "tpope/vim-sleuth", event = "VeryLazy" },
 
     -- Edit surrounds
-    { "tpope/vim-surround", event = "VeryLazy" },
+    { "kylechui/nvim-surround", event = "VeryLazy", config = true },
 
     -- Allow to repeat plugin commands
     { "tpope/vim-repeat", event = "VeryLazy" },
