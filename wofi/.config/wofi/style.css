@@ -1,0 +1,22 @@
+#window {
+  background-color: #212121;
+  font-family: "Fira Mono";
+  color: #bcbec0;
+}
+
+#input {
+  background-color: #212121;
+  border-radius: 0;
+  border-color: transparent;
+  color: #bcbec0;
+  padding: 5px;
+}
+
+#entry {
+  padding: 5px;
+}
+
+#entry:selected {
+  background-color: #a48add;
+  outline: none;
+}
