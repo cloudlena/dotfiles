@@ -130,7 +130,6 @@ case "$(uname)" in
 
     # Install additional language servers currently not available via Homebrew
     npm install --global \
-        bash-language-server \
         typescript-language-server \
         eslint_d
 
