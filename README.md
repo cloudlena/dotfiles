@@ -49,8 +49,8 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 - `<space>e`: Show diagnostics details
 - `[d`: Go to previous diagnostic issue
 - `d]`: Go to next diagnostic issue
-- `<space>rn`: Rename current symbol
-- `<space>ca`: Display code actions
+- `<space>r`: Rename current symbol
+- `<space>a`: Display code actions
 
 #### Testing
 
