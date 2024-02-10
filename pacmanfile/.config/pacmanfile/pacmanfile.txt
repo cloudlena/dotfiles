@@ -18,6 +18,7 @@ driftctl-bin
 dropbox
 efibootmgr
 eslint
+eslint_d
 ethtool
 fakeroot
 fd
