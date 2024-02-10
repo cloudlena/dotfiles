@@ -4,7 +4,6 @@ set nocompatible
 set shortmess=I
 " Set true terminal colors
 set termguicolors
-colorscheme elflord
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
