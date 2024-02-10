@@ -16,7 +16,7 @@ tooltip {
 
 /* Workspaces */
 #workspaces button {
-  padding: 1px 0.7em;
+  padding: 1px 9px;
 }
 
 #workspaces button:hover {
@@ -32,21 +32,26 @@ tooltip {
 
 /* Modules */
 #clock,
-#battery,
 #network,
 #pulseaudio,
 #bluetooth,
 #custom-updates,
 #custom-tasks,
 #mode {
-  padding: 1px 0.7em;
+  padding: 1px 9px;
+}
+
+#battery {
+  padding: 1px 12px;
 }
 
 #mode,
 #custom-updates {
   color: #bb9af7;
+  font-weight: bold;
 }
 
 #battery.critical {
   color: #f7768e;
+  font-weight: bold;
 }

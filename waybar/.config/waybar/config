@@ -19,7 +19,7 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "{icon}",
+    "format": "<span size=\"96%\">{icon}</span>",
     "format-icons": {
       "default": [
         "󰁺",
@@ -68,8 +68,8 @@
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
-    "format": "{icon}",
-    "format-muted": "",
+    "format": "<span size=\"110%\">{icon}</span>",
+    "format-muted": "<span size=\"110%\"></span>",
     "format-icons": [
       "",
       "",
@@ -79,8 +79,8 @@
   },
   "bluetooth": {
     "format": "",
-    "format-on": "󰂯",
-    "format-connected": "󰂱",
+    "format-on": "<span size=\"105%\">󰂯</span>",
+    "format-connected": "<span size=\"105%\">󰂱</span>",
     "tooltip-format-on": "Bluetooth {status}",
     "tooltip-format-connected": "Connected to {device_alias}"
   },
@@ -90,7 +90,7 @@
     "interval": 60
   },
   "custom/updates": {
-    "format": "󰣇 {}",
+    "format": "<span size=\"110%\">󰣇</span> {}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 7200,
     "on-click": "alacritty --command paru -Syu --noconfirm",
