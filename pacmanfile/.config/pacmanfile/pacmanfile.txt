@@ -142,6 +142,6 @@ xdg-desktop-portal-wlr
 xorg-xwayland
 yq
 zathura
-zathura-pdf-poppler
+zathura-pdf-mupdf
 zip
 zsh
