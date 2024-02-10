@@ -73,19 +73,18 @@ ide() {
 
 # Update dependencies
 depu() {
+    # Git submodules
+    if [ -e .gitmodules ]; then
+        printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
+        git submodule update --init
+    fi
+
     # npm
     if [ -e package-lock.json ]; then
         printf "Updating npm dependencies for %s...\n\n" "${PWD##*/}"
         npm install
         npm update
         npm outdated
-    fi
-
-    # Yarn
-    if [ -e yarn.lock ]; then
-        printf "Updating Yarn dependencies for %s...\n\n" "${PWD##*/}"
-        yarn upgrade > /dev/null
-        yarn outdated
     fi
 
     # Go
@@ -99,12 +98,6 @@ depu() {
     if [ -e Cargo.toml ]; then
         printf "Updating Cargo dependencies for %s...\n\n" "${PWD##*/}"
         cargo update
-    fi
-
-    # Git submodules
-    if [ -e .gitmodules ]; then
-        printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
-        git submodule update --init
     fi
 }
 
@@ -201,13 +194,6 @@ pacu() {
     if [ -x "$(command -v yarn)" ]; then
         printf '\e[1mUpdating globally installed Yarn packages\e[0m\n'
         (yarn global upgrade > /dev/null) &
-        processes+=("$!")
-    fi
-
-    # Ruby gems
-    if [ -x "$(command -v gem)" ]; then
-        printf '\e[1mUpdating Ruby gems\e[0m\n'
-        (sudo gem update --system --force && gem update --force && gem cleanup) &
         processes+=("$!")
     fi
 

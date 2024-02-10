@@ -52,11 +52,8 @@ case "$(uname)" in
         brew install stow
     fi
     # Remove existing config files
-    if [ -f ~/.bashrc ]; then
-        rm ~/.bashrc
-    fi
-    if [ -f ~/.bash_profile ]; then
-        rm ~/.bash_profile
+    if [ -f ~/.zshrc ]; then
+        rm ~/.zshrc
     fi
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/; do
@@ -89,8 +86,8 @@ case "$(uname)" in
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
-    . ~/dotfiles/bash/.path
-    . ~/dotfiles/bash/.functions
+    . ~/dotfiles/zsh/.zsh.d/.path
+    . ~/dotfiles/zsh/.zsh.d/.functions
     pacu
 
     # Install prezto
@@ -135,11 +132,8 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
     printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
     sudo pacman -Syu stow --noconfirm --needed
     # Remove existing config files
-    if [ -f ~/.bashrc ]; then
-        rm ~/.bashrc
-    fi
-    if [ -f ~/.bash_profile ]; then
-        rm ~/.bash_profile
+    if [ -f ~/.zshrc ]; then
+        rm ~/.zshrc
     fi
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/; do
@@ -208,8 +202,8 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
-    . ~/dotfiles/bash/.path
-    . ~/dotfiles/bash/.functions
+    . ~/dotfiles/zsh/.zsh.d/.path
+    . ~/dotfiles/zsh/.zsh.d/.functions
     pacu
 
     # Symlink nvim to vim if Vim not installed
