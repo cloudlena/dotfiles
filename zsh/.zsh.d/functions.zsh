@@ -174,10 +174,6 @@ pacu() {
 			printf '\e[1mSyncing packages with pacmanfile\e[0m\n'
 			pacmanfile sync
 		fi
-		if [ -x "$(command -v paccache)" ]; then
-			printf '\e[1mCleaning Pacman cache\e[0m\n'
-			sudo paccache --remove
-		fi
 		if [ -x "$(command -v pacdiff)" ]; then
 			printf '\e[1mChecking for Pacman maintenance issues\e[0m\n'
 			sudo DIFFPROG="${EDITOR} -d" pacdiff
