@@ -17,28 +17,28 @@ font:
 # Copied from https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/xresources/quantum.xresources
 colors:
   primary:
-    background: "0x263238"
-    foreground: "0xaebbc5"
+    background: "#263238"
+    foreground: "#aebbc5"
   cursor:
-    cursor: "0xc5ced5"
+    cursor: "#c5ced5"
   normal:
-    black: "0x425762"
-    red: "0xdd7186"
-    green: "0x87bb7c"
-    yellow: "0xd5b875"
-    blue: "0x70ace5"
-    magenta: "0xa48add"
-    cyan: "0x69c5ce"
-    white: "0xaebbc5"
+    black: "#425762"
+    red: "#dd7186"
+    green: "#87bb7c"
+    yellow: "#d5b875"
+    blue: "#70ace5"
+    magenta: "#a48add"
+    cyan: "#69c5ce"
+    white: "#aebbc5"
   bright:
-    black: "0x658494"
-    red: "0xed8499"
-    green: "0x97d589"
-    yellow: "0xe9cb88"
-    blue: "0x87bff5"
-    magenta: "0xb9a0ef"
-    cyan: "0x7bdbe4"
-    white: "0xc5ced5"
+    black: "#658494"
+    red: "#ed8499"
+    green: "#97d589"
+    yellow: "#e9cb88"
+    blue: "#87bff5"
+    magenta: "#b9a0ef"
+    cyan: "#7bdbe4"
+    white: "#c5ced5"
 
 key_bindings:
   - { key: Key0, mods: Command, action: ResetFontSize }

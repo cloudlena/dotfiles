@@ -2,12 +2,11 @@
 export LC_ALL='en_US.UTF-8';
 export LANG='en_US.UTF-8';
 
-# Make vim the default editor
-export EDITOR='vim';
+# Set default programs
+export TERMINAL='alacritty'
+export BROWSER='firefox'
+export EDITOR='nvim';
 export VISUAL="${EDITOR}"
-
-# Omit duplicates and commands that begin with a space from history
-export HISTCONTROL='ignoreboth';
 
 # Search only desired files with fzf
 export FZF_DEFAULT_COMMAND='rg --smart-case --files --no-ignore --hidden --follow --glob "!.DS_Store" --glob "!.git/*" --glob "!vendor/*" --glob "!node_modules/*" --glob "!.terraform/*" --glob "!bin/*" --glob "!build/*" --glob "!coverage/*" --glob "!dist/*" --glob "!target/*"'
