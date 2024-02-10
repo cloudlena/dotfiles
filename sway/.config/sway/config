@@ -172,7 +172,7 @@ exec kanshi
 exec gammastep
 
 # Enable autotiling
-exec autotiling
+exec autotiling-rs
 
 # Waybar Icons
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log

@@ -25,7 +25,7 @@ return require("packer").startup(function()
             require("tokyonight").setup({
                 style = "night",
             })
-            vim.cmd([[colorscheme tokyonight]])
+            vim.api.nvim_command("colorscheme tokyonight")
         end,
     })
 

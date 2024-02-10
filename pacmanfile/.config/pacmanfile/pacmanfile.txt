@@ -3,7 +3,7 @@ alacritty
 archlinux-keyring
 autoconf
 automake
-autotiling
+autotiling-rs
 aws-cli-v2-bin
 base
 bash-language-server
