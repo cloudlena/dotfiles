@@ -37,8 +37,8 @@ return {
         config = function()
             local dap = require("dap")
 
-            vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-            vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
+            vim.fn.sign_define("DapBreakpoint", { text = "󰌕", texthl = "", linehl = "", numhl = "" })
+            vim.fn.sign_define("DapBreakpointCondition", { text = "󰌖", texthl = "", linehl = "", numhl = "" })
 
             vim.keymap.set("n", "<Leader>dd", dap.continue, { desc = "Start/continue debugging" })
             vim.keymap.set("n", "<Leader>dn", dap.step_over, { desc = "Step over" })

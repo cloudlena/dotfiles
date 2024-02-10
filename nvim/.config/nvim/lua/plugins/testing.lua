@@ -40,10 +40,10 @@ return {
 
             neotest.setup({
                 icons = {
-                    failed = "",
-                    passed = "",
-                    running = "奈",
-                    unknown = "",
+                    failed = "󰅙",
+                    passed = "󰗠",
+                    running = "󰁙",
+                    unknown = "󰋗",
                 },
                 adapters = {
                     require("neotest-go"),
