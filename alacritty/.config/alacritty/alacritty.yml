@@ -9,9 +9,6 @@ font:
   normal:
     family: Fira Mono
   size: 12
-  offset:
-    x: 1
-    y: 1
 
 background_opacity: 0.9
 
