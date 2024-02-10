@@ -31,6 +31,7 @@ gnupg
 go
 golangci-lint-bin
 gopass
+gopass-jsonapi-bin
 grim
 gron-bin
 grub
