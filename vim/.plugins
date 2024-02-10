@@ -51,6 +51,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Golang
 Plug 'fatih/vim-go', { 'for': 'go' }
+let g:go_fmt_command = 'goimports'
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
