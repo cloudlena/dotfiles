@@ -2,7 +2,6 @@ alacritty
 autoconf
 automake
 aws-cli-v2-bin
-awslogs
 base
 bash-language-server
 bind
