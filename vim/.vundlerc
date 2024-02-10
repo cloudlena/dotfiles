@@ -7,51 +7,60 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" EasyMotion
-Plugin 'lokaltog/vim-easymotion'
+" Source tree
+Plugin 'scrooloose/nerdtree'
+let NERDTreeShowHidden = 1
+map <C-n> :NERDTreeToggle<CR>
 
 " Toggle Comments
 Plugin 'scrooloose/nerdcommenter'
 
+" Auto close braces
+Plugin 'jiangmiao/auto-pairs'
+
+" Git integration
+Plugin 'tpope/vim-fugitive'
+
 " Syntax Highlighting
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_go_checkers = ['gometalinter']
 
-" Pasting in Vim with correct indentation
-Plugin 'sickill/vim-pasta'
+" Show Git indicators with line numbers
+Plugin 'airblade/vim-gitgutter'
 
-" Match HTML tags for %
-Plugin 'tmhedberg/matchit'
-
-" Mark trailing whitespace
+" Mark trailing whitespaces
 Plugin 'bronson/vim-trailing-whitespace'
 
-" Emmet
-Plugin 'mattn/emmet-vim'
+" Ctrl P
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_show_hidden = 1
+map <C-p> :CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|vendor|build|media|__pycache__)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
-" Source tree
-Plugin 'scrooloose/nerdtree'
-
-" Auto completion
-Plugin 'valloric/youcompleteme'
-let NERDTreeShowHidden=1
+" Autocompletion
+Plugin 'Shougo/neocomplete.vim'
+let g:neocomplete#enable_at_startup = 1
 
 " Golang Plugin
 Plugin 'fatih/vim-go'
 
-" Node Plugin
-Plugin 'moll/vim-node'
-
 " Typescript
 Plugin 'leafgarland/typescript-vim'
-Plugin 'icholy/typescript-tools'
 
-" Open Files
-Plugin 'kien/ctrlp.vim'
-
-" Focus on one window
-Plugin 'vim-scripts/ZoomWin'
-
-
+" Hard mode for getting better
+Plugin 'takac/vim-hardtime'
+let g:hardtime_default_on = 1
 
 " Wakatime
 Plugin 'wakatime/vim-wakatime'
