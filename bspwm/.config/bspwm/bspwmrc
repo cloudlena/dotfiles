@@ -1,0 +1,16 @@
+#! /bin/sh
+
+# Autostart
+sxhkd &
+nitrogen --restore &
+polybar main &
+unclutter &
+
+# bspwm config
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+
+xsetroot -cursor_name left_ptr

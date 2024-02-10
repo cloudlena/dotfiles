@@ -1,0 +1,146 @@
+[colors]
+background = ${xrdb:background}
+background-light = #444
+foreground = ${xrdb:foreground}
+foreground-dim = #555
+red = ${xrdb:color1}
+
+[bar/main]
+fixed-center = false
+width = 100%
+height = 24
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-bottom-size = 3
+border-color = #00000000
+padding-right = 1
+module-margin-right = 2
+font-0 = monaco:size=10;3
+font-1 = siji:pixelsize=10;2
+modules-left = bspwm
+modules-center = mpd
+modules-right = alsa pulseaudio wlan eth battery date
+wm-restack = bspwm
+enable-ipc = true
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[settings]
+screenchange-reload = true
+
+[module/alsa]
+type = internal/alsa
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+label-muted = 
+label-muted-foreground = ${colors.foreground-dim}
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+
+[module/battery]
+type = internal/battery
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-dim}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-dim}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-dim}
+animation-charging-framerate = 750
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-dim}
+animation-discharging-framerate = 750
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %index%
+label-focused-background = ${colors.background-light}
+label-focused-padding = 1
+label-occupied = %index%
+label-occupied-padding = ${self.label-focused-padding}
+label-urgent = %index%!
+label-urgent-background = ${colors.red}
+label-urgent-padding = ${self.label-focused-padding}
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-dim}
+label-empty-padding = ${self.label-focused-padding}
+
+[module/date]
+type = internal/date
+interval = 5
+time = %H:%M
+label = %time%
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/eth]
+type = internal/network
+interface = enp0s25
+interval = 3
+label-connected = 
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-dim}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+label-muted = 🔇
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-dim}
