@@ -8,10 +8,10 @@ return {
                 function()
                     require("nvim-tree").toggle(true)
                 end,
-                "Toggle file tree",
+                desc = "Toggle file tree",
             },
         },
-        config = {
+        opts = {
             filters = {
                 custom = { "^.DS_Store$", "^.git$" },
             },

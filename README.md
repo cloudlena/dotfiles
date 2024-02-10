@@ -62,6 +62,7 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 #### Debugging
 
 - `<space>db`: Toggle breakpoint on current line
+- `<space>dB`: Set condition for breakpoint
 - `<space>dd`: Start debugger or continue to next breakpoint
 - `<space>dn`: Step over
 - `<space>di`: Step into

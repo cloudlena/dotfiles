@@ -28,5 +28,7 @@ return {
     },
     dap = {
         "delve",
+        "node-debug2",
+        "python",
     },
 }

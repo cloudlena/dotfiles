@@ -2,7 +2,7 @@ return {
     {
         "folke/zen-mode.nvim",
         cmd = { "ZenMode" },
-        config = {
+        opts = {
             window = {
                 backdrop = 1,
                 options = {

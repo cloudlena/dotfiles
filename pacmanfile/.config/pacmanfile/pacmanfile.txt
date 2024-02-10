@@ -14,13 +14,12 @@ bluez
 bluez-utils
 brave-bin
 brightnessctl
+chafa
 clipman
 curl
 diff-so-fancy
 driftctl-bin
 efibootmgr
-eslint
-eslint_d
 fakeroot
 fd
 file
@@ -131,7 +130,6 @@ tmate
 tmux
 tree
 ttf-firacode-nerd
-typescript
 udisks2
 unzip
 vifm

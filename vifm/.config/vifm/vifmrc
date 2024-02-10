@@ -1,13 +1,17 @@
 " Use Neovim
 set vicmd=nvim
 
-" Only open open pane instead of two
-only
+" Show hidden files
+set dotfiles
 
-" Set color scheme
-colorscheme tokyonight
+" File preview
+view
+fileviewer *.png,*.jpg,*.jpeg,*.webp,*.svg chafa %c
 
-" Configure programs to open files
+" Open files
 filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c &
 filetype *.mp3,*.mp4,*.mov,*.wav mpv --quiet %c &
 filetype *.pdf zathura %c &
+
+" Set color scheme
+colorscheme tokyonight

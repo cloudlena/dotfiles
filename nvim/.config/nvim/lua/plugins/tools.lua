@@ -10,7 +10,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim" },
         event = "VeryLazy",
-        config = {
+        opts = {
             ensure_installed = tools.lsp,
         },
     },

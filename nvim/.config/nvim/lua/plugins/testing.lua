@@ -7,6 +7,8 @@ return {
             "nvim-neotest/neotest-vim-test",
             "vim-test/vim-test",
             "nvim-neotest/neotest-go",
+            "haydenmeade/neotest-jest",
+            "nvim-neotest/neotest-python",
         },
         keys = {
             {
@@ -45,7 +47,14 @@ return {
                 },
                 adapters = {
                     require("neotest-go"),
-                    require("neotest-vim-test")({ ignore_filetypes = { "go" } }),
+                    require("neotest-jest"),
+                    require("neotest-python"),
+                    require("neotest-vim-test")({
+                        ignore_filetypes = {
+                            "go",
+                            "python",
+                        },
+                    }),
                 },
             })
 
