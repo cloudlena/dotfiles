@@ -92,6 +92,7 @@ python
 python-pip
 python-pynvim
 qemu
+reflector
 ripgrep
 sed
 shellcheck
