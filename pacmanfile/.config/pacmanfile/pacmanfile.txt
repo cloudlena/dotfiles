@@ -1,3 +1,4 @@
+aardvark-dns
 alacritty
 autoconf
 automake
