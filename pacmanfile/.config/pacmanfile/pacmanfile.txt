@@ -69,6 +69,7 @@ mpv
 nancy-bin
 ncdu
 neovim
+nerd-fonts-fira-code
 networkmanager
 nftables
 nmap
