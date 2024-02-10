@@ -22,12 +22,12 @@ alias bellring="tput bel"
 
 # System Update
 case $(uname) in
-	'Linux')  alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm  && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull)' ;;
-	'Darwin') alias pacu='brew update && brew upgrade && brew cleanup && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull)' ;;
+	'Linux')  alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm  && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull) && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
+	'Darwin') alias pacu='brew update && brew upgrade && brew cleanup && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull) && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
 esac
 
 # NPM update folder (also Bower)
-alias npmu='npm install && npm update && npm prune && bower install && bower update && bower prune && npm outdated'
+alias npmu='npm update && npm prune && bower install && bower update && bower prune && npm outdated'
 
 # Visual Studio Code
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
