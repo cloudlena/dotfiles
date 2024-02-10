@@ -8,7 +8,6 @@ autotiling-rs
 aws-cli-v2
 base
 bash-language-server
-bc
 bind
 binutils
 bison
