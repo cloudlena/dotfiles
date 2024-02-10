@@ -23,7 +23,7 @@ alias bellring="tput bel"
 # System Update
 case $(uname) in
 	'Linux')  alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm  && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull) && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
-	'Darwin') alias pacu='brew update && brew upgrade && brew cleanup && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull) && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
+	'Darwin') alias pacu='mas upgrade && brew update && brew upgrade && brew cleanup && npm update -g && npm outdated -g && (cd ~/dotfiles && git pull) && ~/dotfiles/bash/update-js.sh && ~/dotfiles/bash/update-go.sh' ;;
 esac
 
 # NPM update folder (also Bower)
