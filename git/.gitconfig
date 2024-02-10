@@ -1,0 +1,13 @@
+[user]
+	email = tobias.fuhrimann@swisscom.com
+	name = Tobias Fuhrimann
+[push]
+	default = matching
+[core]
+	excludesfile = ~/.gitignore_global
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[color]
+	ui = true
