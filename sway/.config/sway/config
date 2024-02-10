@@ -26,7 +26,7 @@ output * bg $wallpaper fill
 exec swayidle -w \
     timeout 300 '$lock_cmd' \
     timeout 600 'swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"' \
+    resume 'swaymsg "output * dpms on"' \
     timeout 900 '$sleep_cmd' \
     before-sleep '$lock_cmd' \
     lock '$lock_cmd'
