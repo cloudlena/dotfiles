@@ -44,8 +44,12 @@ case "$(uname)" in
         brew install stow
     fi
     # Remove existing config files
-    rm ~/.bashrc
-    rm ~/.bash_profile
+    if [ -f ~/.bashrc ]; then
+        rm ~/.bashrc
+    fi
+    if [ -f ~/.bash_profile ]; then
+        rm ~/.bash_profile
+    fi
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/
     do
@@ -53,8 +57,10 @@ case "$(uname)" in
     done
 
     # Use vimrc as Neovim config
+    if [ -f ~/.config/nvim/init.vim ]; then
+        rm ~/.config/nvim/init.vim
+    fi
     mkdir -p ~/.config/nvim
-    rm ~/.config/nvim/init.vim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Install Python3 and pip3 if not installed
@@ -69,12 +75,14 @@ case "$(uname)" in
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
+    source ~/dotfiles/bash/.path
     source ~/dotfiles/bash/.functions
     pacu
 
-    # Symlink Neovim to vim
-    sudo rm /usr/bin/vim
-    sudo ln -s /usr/bin/nvim /usr/bin/vim
+    # Symlink Neovim to vim if vim not installed
+    if [ ! -f /usr/bin/vim ]; then
+        sudo ln -s /usr/bin/nvim /usr/bin/vim
+    fi
 
     # Install diff-so-fancy
     if [ ! -x "$(command -v npm)" ]; then
@@ -86,7 +94,7 @@ case "$(uname)" in
         chsh -s "$(which zsh)"
     fi
 
-    echo 'Dotfiles successfully initialized'
+    echo 'Dotfiles successfully initialized. Please reboot to finalize.'
     ;;
 
 'Linux')
@@ -106,8 +114,12 @@ case "$(uname)" in
     # Install stow if not installed
     sudo pacman -Syu stow --noconfirm --needed
     # Remove existing config files
-    rm ~/.bashrc
-    rm ~/.bash_profile
+    if [ -f ~/.bashrc ]; then
+        rm ~/.bashrc
+    fi
+    if [ -f ~/.bash_profile ]; then
+        rm ~/.bash_profile
+    fi
     # Stow subdirectories of dotfiles
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
@@ -140,17 +152,21 @@ case "$(uname)" in
     fi
 
     # Use vimrc as Neovim config
+    if [ -f ~/.config/nvim/init.vim ]; then
+        rm ~/.config/nvim/init.vim
+    fi
     mkdir -p ~/.config/nvim
-    rm ~/.config/nvim/init.vim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
     # Run full system upgrade
+    source ~/dotfiles/bash/.path
     source ~/dotfiles/bash/.functions
     pacu
 
-    # Symlink Neovim to vim
-    sudo rm /usr/bin/vim
-    sudo ln -s /usr/bin/nvim /usr/bin/vim
+    # Symlink Neovim to vim if vim not installed
+    if [ ! -f /usr/bin/vim ]; then
+        sudo ln -s /usr/bin/nvim /usr/bin/vim
+    fi
 
     # Install diff-so-fancy
     if [ ! -x "$(command -v npm)" ]; then
@@ -162,7 +178,7 @@ case "$(uname)" in
         chsh -s "$(which zsh)"
     fi
 
-    echo 'Dotfiles successfully initialized'
+    echo 'Dotfiles successfully initialized. Please reboot to finalize.'
     ;;
 
 # Default
