@@ -1,5 +1,5 @@
 " Import plugins
-source ~/.plugins.vimrc
+source ~/.config/nvim/plugins.vim
 
 " Many basic options are already set by the tpope/vim-sensible plugin
 

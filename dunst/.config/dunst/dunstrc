@@ -1,15 +1,18 @@
 [global]
 follow = keyboard
-geometry = "300x0-20+20"
+geometry = "400x0-20+20"
 padding = 10
 horizontal_padding = 15
-font = Fira Mono 10
-format = "<b>%s</b>\n%b"
+font = Fira Mono 9
+format = "<b>%s</b>\n\n%b"
 ellipsize = end
+frame_width = 1
+frame_color = "#a48add"
 
 [urgency_normal]
-background = "#a48add"
+background = "#212121"
 
 [urgency_critical]
 background = "#dd7186"
+frame_color = "#dd7186"
 timeout = 0

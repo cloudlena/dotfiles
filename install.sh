@@ -107,6 +107,8 @@ case "$(uname)" in
         aws-cli \
         base \
         base-devel \
+        bluez \
+        bluez-utils \
         bspwm \
         clipmenu \
         cmake \
@@ -115,7 +117,7 @@ case "$(uname)" in
         dmenu \
         dunst \
         fd \
-        firefox \
+        fwupd \
         fzf \
         git \
         gnupg \
@@ -123,6 +125,7 @@ case "$(uname)" in
         gopass \
         grub \
         htop \
+        iceweasel \
         iputils \
         jq \
         kubectl \
@@ -133,6 +136,7 @@ case "$(uname)" in
         mpv \
         neovim \
         networkmanager \
+        nftables \
         nitrogen \
         nodejs \
         npm \
@@ -143,6 +147,8 @@ case "$(uname)" in
         protobuf \
         python \
         python-pip \
+        qemu \
+        redshift \
         ripgrep \
         ruby \
         scrot \
@@ -151,11 +157,13 @@ case "$(uname)" in
         sxhkd \
         sxiv \
         terraform \
+        tlp \
         tmate \
         tmux \
         tree \
         ttf-fira-mono \
         typescript \
+        udisks2 \
         unclutter \
         vi \
         vifm \
@@ -177,16 +185,14 @@ case "$(uname)" in
     yay -Syu --noconfirm --needed \
         awslogs \
         betterlockscreen \
-        cloudfoundry-cli \
         dropbox \
         golangci-lint-bin \
         hadolint-bin \
         origin-client-bin \
         polybar \
-        slack-desktop \
-        sc-im \
         siji-git \
-        spotify \
+        spotifyd \
+        spotify-tui \
         tflint-bin
 
     # Set colors for pacman
@@ -215,14 +221,6 @@ case "$(uname)" in
     exit 1
     ;;
 esac
-
-# Use vimrc as Neovim config
-printf '\e[1mSetting up NeoVim\e[0m\n'
-if [ -f ~/.config/nvim/init.vim ]; then
-    rm ~/.config/nvim/init.vim
-fi
-mkdir -p ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Install the Python NeoVim package
 pip install --upgrade --user pynvim

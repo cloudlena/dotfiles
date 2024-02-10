@@ -127,6 +127,9 @@ pacu() {
             printf '\e[1mUpdating Yay packages\e[0m\n'
             yay -Syua --noconfirm
         fi
+        if [ -x "$(command -v pacdiff)" ]; then
+            sudo pacdiff
+        fi
         # Solus
         if [ -x "$(command -v eopkg)" ]; then
             printf '\e[1mUpdating eopkg packages\e[0m\n'
