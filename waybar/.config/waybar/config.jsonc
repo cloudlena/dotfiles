@@ -32,13 +32,13 @@
     "format-wifi": "{icon}",
     "format-linked": "󰈀",
     "format-disconnected": "󰖪",
-    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
-    "format": "<span size=\"110%\">{icon}</span>",
-    "format-muted": "<span size=\"110%\"></span>",
-    "format-icons": ["", "", ""],
+    "format": "<span size=\"120%\">{icon}</span>",
+    "format-muted": "<span size=\"120%\">󰸈</span>",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
     "tooltip-format": "Volume at {volume}%"
   },
   "bluetooth": {
