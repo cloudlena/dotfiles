@@ -9,5 +9,7 @@ PATH="$PATH:$HOME/bin"
 GOPATH="$HOME/go"
 PATH="$PATH:$GOPATH/bin"
 
+PATH="$PATH:$HOME/.node_modules/bin"
+
 export GOPATH
 export PATH

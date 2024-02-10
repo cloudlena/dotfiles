@@ -11,6 +11,7 @@ brew "python"
 brew "ruby"
 
 # Tools
+brew "awscli"
 brew "cloudfoundry/tap/cf-cli"
 brew "cmake"
 brew "dep"
