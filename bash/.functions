@@ -118,7 +118,7 @@ function pacu() {
 
 # Ruby
     if [ -x "$(command -v gem)" ]; then
-        (gem update --force) &
+        (gem update --force && gem cleanup) &
         ruby_pid="$!"
     fi
 
