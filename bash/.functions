@@ -79,12 +79,18 @@ function depu() {
     fi
 
     # Yarn
-    pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
     lock_count=$(ls -1 yarn.lock 2>/dev/null | wc -l)
-    if [ "${pkg_count}" -gt 0 ] && [ "${lock_count}" -gt 0 ]; then
+    if [ "${lock_count}" -gt 0 ]; then
         printf "Updating Yarn dependencies for ${PWD##*/}...\n\n"
         yarn upgrade > /dev/null
         yarn outdated
+    fi
+
+    # Go
+    pkg_count=$(ls -1 go.mod 2>/dev/null | wc -l)
+    if [ "${pkg_count}" -gt 0 ]; then
+        printf "Updating Go dependencies for ${PWD##*/}...\n\n"
+        go1.11beta3 get -u
     fi
 
     # Go dep
@@ -93,7 +99,6 @@ function depu() {
         echo "Updating Go dep dependencies...\n"
         dep ensure
         dep ensure -update
-        # dep status -old
     fi
 
 }
