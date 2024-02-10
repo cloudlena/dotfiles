@@ -1,6 +1,7 @@
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.ignorecase = true -- Ignore case
 vim.opt.inccommand = "split" -- Preview for find-replace command
+vim.opt.laststatus = 3 -- Global status line
 vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.shortmess = "I" -- Disable welcome screen
