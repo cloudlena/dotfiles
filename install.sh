@@ -123,7 +123,7 @@ case "$(uname)" in
     # Change npm folder
     if [ -x "$(command -v npm)" ]; then
         mkdir -p ~/.node_modules/lib
-        npm config set prefix ~/.node_modules
+        npm config set prefix '~/.node_modules'
     fi
     ;;
 
