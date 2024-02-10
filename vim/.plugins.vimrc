@@ -52,6 +52,7 @@ let g:DirDiffExcludes = ".git,node_modules,vendor,dist,.DS_Store,.*.swp"
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
