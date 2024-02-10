@@ -57,12 +57,6 @@ case "$(uname)" in
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
 
-    # Change npm folder
-    if [ -x "$(command -v npm)" ]; then
-        mkdir -p ~/.node_modules/lib
-        npm config set prefix ~/.node_modules
-    fi
-
     # Install pip if not installed
     if [ ! -x "$(command -v pip)" ]; then
         sudo easy_install pip
@@ -181,6 +175,12 @@ case "$(uname)" in
 
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
+    # Change npm folder
+    if [ -x "$(command -v npm)" ]; then
+        mkdir -p ~/.node_modules/lib
+        npm config set prefix ~/.node_modules
+    fi
 
     # Configure betterlockscreen
     betterlockscreen --update ~/.config/wallpapers/small-memory.jpg
