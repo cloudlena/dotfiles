@@ -21,3 +21,6 @@ alias sudo='sudo '
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)
 alias bellring="tput bel"
+
+# ARCH Pacman Update
+alias pacu='sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm && sudo npm update -g'
