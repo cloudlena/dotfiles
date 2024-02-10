@@ -23,11 +23,15 @@ eslint_d
 ethtool
 fakeroot
 fd
+file
+findutils
 flex
 fwupd
 fzf
 gammastep
+gawk
 gcc
+gettext
 gimp
 git
 github-cli
@@ -38,10 +42,12 @@ gopass
 gopass-jsonapi
 gopls
 go-tools
+grep
 grim
 groff
 gron-bin
 grub
+gzip
 hadolint-bin
 htop
 hugo
@@ -85,6 +91,7 @@ openssh
 optipng
 otf-fira-mono
 otf-font-awesome
+pacman
 pacman-contrib
 pacmanfile
 paru-bin
