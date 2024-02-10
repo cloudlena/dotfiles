@@ -104,7 +104,6 @@ depu() {
     # npm
     if [ -e package-lock.json ]; then
         printf "Updating npm dependencies for %s...\n\n" "${PWD##*/}"
-        npm install
         npm update
         npm outdated
     fi
