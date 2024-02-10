@@ -134,16 +134,16 @@ pacu() {
     printf '\e[1mUpdating dotfiles repo\e[0m\n'
     (cd "${HOME}/dotfiles" && git pull)
 
-    # System tools
     case "$(uname)" in
-    # On Linux, use the respective package manager
+
     'Linux')
-        # Arch Linux
+        # On Linux, use the respective package manager
         if [ -x "$(command -v paru)" ]; then
             printf '\e[1mUpdating Paru packages\e[0m\n'
             paru -Syu --noconfirm
             orphans=$(paru -Qtdq) || orphans=''
             if [ -n "${orphans}" ]; then
+                printf '\e[1mRemoving orphan packages\e[0m\n'
                 paru -Rns $orphans --noconfirm
             fi
             paru -Sc --noconfirm
@@ -153,6 +153,7 @@ pacu() {
             sudo pacman -Syu --noconfirm
             orphans=$(sudo pacman -Qtdq) || orphans=''
             if [ -n "${orphans}" ]; then
+                printf '\e[1mRemoving orphan packages\e[0m\n'
                 sudo pacman -Rns $orphans --noconfirm
             fi
             sudo pacman -Sc --noconfirm
@@ -169,28 +170,31 @@ pacu() {
             printf '\e[1mChecking for Pacman maintenance issues\e[0m\n'
             sudo DIFFPROG="${EDITOR} -d" pacdiff
         fi
-        # Firmwares
+
+        # Update status bar indicator for pending updates
+        pkill -SIGRTMIN+8 waybar
+
+        # Update firmwares
         if [ -x "$(command -v fwupdmgr)" ]; then
             printf '\e[1mUpdating firmwares\e[0m\n'
             fwupdmgr refresh
             fwupdmgr update
         fi
-        # Update status bar indicator for pending updates
-        pkill -SIGRTMIN+8 waybar
         ;;
 
-    # On macOS, use mas and Homebrew
     'Darwin')
+        # On macOS, use mas and Homebrew
         if [ -x "$(command -v mas)" ]; then
             printf '\e[1mUpdating App Store apps\e[0m\n'
             mas upgrade
         fi
+
         if [ -x "$(command -v brew)" ]; then
             printf '\e[1mUpdating Homebrew packages\e[0m\n'
             brew update
             brew upgrade
-            cat ~/dotfiles/*Brewfile | brew bundle --file=-
-            cat ~/dotfiles/*Brewfile | brew bundle cleanup --force --file=-
+            cat ~/.config/homebrew/*Brewfile | brew bundle --file=-
+            cat ~/.config/homebrew/*Brewfile | brew bundle cleanup --force --file=-
             brew cu --all --yes --cleanup
             brew cleanup --prune 7
         fi
