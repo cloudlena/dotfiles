@@ -12,6 +12,14 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+-- Automatically Run PackerCompile when this file changes
+local packer_compile_augroup = vim.api.nvim_create_augroup("PackerCompile", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+    group = packer_compile_augroup,
+    pattern = "plugins.lua",
+    command = "source <afile> | PackerCompile",
+})
+
 return require("packer").startup(function()
     local function km_opts(desc)
         return { noremap = true, silent = true, desc = desc }
