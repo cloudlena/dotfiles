@@ -16,18 +16,21 @@ tooltip {
 
 /* Workspaces */
 #workspaces button {
-  padding: 1px 9px;
+  margin: 4px;
+  padding: 0 8px;
+  border-radius: 9999px;
 }
 
 #workspaces button:hover {
-  background: #414868;
   border-color: transparent;
   box-shadow: none;
+  background: #414868;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: #414868;
+  padding: 0 13px;
+  background: #2f334d;
 }
 
 /* Modules */
@@ -35,15 +38,19 @@ tooltip {
 #network,
 #pulseaudio,
 #bluetooth,
+#battery,
 #custom-updates,
 #custom-tasks,
 #custom-containers,
 #mode {
-  padding: 1px 9px;
+  margin: 4px;
+  padding: 0 13px;
+  border-radius: 9999px;
+  background-color: #2f334d;
 }
 
-#battery {
-  padding: 1px 12px;
+#network {
+  padding: 0 15px 0 11px;
 }
 
 #mode,
