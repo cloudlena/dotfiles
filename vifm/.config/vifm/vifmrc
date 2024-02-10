@@ -8,5 +8,5 @@ only
 colorscheme tokyonight
 
 " Configure programs to open files
-filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c
-filetype *.pdf zathura %c
+filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c &
+filetype *.pdf zathura %c &
