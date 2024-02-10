@@ -1,9 +1,6 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
-
 " Git integration
 Plug 'tpope/vim-fugitive'
 
@@ -25,7 +22,6 @@ Plug 'jiangmiao/auto-pairs'
 " Syntax Highlighting
 Plug 'neomake/neomake'
 autocmd! BufWritePost,BufEnter * Neomake
-
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
