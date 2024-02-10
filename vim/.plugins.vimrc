@@ -139,7 +139,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 let g:rustfmt_autosave = 1
 
 " JavaScript
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
@@ -161,7 +161,7 @@ let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-" NGINX
+" nginx
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 
 " Initialize plugin system
