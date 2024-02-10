@@ -72,7 +72,7 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 ## Installation
 
 1. Clone this repo to `~/dotfiles` by running `git clone git@github.com:cloudlena/dotfiles.git ~/dotfiles`
-1. Change the name and email address in `git/.gitconfig`
+1. Change the name and email address in `git/.config/git/config`
 1. Arch Linux only: Change `pacmanfile/.config/pacmanfile/pacmanfile.txt` to your liking or add `pacmanfile-extra.txt` to the same directory for independent packages per machine
 1. macOS only: Change `Brewfile` to your liking or add `extra.Brewfile` for independent packages per machine
 1. macOS only: If you have apps installed which you didn't install through `brew` but that you now added to `Brewfile`, you need to reinstall them with `brew install <name> --force`, so `brew` knows it's supposed to manage these apps.
