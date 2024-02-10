@@ -89,7 +89,7 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 let g:deoplete#enable_at_startup = 1
 
 " Golang
