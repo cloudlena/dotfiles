@@ -27,6 +27,7 @@ file
 findutils
 flex
 fwupd
+fx
 fzf
 gammastep
 gawk
@@ -55,7 +56,6 @@ imv
 informant
 inkscape
 intel-ucode
-jless
 jpegoptim
 jq
 kanshi
