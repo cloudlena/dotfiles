@@ -123,6 +123,7 @@ case "$(uname)" in
         clipman \
         curl \
         diff-so-fancy \
+        dropbox \
         efibootmgr \
         eslint \
         ethtool \
@@ -147,6 +148,7 @@ case "$(uname)" in
         informant \
         inkscape \
         iputils \
+        jpegoptim \
         jq \
         kanshi \
         kubectl \
@@ -161,38 +163,42 @@ case "$(uname)" in
         mako \
         man-db \
         mpv \
+        nancy-bin \
         ncdu \
         neovim \
         networkmanager \
         nftables \
         nikto \
+        nmap \
         nodejs \
         noto-fonts-cjk \
         noto-fonts-emoji \
         npm \
         openssh \
+        optipng \
         otf-fira-mono \
         otf-font-awesome \
         pacman-contrib \
-        pkgconf \
+        pacmanfile \
+        pipewire \
         playerctl \
         podman-compose \
-        podman-docker \
         prettier \
         protobuf \
         pulseaudio \
         pulseaudio-alsa \
         pulseaudio-bluetooth \
         pulsemixer \
+        pwgen \
         python \
         python-pip \
         python-pynvim \
         qemu \
-        rclone \
         ripgrep \
         ruby \
         sed \
         shellcheck \
+        signal-desktop \
         slurp \
         smartmontools \
         spotifyd \
@@ -204,6 +210,7 @@ case "$(uname)" in
         swaylock \
         termshark \
         terraform \
+        terraform-lsp-bin \
         tflint-bin \
         tlp \
         tlp-rdw \
@@ -213,7 +220,6 @@ case "$(uname)" in
         typescript \
         udisks2 \
         unzip \
-        vi \
         vifm \
         waybar \
         wf-recorder \
@@ -221,6 +227,9 @@ case "$(uname)" in
         whois \
         wl-clipboard \
         wofi \
+        xdg-desktop-portal-wlr \
+        xorg-xwayland \
+        yq \
         zathura \
         zathura-pdf-poppler \
         zsh
