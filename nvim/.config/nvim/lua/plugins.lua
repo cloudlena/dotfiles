@@ -64,8 +64,7 @@ return require("packer").startup(function()
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, km_opts)
 
             -- Add additional capabilities supported by nvim-cmp
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
