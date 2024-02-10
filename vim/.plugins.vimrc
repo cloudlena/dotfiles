@@ -138,7 +138,7 @@ let g:rustfmt_autosave = 1
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install --global tern', 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 
