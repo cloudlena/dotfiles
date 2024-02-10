@@ -22,15 +22,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax Highlighting
-Plug 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_go_checkers = ['gometalinter']
+Plug 'neomake/neomake'
+autocmd! BufWritePost,BufEnter * Neomake
+
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
