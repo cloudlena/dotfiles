@@ -151,6 +151,7 @@ case "$(uname)" in
         networkmanager \
         nftables \
         nodejs \
+        noto-fonts-emoji \
         npm \
         openssh \
         origin-client-bin \
