@@ -356,18 +356,41 @@ return require("packer").startup(function()
 
     -- Testing
     use({
-        "rcarriga/vim-ultest",
-        requires = { "vim-test/vim-test" },
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/neotest-go",
+            "nvim-neotest/neotest-vim-test",
+            "vim-test/vim-test",
+        },
         config = function()
-            vim.g["test#java#runner"] = "gradletest"
+            require("neotest").setup({
+                icons = {
+                    failed = "",
+                    passed = "",
+                    running = "奈",
+                    unknown = "",
+                },
+                adapters = {
+                    require("neotest-go"),
+                    require("neotest-vim-test")({ ignore_filetypes = { "go" } }),
+                },
+            })
 
-            vim.g.ultest_pass_sign = "﫠"
-            vim.g.ultest_fail_sign = ""
-            vim.g.ultest_running_sign = "奈"
-            vim.g.ultest_not_run_sign = ""
-
-            vim.keymap.set("n", "<space>tf", "<Cmd>UltestSummaryOpen<CR><Cmd>Ultest<CR>", { silent = true })
-            vim.keymap.set("n", "<space>tn", "<Cmd>UltestNearest<CR>", { silent = true })
+            vim.keymap.set("n", "<space>tf", function()
+                local neotest = require("neotest")
+                neotest.run.run(vim.fn.expand("%"))
+                neotest.summary.open()
+            end, { silent = true })
+            vim.keymap.set("n", "<space>tn", function()
+                require("neotest").run.run()
+            end, { silent = true })
+            vim.keymap.set("n", "<space>ta", function()
+                local neotest = require("neotest")
+                neotest.run.run(vim.fn.getcwd())
+                neotest.summary.open()
+            end, { silent = true })
         end,
     })
 
