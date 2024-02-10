@@ -13,4 +13,7 @@ return {
 
     -- Toggle comments
     { "numToStr/Comment.nvim", keys = { "gc", { "gc", mode = "v" } }, config = true },
+
+    -- Highlight color definitions
+    { "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = true },
 }
