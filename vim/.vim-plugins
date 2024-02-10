@@ -75,15 +75,7 @@ Plug 'airblade/vim-gitgutter'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nnoremap <C-P> :call FzfOmniFiles()<cr>
-function! FzfOmniFiles()
-  call system('git status')
-  if v:shell_error
-    :Files
-  else
-    :GFiles
-  endif
-endfunction
+nnoremap <C-P> :Files<cr>
 
 " Tagbar
 Plug 'majutsushi/tagbar'
