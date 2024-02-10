@@ -99,12 +99,14 @@ endif
 
 " Typescript language support
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'Shougo/vimproc.vim', { 'do': 'make', 'for': 'typescript' }
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 
 " JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
+
+" GraphQL schema support
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
 " Initialize plugin system
 call plug#end()
