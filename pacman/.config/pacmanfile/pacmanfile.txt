@@ -73,7 +73,6 @@ playerctl
 podman
 prettier
 protobuf
-pulsemixer
 pwgen
 python-poetry
 python-pynvim

@@ -4,7 +4,7 @@
   "modules-right": [
     "custom/updates",
     "custom/containers",
-    "pulseaudio",
+    "wireplumber",
     "bluetooth",
     "network",
     "battery",
@@ -35,7 +35,7 @@
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
-  "pulseaudio": {
+  "wireplumber": {
     "format": "<span size=\"120%\">{icon}</span>",
     "format-muted": "<span size=\"120%\">󰸈</span>",
     "format-icons": ["󰕿", "󰖀", "󰕾"],
