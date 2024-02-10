@@ -1,1 +1,12 @@
+" Use Neovim
+set vicmd=nvim
+
+" Only open open pane instead of two
+only
+
+" Set color scheme
 colorscheme tokyonight
+
+" Configure programs to open files
+filetype *.png,*.jpg,*.jpeg,*.webp,*.svg imv %c
+filetype *.pdf zathura %c

@@ -27,7 +27,7 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 
 ### Text Editor
 
-Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE". The entire setup with all plugins can also be run as a [container](https://github.com/cloudlena/vide).
+Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE". The entire setup with all plugins can also be run as a [container](https://github.com/cloudlena/vide).
 
 - `e`: Start Neovim with all plugins
 - `ide`: Start Neovim with all plugins in an IDE like window layout
@@ -62,7 +62,7 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
 
    **WARNING: This may install and/or remove software and change your configs!**
 
-1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc`, or create a new one by following the [GitHub guide](https://help.github.com/en/articles/generating-a-new-gpg-key). You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your Git commits.
+1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc`, or create a new one by following the [GitHub guide](https://help.github.com/en/articles/generating-a-new-gpg-key). You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` to correctly sign your Git commits.
 1. Either import an existing SSH key pair by copying it to `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` or create a new one by following the [GitHub guide](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ## Quick Installation without customization (not recommended unless you're the owner of this repo :wink:)
