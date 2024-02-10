@@ -55,9 +55,8 @@ cask "appcleaner"
 cask "docker"
 cask "dropbox"
 cask "firefox"
-cask "graphql-playground"
 cask "imageoptim"
-cask "skype"
+cask "signal"
 cask "spotify"
 cask "virtualbox"
 
@@ -66,4 +65,3 @@ mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
 mas "PopClip", id: 445189367
 mas "Slack", id: 803453959
-mas "WhatsApp", id: 1147396723
