@@ -168,7 +168,6 @@ case "$(uname)" in
         noto-fonts-emoji \
         npm \
         openssh \
-        origin-client-bin \
         otf-fira-mono \
         otf-font-awesome \
         pacman-contrib \
