@@ -3,6 +3,7 @@
   "modules-center": ["custom/tasks"],
   "modules-right": [
     "custom/updates",
+    "custom/containers",
     "pulseaudio",
     "bluetooth",
     "network",
@@ -58,5 +59,11 @@
     "interval": 7200,
     "on-click": "alacritty --command paru -Syu --noconfirm",
     "signal": 8
+  },
+  "custom/containers": {
+    "exec": "~/.config/waybar/scripts/containers.sh",
+    "exec-if": "which podman",
+    "interval": 60,
+    "return-type": "json"
   }
 }
