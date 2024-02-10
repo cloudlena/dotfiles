@@ -15,7 +15,7 @@ border-bottom-size = 3
 border-color = #00000000
 padding-right = 1
 module-margin-right = 2
-font-0 = monaco:size=10;3
+font-0 = fira mono:size=10;3
 font-1 = siji:pixelsize=10;2
 modules-left = bspwm
 modules-center = mpd
