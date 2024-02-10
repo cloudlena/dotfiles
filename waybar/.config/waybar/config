@@ -14,9 +14,9 @@
       "critical": 10
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "tooltip-format": "{time}",
-    "format-icons": ["", "", "", "", ""]
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
