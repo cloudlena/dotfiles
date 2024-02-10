@@ -125,11 +125,13 @@ sway
 swayhide
 swayidle
 swaylock
+task
 termshark
 terraform
 terraform-ls-bin
 texinfo
 tflint-bin
+timew
 tlp
 tlp-rdw
 tmate
