@@ -156,8 +156,10 @@ case "$(uname)" in
         spotify \
         tmate
 
-    # Enable docker service
+    # Enable docker service and allow user to run it without sudo
     sudo systemctl enable docker.service
+    sudo groupadd docker
+    sudo usermod -aG docker "${USER}"
 
     # Change npm folder
     if [ -x "$(command -v npm)" ]; then
