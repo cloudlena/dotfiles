@@ -76,6 +76,7 @@ depu() {
     # npm
     if [ -e package-lock.json ]; then
         printf "Updating npm dependencies for %s...\n\n" "${PWD##*/}"
+        npm install
         npm update
         npm outdated
     fi
@@ -90,7 +91,7 @@ depu() {
     # Go
     if [ -e go.mod ]; then
         printf "Updating Go dependencies for %s...\n\n" "${PWD##*/}"
-        go get -u
+        go get -u -t all
         go mod tidy
     fi
 
