@@ -2,6 +2,7 @@
   "layer": "top",
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-right": [
+    "custom/failed-services",
     "custom/updates",
     "network",
     "pulseaudio",
@@ -50,5 +51,11 @@
     "interval": 600,
     "on-click": "alacritty -e 'paru'; pkill -SIGRTMIN+8 waybar",
     "signal": 8
+  },
+  "custom/failed-services": {
+    "format": "⚠{}",
+    "exec": "~/.config/waybar/scripts/failed-services.sh",
+    "interval": 1200,
+    "on-click": "alacritty -e 'systemctl --failed'"
   }
 }

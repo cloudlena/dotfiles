@@ -53,6 +53,7 @@ light
 linux
 linux-firmware
 lolcat
+lostfiles
 m4
 make
 mako

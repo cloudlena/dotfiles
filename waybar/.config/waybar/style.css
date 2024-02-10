@@ -33,6 +33,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #custom-updates,
+#custom-failed-services,
 #mode {
   padding: 0 3px;
   margin: 0 8px;
@@ -42,6 +43,11 @@ window#waybar {
 #custom-updates {
   font-weight: bold;
   color: #a48add;
+}
+
+#custom-failed-services {
+  font-weight: bold;
+  color: #dd7186;
 }
 
 #network.disconnected {
