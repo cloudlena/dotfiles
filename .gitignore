@@ -1,4 +1,5 @@
 extra.Brewfile
+pacmanfile/.config/pacmanfile/pacmanfile-extra.txt
 zsh/.zsh.d/extra.zsh
 
 # Neovim creates additional files which need to be ignored

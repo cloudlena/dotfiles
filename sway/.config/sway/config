@@ -60,7 +60,7 @@ bindsym $mod+space exec wofi --show drun --no-actions | xargs swaymsg exec --
 bindsym $mod+Return exec $TERMINAL
 
 # Launch browser
-bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 $BROWSER
+bindsym $mod+w exec XDG_CURRENT_DESKTOP=sway MOZ_ENABLE_WAYLAND=1 $BROWSER
 
 # Take screenshots
 bindsym Print exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
