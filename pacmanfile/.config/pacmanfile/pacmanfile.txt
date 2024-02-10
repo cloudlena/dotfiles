@@ -71,7 +71,6 @@ nodejs
 noto-fonts-cjk
 noto-fonts-emoji
 npm
-opendoas
 openssh
 optipng
 otf-fira-mono
@@ -89,8 +88,6 @@ prettier
 protobuf
 pulsemixer
 pwgen
-python
-python-pip
 python-pynvim
 qemu
 reflector
@@ -105,6 +102,7 @@ smartmontools
 speedtest-cli
 spotifyd
 spotify-tui-bin
+sudo
 svgo
 sway
 swayidle

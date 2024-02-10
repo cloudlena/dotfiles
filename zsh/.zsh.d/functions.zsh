@@ -150,12 +150,12 @@ pacu() {
             paru --clean --noconfirm
         elif [ -x "$(command -v pacman)" ]; then
             printf '\e[1mUpdating pacman packages\e[0m\n'
-            doas pacman -Syu --noconfirm
-            orphans=$(doas pacman -Qtdq) || orphans=''
+            sudo pacman -Syu --noconfirm
+            orphans=$(sudo pacman -Qtdq) || orphans=''
             if [ -n "${orphans}" ]; then
-                doas pacman -Rns $orphans --noconfirm
+                sudo pacman -Rns $orphans --noconfirm
             fi
-            doas pacman -Sc --noconfirm
+            sudo pacman -Sc --noconfirm
         fi
         if [ -x "$(command -v pacmanfile)" ]; then
             printf '\e[1mSyncing packages with pacmanfile\e[0m\n'
@@ -163,11 +163,11 @@ pacu() {
         fi
         if [ -x "$(command -v paccache)" ]; then
             printf '\e[1mCleaning Pacman cache\e[0m\n'
-            doas paccache -r
+            sudo paccache --remove
         fi
         if [ -x "$(command -v pacdiff)" ]; then
             printf '\e[1mChecking for Pacman maintenance issues\e[0m\n'
-            DIFFPROG="${EDITOR} -d" doas pacdiff
+            sudo DIFFPROG="${EDITOR} -d" pacdiff
         fi
         # Firmwares
         if [ -x "$(command -v fwupdmgr)" ]; then

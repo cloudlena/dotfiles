@@ -83,7 +83,7 @@ case "$(uname)" in
     # Install Git if not installed
     if [ ! -x "$(command -v git)" ]; then
         printf '\e[1mInstalling Git\e[0m\n'
-        doas pacman -Syu git --noconfirm --needed
+        sudo pacman -Syu git --noconfirm --needed
     fi
 
     # git clone these dotfiles if not done yet
@@ -94,7 +94,7 @@ case "$(uname)" in
 
     # Install Stow if not installed
     printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
-    doas pacman -Syu stow --noconfirm --needed
+    sudo pacman -Syu stow --noconfirm --needed
     # Remove existing config files
     if [ -f ~/.zshrc ]; then
         rm ~/.zshrc
@@ -103,7 +103,7 @@ case "$(uname)" in
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
-    doas pacman -Rns stow --noconfirm
+    sudo pacman -Rns stow --noconfirm
 
     # Install Paru if not installed
     if [ ! -x "$(command -v paru)" ]; then
@@ -113,7 +113,7 @@ case "$(uname)" in
     fi
 
     # Set colors for pacman
-    doas sed -i 's/#Color/Color/' /etc/pacman.conf
+    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
     # Install Pacmanfile if not installed
     if [ ! -x "$(command -v pacmanfile)" ]; then
