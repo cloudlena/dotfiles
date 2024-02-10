@@ -24,6 +24,9 @@ I mainly work with [Go](https://golang.org), [Rust](https://www.rust-lang.org), 
 
    **WARNING: This may install and/or remove software and change your configs!**
 
+1. Either import an existing PGP key pair by using `gpg --import my-key.asc` and `gpg --import my-key-pub.asc` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-gpg-key) guide. You need to use the same name and email address as an ID that you have configured in `git/.gitconfig` in order to correctly sign your commits.
+1. Either import an existing SSH key pair by copying it to `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` or create a new one by following the [GitHub](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) guide.
+
 ## Quick Installation without customization (not recommended unless you're the owner of this repo :wink:)
 
 1.  Run the following command:
