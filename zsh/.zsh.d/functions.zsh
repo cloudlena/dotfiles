@@ -98,7 +98,7 @@ depu() {
     # Git submodules
     if [ -e .gitmodules ]; then
         printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
-        git submodule update --init
+        git submodule update --init --remote --rebase
     fi
 
     # npm
