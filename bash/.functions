@@ -188,7 +188,7 @@ function pacu() {
     # Rust
     if [ -x "$(command -v rustup)" ]; then
         printf '\e[1mUpdating rustup components\e[0m\n'
-        ("rustup update") &
+        (rustup update) &
         processes+=("$!")
     fi
 
