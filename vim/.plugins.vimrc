@@ -13,6 +13,7 @@ Plug 'tpope/vim-sensible'
 
 " Colorscheme
 Plug 'tyrannicaltoucan/vim-quantum'
+let g:quantum_black=1
 
 " Enable hard mode
 Plug 'takac/vim-hardtime'
