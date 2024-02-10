@@ -16,7 +16,7 @@ tooltip {
 
 /* Workspaces */
 #workspaces button {
-  padding: 2px 9px;
+  padding: 1px 9px;
 }
 
 #workspaces button:hover {
@@ -37,7 +37,7 @@ tooltip {
 #custom-updates,
 #custom-tasks,
 #mode {
-  padding: 2px 9px;
+  padding: 1px 9px;
 }
 
 #mode,
