@@ -46,6 +46,7 @@
     }
   },
   "custom/updates": {
+    "format": "{}⬆",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 600
   }

@@ -4,7 +4,7 @@
 
 I mainly work with [Go](https://golang.org), [Rust](https://www.rust-lang.org), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [TypeScript](https://www.typescriptlang.org), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
 
-Automated setup is supported for macOS and Arch Linux (and its derivates). Other Linux distributions should work but have to be set up manually.
+Supported operating systems are macOS and Arch Linux (and its derivates).
 
 ## Features and Usage
 
@@ -14,8 +14,6 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 
 - `pacu`: Update and upgrade the whole system (using `Brewfile` on macOS)
 - `depu`: Update and upgrade the dependencies for the current project
-- `ctrl + n` and `crtl + p`: Cycle through the last used commands filtering by what was already typed
-- `gopass`: Trigger the password manager
 
 ### IDE
 

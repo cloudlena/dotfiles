@@ -9,7 +9,7 @@ set $background_dim #555555
 set $foreground #bcbec0
 set $wallpaper ~/.config/wallpapers/small-memory.jpg
 set $lock_cmd swaylock --daemonize --image $wallpaper
-set $sleep_cmd systemctl suspend-then-hibernate
+set $sleep_cmd systemctl suspend
 
 ### Output configuration
 
