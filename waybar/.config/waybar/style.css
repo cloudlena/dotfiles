@@ -10,12 +10,15 @@ window#waybar {
   background-color: #1a1b26;
 }
 
-/* Workspaces */
-#workspaces button {
-  padding: 0 8px;
+tooltip {
+  background-color: #1a1b26;
 }
 
 /* Workspaces */
+#workspaces button {
+  padding: 0 9px;
+}
+
 #workspaces button:hover {
   background: #414868;
   border-color: transparent;
@@ -34,8 +37,7 @@ window#waybar {
 #custom-updates,
 #custom-failed-services,
 #mode {
-  padding: 0 3px;
-  margin: 0 8px;
+  padding: 0 9px;
 }
 
 #mode,
@@ -44,11 +46,7 @@ window#waybar {
   color: #bb9af7;
 }
 
-#custom-failed-services {
-  font-weight: bold;
-  color: #f7768e;
-}
-
+#custom-failed-services,
 #network.disconnected {
   font-weight: bold;
   color: #f7768e;
