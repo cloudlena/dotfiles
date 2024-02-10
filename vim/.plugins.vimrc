@@ -62,7 +62,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " Source tree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['.DS_Store','.git$']
 map <C-n> :NERDTreeToggle<CR>

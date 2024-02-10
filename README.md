@@ -22,7 +22,7 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 [NeoVim](https://neovim.io/) configured to be an IDE. The whole setup with all plugins can also be run as a [Docker Container](https://github.com/mastertinner/vide).
 
 - `v`: Start Neovim with all plugins
-- `ctrl + p`: Fussy search across whole project
+- `ctrl + p`: Fuzzy search across whole project
 - `ctrl + n`: Visual file explorer
 
 ## Installation
