@@ -1,5 +1,7 @@
 function prompt_mastertinner_precmd {
-  git-info
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
 }
 
 function prompt_mastertinner_setup {
