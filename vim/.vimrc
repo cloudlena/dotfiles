@@ -61,8 +61,8 @@ if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   " Strip trailing whitespaces on save
   autocmd BufWritePre * %s/\s\+$//e
-  " Enable spell checking for Markdown files
-  autocmd BufRead,BufNewFile *.md setlocal spell
+  " Enable spell checking for certain files
+  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 endif
 
 " Import plugin configuration

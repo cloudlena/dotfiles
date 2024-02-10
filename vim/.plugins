@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Status bar
 Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 
 " Git integration
 Plug 'tpope/vim-fugitive'
