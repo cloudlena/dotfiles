@@ -97,22 +97,30 @@ case "$(uname)" in
     done
     sudo pacman -Rns stow --noconfirm
 
+    # Install Yay if not installed
+    if [ ! -x "$(command -v yay)" ]; then
+        printf '\e[1mInstalling Yay\e[0m\n'
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
+        (cd /tmp/yay && makepkg -si)
+    fi
+
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
-    sudo pacman -Syu --noconfirm --needed \
+    yay -Syu --noconfirm --needed \
         alacritty \
-        alsa-utils \
         ansible \
         ansible-lint \
         aws-cli \
-        base-devel \
+        awslogs \
         bemenu \
         bluez \
         bluez-utils \
         brightnessctl \
-        cmake \
         curl \
         diff-so-fancy \
+        dropbox \
+        efibootmgr \
+        ethtool \
         fd \
         firefox \
         fwupd \
@@ -120,9 +128,11 @@ case "$(uname)" in
         git \
         gnupg \
         go \
+        golangci-lint-bin \
         gopass \
         grim \
         grub \
+        hadolint-bin \
         htop \
         imv \
         iputils \
@@ -143,24 +153,34 @@ case "$(uname)" in
         nodejs \
         npm \
         openssh \
+        origin-client-bin \
         otf-fira-mono \
         otf-font-awesome \
         pacman-contrib \
+        playerctl \
         podman \
         prettier \
         protobuf \
+        pulseaudio \
+        pulseaudio-alsa \
+        pulseaudio-bluetooth \
         python \
         python-pip \
         qemu \
+        redshift-wayland-git \
         ripgrep \
         ruby \
         shellcheck \
         slurp \
+        smartmontools \
+        spotifyd-bin \
+        spotify-tui-bin \
         sudo \
         sway \
         swayidle \
         swaylock \
         terraform \
+        tflint-bin
         tlp \
         tlp-rdw \
         tmate \
@@ -172,26 +192,10 @@ case "$(uname)" in
         vifm \
         waybar \
         wget \
+        wl-clipboard \
         zathura \
         zathura-pdf-poppler \
         zsh
-
-    # Install Yay if not installed
-    if [ ! -x "$(command -v yay)" ]; then
-        printf '\e[1mInstalling Yay\e[0m\n'
-        git clone https://aur.archlinux.org/yay.git /tmp/yay
-        (cd /tmp/yay && makepkg -si)
-    fi
-
-    yay -Syu --noconfirm --needed \
-        awslogs \
-        dropbox \
-        golangci-lint-bin \
-        hadolint-bin \
-        origin-client-bin \
-        spotifyd-bin \
-        spotify-tui-bin \
-        tflint-bin
 
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
