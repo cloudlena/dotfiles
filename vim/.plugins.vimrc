@@ -59,6 +59,9 @@ Plug 'tpope/vim-sleuth'
 " Edit surrounds
 Plug 'tpope/vim-surround'
 
+" Repeat plugin commands
+Plug 'tpope/vim-repeat'
+
 " Source tree
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
