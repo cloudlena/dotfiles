@@ -108,7 +108,6 @@ case "$(uname)" in
         cmake \
         curl \
         diff-so-fancy \
-        docker \
         fd \
         firefox \
         fzf \
@@ -124,6 +123,7 @@ case "$(uname)" in
         nodejs \
         npm \
         openssh \
+        podman \
         prettier \
         protobuf \
         python \
@@ -167,11 +167,6 @@ case "$(uname)" in
         ttf-monaco
         # hadolint \
         # origin-client \
-
-    # Enable docker service and allow user to run it without sudo
-    sudo systemctl enable docker.service
-    getent group docker || groupadd docker
-    sudo usermod -aG docker "${USER}"
 
     # Set colors for pacman
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
