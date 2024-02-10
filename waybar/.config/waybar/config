@@ -29,21 +29,21 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "format-bluetooth": "{icon}",
+    "format-bluetooth": "{icon} ",
     "format-muted": "",
     "format-source-muted": "",
     "format-icons": {
       "default": ["", "", ""],
-      "headphone": "",
+      "headphone": "",
       "headset": "",
       "hands-free": "",
-      "portable": "",
+      "portable": "",
       "car": "",
       "phone": ""
     }
   },
   "custom/updates": {
-    "format": "⬆{}",
+    "format": " {}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 600,
     "on-click": "alacritty --command paru -Syu --noconfirm",
