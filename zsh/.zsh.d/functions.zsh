@@ -136,15 +136,15 @@ pacu() {
     # On Linux, use the respective package manager
     'Linux')
         # Arch Linux
-        if [ -x "$(command -v yay)" ]; then
-            printf '\e[1mUpdating Yay packages\e[0m\n'
-            yay -Syu --noconfirm
-            orphans=$(yay -Qtdq) || orphans=''
+        if [ -x "$(command -v paru)" ]; then
+            printf '\e[1mUpdating Paru packages\e[0m\n'
+            paru -Syu --noconfirm
+            orphans=$(paru -Qtdq) || orphans=''
             if [ -n "${orphans}" ]; then
-                yay -Rns $orphans --noconfirm
+                paru -Rns $orphans --noconfirm
             fi
-            yay -Sc --noconfirm
-            yay -Yc --noconfirm
+            paru -Sc --noconfirm
+            paru -Yc --noconfirm
         elif [ -x "$(command -v pacman)" ]; then
             printf '\e[1mUpdating pacman packages\e[0m\n'
             sudo pacman -Syu --noconfirm

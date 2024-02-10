@@ -100,16 +100,16 @@ case "$(uname)" in
     done
     sudo pacman -Rns stow --noconfirm
 
-    # Install Yay if not installed
-    if [ ! -x "$(command -v yay)" ]; then
-        printf '\e[1mInstalling Yay\e[0m\n'
-        git clone https://aur.archlinux.org/yay.git /tmp/yay
-        (cd /tmp/yay && makepkg -si)
+    # Install Paru if not installed
+    if [ ! -x "$(command -v paru)" ]; then
+        printf '\e[1mInstalling Paru\e[0m\n'
+        git clone https://aur.archlinux.org/paru.git /tmp/paru
+        (cd /tmp/paru && makepkg -si)
     fi
 
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
-    yay -Syu --noconfirm --needed \
+    paru -Syu --noconfirm --needed \
         alacritty \
         ansible \
         ansible-lint \
