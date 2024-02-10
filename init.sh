@@ -49,6 +49,9 @@ case "$(uname)" in
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
 
+    # Use vimrc as Neovim config
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
+
     # Install Python3 and pip3 if not installed
     if [ ! -x "$(command -v pip3)" ]; then
         brew install python3
