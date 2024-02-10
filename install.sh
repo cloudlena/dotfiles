@@ -131,6 +131,7 @@ case "$(uname)" in
     # Install additional language servers currently not available via Homebrew
     npm install --global \
         typescript-language-server \
+        svelte-language-server \
         eslint_d
 
     # Install additional Go tooling currently not available via Homebrew

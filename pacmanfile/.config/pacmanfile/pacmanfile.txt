@@ -85,6 +85,7 @@ networkmanager
 nftables
 nmap
 nodejs
+nodejs-svelte-language-server
 noto-fonts-cjk
 noto-fonts-emoji
 npm
