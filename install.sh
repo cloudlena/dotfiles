@@ -171,6 +171,6 @@ rm -rf ~/.bash*
 
 # Run full system upgrade
 . ~/dotfiles/zsh/.zsh.d/functions.zsh
-pacu
+EDITOR=nvim pacu
 
 printf '\e[1mDotfiles successfully installed. Please reboot to finalize.\e[0m\n'

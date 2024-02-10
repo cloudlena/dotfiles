@@ -1,5 +1,6 @@
 aardvark-dns
 alacritty
+archlinux-keyring
 autoconf
 automake
 autotiling
@@ -124,6 +125,7 @@ stylua
 sudo
 svgo
 sway
+swaybg
 swayhide
 swayidle
 swaylock
