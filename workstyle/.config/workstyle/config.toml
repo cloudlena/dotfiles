@@ -9,32 +9,40 @@
 # Note if multiple patterns are present in the same application name,
 # precedence is given in order of apparition in this file.
 
-# Browsers
-"brave" = ""
-"chromium" = ""
-"firefox" = ""
-
 # Apps
 "alacritty" = ""
 "blender" = ""
+"calendar" = ""
+"foot" = ""
 "gimp" = ""
 "inkscape" = ""
 "krita" = ""
+"libreoffice" = ""
 "libreoffice calc" = ""
 "libreoffice impress" = ""
 "libreoffice writer" = ""
-"libreoffice" = ""
+"mail" = ""
 "qemu" = ""
 "signal" = ""
+"slack" = ""
+"spotify" = ""
 "steam" = ""
 
 # Websites
+"discord" = ""
 "github" = ""
+"gitlab" = ""
 "linkedin" = ""
 "pinterest" = ""
 "reddit" = ""
 "twitter" = ""
 "youtube" = ""
+"feedly" = ""
+
+# Browsers
+"brave" = ""
+"chromium" = ""
+"firefox" = ""
 
 # File types
 ".pdf" = ""
