@@ -27,7 +27,6 @@ brew "hadolint"
 brew "htop"
 brew "jq"
 brew "mas"
-brew "mongodb"
 brew "neovim"
 brew "openshift-cli"
 brew "prettier"
@@ -55,12 +54,9 @@ cask "google-chrome"
 cask "graphql-playground"
 cask "imageoptim"
 cask "iterm2"
-cask "mongodb-compass"
-cask "postman"
 cask "skype"
 cask "slack"
 cask "spotify"
-cask "sqlectron"
 cask "virtualbox"
 cask "whatsapp"
 
@@ -69,4 +65,3 @@ mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
 mas "PopClip", id: 445189367
-mas "The Unarchiver", id: 425424353
