@@ -32,6 +32,9 @@ case "$(uname)" in
     if [ -f ~/.zshrc ]; then
         rm ~/.zshrc
     fi
+    if [ -f ~/.zshenv ]; then
+        rm ~/.zshenv
+    fi
     # Stow subdirectories of dotfiles
     printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
     for dir in ~/dotfiles/*/; do
