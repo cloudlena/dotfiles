@@ -69,12 +69,24 @@ function ide() {
 function depu() {
 
     # npm
-    pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
-    if [ "${pkg_count}" -gt 0 ]; then
-        printf 'Updating npm dependencies...\n\n'
+    lock_count=$(ls -1 package-lock.json 2>/dev/null | wc -l)
+    if [ "${lock_count}" -gt 0 ]; then
+        printf "Updating npm dependencies for ${PWD##*/}...\n\n"
         npm update
         npm prune
+        npm dedupe
         npm outdated
+    fi
+
+    # Yarn
+    pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
+    lock_count=$(ls -1 yarn.json 2>/dev/null | wc -l)
+    if [ "${pkg_count}" -gt 0 ] && [ "${lock_count}" -gt 0 ]; then
+        printf "Updating Yarn dependencies for ${PWD##*/}...\n\n"
+        yarn upgrade > /dev/null
+        yarn prune
+        yarn dedupe
+        yarn outdated
     fi
 
     # Go dep
@@ -83,6 +95,7 @@ function depu() {
         echo "Updating Go dep dependencies...\n"
         dep ensure
         dep ensure -update
+        # dep status -old
     fi
 
 }
@@ -152,17 +165,21 @@ function pacu() {
         go_pid="$!"
     fi
 
-    # Node.js and npm
+    # Node.js, npm and Yarn
     if [ -x "$(command -v npm)" ]; then
         printf '\e[1mUpdating globally installed npm packages\e[0m\n'
         (npm update -g) &
         npm_global_pid="$!"
 
+        printf '\e[1mUpdating globally installed Yarn packages\e[0m\n'
+        (yarn global upgrade > /dev/null) &
+        yarn_global_pid="$!"
+
         wait "${npm_global_pid}"
-        npm outdated -g
+        wait "${yarn_global_pid}"
         printf '\e[1mUpdating Node.js projects\e[0m\n'
         ("${HOME}/dotfiles/update-js.sh") &
-        npm_pid="$!"
+        yarn_pid="$!"
     fi
 
     # Ruby
@@ -198,7 +215,7 @@ function pacu() {
     fi
 
     # Wait for all processes to finish
-    wait "${npm_pid}" &> /dev/null
+    wait "${yarn_pid}" &> /dev/null
     wait "${go_pid}" &> /dev/null
     wait "${ruby_pid}" &> /dev/null
     wait "${python_pid}" &> /dev/null
