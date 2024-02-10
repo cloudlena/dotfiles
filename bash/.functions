@@ -1,93 +1,128 @@
 # Create a new directory and enter it
 function mkcd() {
-  mkdir -p "$@" && cd "$_" || exit;
+    mkdir -p "$@" && cd "$_" || exit;
 }
 
 # cd into directory with fzf
 fcd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+    -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
 }
 
 # Checkout branches or tags with fzf
 fco() {
-  local tags branches target
-  tags=$(
-    git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
-  branches=$(
-    git branch --all | grep -v HEAD             |
-    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
-    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
-  target=$(
-    (echo "$tags"; echo "$branches") |
-    fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
-  git checkout $(echo "$target" | awk '{print $2}')
+    local tags branches target
+    tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+    branches=$(
+        git branch --all | grep -v HEAD             |
+        sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
+        sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+    target=$(
+        (echo "$tags"; echo "$branches") |
+        fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+    git checkout $(echo "$target" | awk '{print $2}')
 }
 
 # Open tmux and vim in an IDE like layout
 function ide() {
-  if [ ! -z "$1" ]; then
-    cd "$1" || exit
-  fi
+    if [ ! -z "$1" ]; then
+        cd "$1" || exit
+    fi
 
-  tmux new-session -d -s ide 'vim +NERDTree'
-  tmux split-window -v -p 10
-  tmux split-window -h
-  tmux select-pane -t 0
-  tmux attach-session -d -t ide
+    tmux new-session -d -s ide 'vim +NERDTree'
+    tmux split-window -v -p 10
+    tmux split-window -h
+    tmux select-pane -t 0
+    tmux attach-session -d -t ide
 }
 
 # System update
 function pacu() {
-  # Dotfiles repo
-  (cd "${HOME}/dotfiles" && git pull)
 
-  # System tools
-  case "$(uname)" in
-  'Linux')
-    # On Arch Linux, use Pacman and Yaourt
-    sudo pacman -Syu --noconfirm && yaourt -Syua --noconfirm
-    ;;
-  'Darwin')
+    # Dotfiles repo
+    (cd "${HOME}/dotfiles" && git pull)
+
+    # System tools
+    case "$(uname)" in
+    # On Linux, use the respective package manager
+    'Linux')
+        # Arch Linux
+        if [ -x "$(command -v pacman)" ]; then
+            sudo pacman -Syu --noconfirm
+        fi
+        if [ -x "$(command -v yaourt)" ]; then
+            yaourt -Syua --noconfirm
+        fi
+        # Debian
+        if [ -x "$(command -v apt-get)" ]; then
+            sudo apt-get update
+            sudo apt-get upgrade -y
+            sudo apt-get dist-upgrade -y
+        fi
+        ;;
     # On macOS, use mas and Homebrew in parallel
-    (mas upgrade) &
-    mas_pid="$!"
-    brew update && brew upgrade && brew cleanup
-    wait "${mas_pid}"
-    ;;
-  esac
+    'Darwin')
+        if [ -x "$(command -v mas)" ]; then
+            (mas upgrade) &
+            mas_pid="$!"
+        fi
+        if [ -x "$(command -v brew)" ]; then
+            brew update
+            brew upgrade
+            brew cleanup
+        fi
+        wait "${mas_pid}" &> /dev/null
+        ;;
+    esac
 
-  # Go
-  ("${HOME}/dotfiles/bash/update-go.sh") &
-  go_pid="$!"
+# Go
+    if [ -x "$(command -v go)" ]; then
+        ("${HOME}/dotfiles/bash/update-go.sh") &
+        go_pid="$!"
+    fi
 
-  # Node.js and npm
-  (npm update -g) &
-  npm_global_pid="$!"
+# Node.js and npm
+    if [ -x "$(command -v npm)" ]; then
+        (npm update -g) &
+        npm_global_pid="$!"
 
-  wait "${npm_global_pid}"
-  npm outdated -g
-  ("${HOME}/dotfiles/bash/update-js.sh") &
-  npm_pid="$!"
+        wait "${npm_global_pid}"
+        npm outdated -g
+        ("${HOME}/dotfiles/bash/update-js.sh") &
+        npm_pid="$!"
+    fi
 
-  # Ruby
-  (gem update --force) &
-  ruby_pid="$!"
+# Ruby
+    if [ -x "$(command -v gem)" ]; then
+        (gem update --force) &
+        ruby_pid="$!"
+    fi
 
-  # Python3
-  (for pkg in $(pip3 list | cut -d' ' -f1); do pip3 install --upgrade $pkg; done) &
-  python3_pid="$!"
+# Python
+    if [ -x "$(command -v pip)" ]; then
+        (for pkg in $(pip list | cut -d' ' -f1); do pip install --upgrade $pkg; done) &
+        python_pid="$!"
+    fi
 
-  # Vim
-  vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
+# Python3
+    if [ -x "$(command -v pip3)" ]; then
+        (for pkg in $(pip3 list | cut -d' ' -f1); do pip3 install --upgrade $pkg; done) &
+        python3_pid="$!"
+    fi
 
-  # Wait for all processes to finish
-  wait "${npm_pid}"
-  wait "${go_pid}"
-  wait "${ruby_pid}"
-  wait "${python3_pid}"
+# Vim
+    if [ -x "$(command -v vim)" ]; then
+        vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
+    fi
 
-  echo 'System upgrade finished'
+# Wait for all processes to finish
+    wait "${npm_pid}" &> /dev/null
+    wait "${go_pid}" &> /dev/null
+    wait "${ruby_pid}" &> /dev/null
+    wait "${python_pid}" &> /dev/null
+    wait "${python3_pid}" &> /dev/null
+
+    echo 'System upgrade finished'
 }
