@@ -1,9 +1,6 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-        },
         build = function()
             pcall(require("nvim-treesitter.install").update({ with_sync = true }))
         end,
@@ -11,6 +8,17 @@ return {
             require("nvim-treesitter.configs").setup({
                 ensure_installed = "all",
                 highlight = { enable = true },
+            })
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        event = "VeryLazy",
+        config = function()
+            require("nvim-treesitter.configs").setup({
                 textobjects = {
                     select = {
                         enable = true,
