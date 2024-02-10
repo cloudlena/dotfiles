@@ -168,6 +168,7 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         jq \
         mongodb \
         neovim \
+        protobuf \
         shellcheck \
         terraform \
         the_silver_searcher \
