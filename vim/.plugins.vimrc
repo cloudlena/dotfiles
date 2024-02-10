@@ -76,6 +76,9 @@ endif
 " Detect indent settings
 Plug 'tpope/vim-sleuth'
 
+" Time tracking
+Plug 'wakatime/vim-wakatime'
+
 " Go language support
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
