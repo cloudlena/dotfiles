@@ -131,6 +131,7 @@ termshark
 terraform
 terraform-ls-bin
 texinfo
+thermald
 tflint-bin
 timew
 tldr
