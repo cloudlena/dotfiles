@@ -287,12 +287,7 @@ return require("packer").startup(function()
     })
 
     -- Edit surrounds
-    use({
-        "blackCauldron7/surround.nvim",
-        config = function()
-            require("surround").setup({ mappings_style = "surround" })
-        end,
-    })
+    use("tpope/vim-surround")
 
     -- Toggle comments
     use({
