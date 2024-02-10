@@ -83,8 +83,8 @@ let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['markdown'] = ['prettier']
 let g:ale_fixers['yaml'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier','tslint']
-let g:ale_sign_error = '🛑'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '●'
 let g:ale_fix_on_save = 1
 
 " Autocompletion
