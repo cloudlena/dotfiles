@@ -45,7 +45,7 @@
   "custom/updates": {
     "format": " {}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
-    "interval": 600,
+    "interval": 7200,
     "on-click": "alacritty --command paru -Syu --noconfirm",
     "signal": 8
   }
