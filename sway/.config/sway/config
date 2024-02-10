@@ -14,12 +14,12 @@ set $launcher_cmd wofi --show drun --no-actions --insensitive --prompt 'Run' | x
 # Set color for focused window
 client.focused $highlight $highlight $foreground
 
-### Output configuration
+### Outputs
 
 # Set wallpaper
 output * bg $wallpaper fill
 
-### Idle configuration
+### Idle
 
 # Lock the screen after 300 seconds of inactivity, then turn off
 # all displays after another 300 seconds, and turn the screens back on when
@@ -39,7 +39,19 @@ for_window [shell=".*"] inhibit_idle fullscreen
 # Prevent Brave from inhibiting shortcuts
 for_window [app_id="^brave-.*-.*$"] shortcuts_inhibitor disable
 
-### Input configuration
+### Status Bar
+
+bar {
+    swaybar_command waybar
+}
+
+### Windows
+
+# Hide window title bars and borders
+default_border pixel
+hide_edge_borders smart
+
+### Inputs
 
 # Mouse
 # Hide mouse cursor when not used
@@ -151,27 +163,24 @@ mode 'resize' {
     bindsym Escape mode 'default'
 }
 
-#
-# Status Bar
-#
-bar {
-    swaybar_command waybar
-}
+### Gesture bindings
 
-# Hide window title bars and borders
-default_border pixel
-hide_edge_borders smart
+# Swipe back and forth between workspaces
+bindgesture swipe:3:left workspace prev_on_output
+bindgesture swipe:3:right workspace next_on_output
 
-# Start notification daemon
+### Processes
+
+# Desktop notifications
 exec mako
 
-# Start display management daemon
+# Automatically manage outputs
 exec kanshi
 
 # Adjust color temperature to reduce eye strain
 exec gammastep
 
-# Enable autotiling
+# Autotiling
 exec autotiling-rs
 
 # Waybar Icons
