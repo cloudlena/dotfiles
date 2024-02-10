@@ -111,7 +111,7 @@ case "$(uname)" in
     # Install Paru if not installed
     if [ ! -x "$(command -v paru)" ]; then
         printf '\e[1mInstalling Paru\e[0m\n'
-        git clone https://aur.archlinux.org/paru.git /tmp/paru
+        git clone https://aur.archlinux.org/paru-bin.git /tmp/paru
         (cd /tmp/paru && makepkg -si)
     fi
 
