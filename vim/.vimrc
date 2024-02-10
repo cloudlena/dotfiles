@@ -10,25 +10,14 @@ set wildmenu
 set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
 " Add the g flag to search/replace by default
 set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
 " Change mapleader
 let mapleader=","
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
 " Enable relative line numbers
 set relativenumber
-" Enable syntax highlighting
-syntax on
+set number
 " Make tabs as wide as two spaces
 set tabstop=2
 " Highlight searches
@@ -37,10 +26,6 @@ set hlsearch
 set ignorecase
 " Highlight dynamically as pattern is typed
 set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 " Show the current mode
