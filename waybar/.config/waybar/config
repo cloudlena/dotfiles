@@ -26,7 +26,7 @@
     "format-wifi": "",
     "format-ethernet": "",
     "format-linked": "",
-    "format-disconnected": "⚠",
+    "format-disconnected": "",
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
