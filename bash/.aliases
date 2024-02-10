@@ -29,5 +29,3 @@ esac
 # NPM update folder (also Bower)
 alias npmu='npm update && npm prune && bower install && bower update && bower prune && npm outdated'
 
-# Visual Studio Code
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
