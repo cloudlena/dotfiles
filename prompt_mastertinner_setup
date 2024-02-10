@@ -33,7 +33,7 @@ function prompt_mastertinner_setup {
   zstyle ':prezto:module:git:info:added' format '%F{green}●%f'
   zstyle ':prezto:module:git:info:ahead' format '%F{yellow} ⬆%f'
   zstyle ':prezto:module:git:info:behind' format '%F{yellow} ⬇%f'
-  zstyle ':prezto:module:git:info:stashed' format '%F{yellow} ✭%f'
+  zstyle ':prezto:module:git:info:stashed' format '%F{yellow} ★%f'
   zstyle ':prezto:module:git:info:keys' format \
     'prompt' ' %F{cyan}[$(coalesce "%b" "%p" "%c")%f${(e)git_info[status]}%F{cyan}]%f%s' \
     'status' '$(coalesce "%a" "%r")$(coalesce "%d" "%m" "%u")%A%B%S' \
