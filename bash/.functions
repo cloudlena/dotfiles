@@ -222,11 +222,6 @@ pacu() {
         (pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install --upgrade) &
         processes+=("$!")
     fi
-    if [ -x "$(command -v pip2)" ]; then
-        printf '\e[1mUpdating pip2 packages\e[0m\n'
-        (pip2 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install --upgrade) &
-        processes+=("$!")
-    fi
     if [ -x "$(command -v pip3)" ]; then
         printf '\e[1mUpdating pip3 packages\e[0m\n'
         (pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --upgrade) &
