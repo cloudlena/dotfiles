@@ -16,8 +16,6 @@ colors:
   primary:
     background: "#212121"
     foreground: "#bcbec0"
-  cursor:
-    cursor: "#d0d2d3"
   normal:
     black: "#474646"
     red: "#dd7186"
