@@ -16,7 +16,7 @@ tooltip {
 
 /* Workspaces */
 #workspaces button {
-  padding: 0 9px;
+  padding: 2px 9px;
 }
 
 #workspaces button:hover {
@@ -35,9 +35,9 @@ tooltip {
 #network,
 #pulseaudio,
 #custom-updates,
-#custom-failed-services,
+#custom-tasks,
 #mode {
-  padding: 0 9px;
+  padding: 2px 9px;
 }
 
 #mode,
