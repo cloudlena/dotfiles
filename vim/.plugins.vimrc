@@ -71,7 +71,7 @@ Plug 'tpope/vim-commentary'
 " Auto close braces
 Plug 'jiangmiao/auto-pairs'
 
-" Syntax Highlighting
+" Linting and auto fixing
 Plug 'w0rp/ale'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
@@ -128,9 +128,8 @@ Plug 'sebdah/vim-delve', { 'for': 'go' }
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 let g:javascript_plugin_flow = 1
-Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
-let g:jsx_ext_required = 0
 Plug 'wokalski/autocomplete-flow', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }

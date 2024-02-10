@@ -4,10 +4,6 @@ source ~/.plugins.vimrc
 " Set color scheme
 colorscheme nova
 
-set autoread
-set autowrite
-set autowriteall
-
 " Make Vim more useful
 set nocompatible
 " Disable vim welcome message
