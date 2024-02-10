@@ -8,7 +8,7 @@ fi
 
 active_task=$(task rc.verbose=nothing rc.report.activedesc.filter=+ACTIVE rc.report.activedesc.columns:description rc.report.activedesc.sort:urgency- rc.report.activedesc.columns:description activedesc limit:1 | head -n 1)
 if [ -n "$active_task" ]; then
-	echo " $active_task"
+	echo "󰐌 $active_task"
 	exit 0
 fi
 
@@ -18,4 +18,4 @@ if [ -z "$ready_task" ]; then
 	exit 0
 fi
 
-echo " $ready_task"
+echo "󰳟 $ready_task"

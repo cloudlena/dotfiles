@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 3
-    y: 3
+    x: 5
+    y: 5
   decorations: none
   startup_mode: Maximized
 

@@ -8,9 +8,9 @@
   ],
   "modules-right": [
     "custom/updates",
-    "network",
     "pulseaudio",
     "bluetooth",
+    "network",
     "battery",
     "clock"
   ],
@@ -20,15 +20,34 @@
       "critical": 10
     },
     "format": "{icon}",
-    "format-charging": "{icon} ",
-    "format-critical": "{icon} ",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": {
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "critical": [
+        "󱃍"
+      ]
+    },
     "tooltip-format": "Battery at {capacity}%"
   },
   "clock": {
@@ -36,15 +55,21 @@
     "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "format-ethernet": "",
-    "format-wifi": "",
-    "format-linked": "",
-    "format-disconnected": "",
+    "format-ethernet": "󰈀",
+    "format-wifi": "{icon}",
+    "format-linked": "󰈀",
+    "format-disconnected": "󰖪",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "tooltip-format-wifi": "{essid} at {signalStrength}%"
   },
   "pulseaudio": {
     "format": "{icon}",
-    "format-muted": "",
+    "format-muted": "",
     "format-icons": [
       "",
       "",
@@ -54,8 +79,8 @@
   },
   "bluetooth": {
     "format": "",
-    "format-on": "",
-    "format-connected": "",
+    "format-on": "󰂯",
+    "format-connected": "󰂱",
     "tooltip-format-on": "Bluetooth {status}",
     "tooltip-format-connected": "Connected to {device_alias}"
   },
@@ -65,7 +90,7 @@
     "interval": 60
   },
   "custom/updates": {
-    "format": " {}",
+    "format": "󰣇 {}",
     "exec": "~/.config/waybar/scripts/updates-arch-combined.sh",
     "interval": 7200,
     "on-click": "alacritty --command paru -Syu --noconfirm",

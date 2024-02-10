@@ -65,7 +65,6 @@ npm
 openssh
 optipng
 otf-fira-mono
-otf-font-awesome
 pacman-contrib
 pacmanfile
 paru-bin
