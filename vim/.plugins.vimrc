@@ -110,7 +110,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-let g:go_auto_type_info = 1
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
     let l:file = expand('%')
