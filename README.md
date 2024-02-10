@@ -41,6 +41,16 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 - `<space>/`: Fuzzy search in all files in workspace
 - `<space>j`: Open visual file explorer
 
+#### Git
+
+- `<space>gg`: Git status
+- `<space>gd`: Git diff
+- `<space>gb`: Git blame
+- `<space>gs`: Git stage current hunk
+- `<space>gu`: Git unstage current hunk
+- `<space>gc`: Git commit
+- `<space>gm`: Git three-way merge
+
 #### Diagnostics and Refactoring
 
 - `K`: Show signature of symbol under cursor

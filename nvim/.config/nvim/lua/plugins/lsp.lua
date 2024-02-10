@@ -75,10 +75,7 @@ return {
         config = function()
             local null_ls = require("null-ls")
             null_ls.setup({
-                -- Setup initial sources (all others are configured in tools.lua)
-                sources = {
-                    null_ls.builtins.code_actions.gitsigns,
-                },
+                -- Sources can be configured in config/tools.lua
                 -- Format on save
                 on_attach = function(client, bufnr)
                     if client.supports_method("textDocument/formatting") then
