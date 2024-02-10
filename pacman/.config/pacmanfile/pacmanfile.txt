@@ -82,6 +82,7 @@ qemu-desktop
 reflector
 ripgrep
 rust
+sbctl
 shellcheck
 shfmt
 signal-desktop
