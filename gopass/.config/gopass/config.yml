@@ -1,5 +1,2 @@
-root:
-  autosync: true
-  noconfirm: true
-  safecontent: true
-  usesymbols: true
+path: ~/.local/share/gopass/stores/root
+safecontent: true
