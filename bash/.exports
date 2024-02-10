@@ -10,4 +10,4 @@ export EDITOR="${VISUAL}";
 export HISTCONTROL='ignoreboth';
 
 # Don't search files which are gitignored in fzf
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore vendor --ignore node_modules --filename-pattern ""'
