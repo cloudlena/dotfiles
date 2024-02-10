@@ -130,10 +130,12 @@ function pacu() {
             brew cu --all --yes --cleanup
             brew cleanup
         fi
-        if [ -x "$(command -v zprezto-update)" ]; then
-            zprezto-update
+        if typeset -f zprezto-update > /dev/null; then
+            zprezto-update &
+            zprezto_pid="$!"
         fi
         wait "${mas_pid}" &> /dev/null
+        wait "${zprezto_pid}" &> /dev/null
         ;;
     esac
 
