@@ -1,12 +1,12 @@
 # vim: ft=zsh
 
-function prompt_mastertinner_precmd {
+function prompt_cloudlena_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
 }
 
-function prompt_mastertinner_setup {
+function prompt_cloudlena_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent sp subst)
@@ -15,7 +15,7 @@ function prompt_mastertinner_setup {
   autoload -Uz add-zsh-hook
 
   # Add hook for calling git-info before each command
-  add-zsh-hook precmd prompt_mastertinner_precmd
+  add-zsh-hook precmd prompt_cloudlena_precmd
 
   # Tell prezto we can manage this prompt
   zstyle ':prezto:module:prompt' managed 'yes'
@@ -42,8 +42,8 @@ function prompt_mastertinner_setup {
   PROMPT='%F{magenta}%c%f${(e)git_info[prompt]} '
 }
 
-function prompt_mastertinner_help {
+function prompt_cloudlena_help {
   echo 'This prompt is as minimalist as possible and cannot be customized.'
 }
 
-prompt_mastertinner_setup "$@"
+prompt_cloudlena_setup "$@"

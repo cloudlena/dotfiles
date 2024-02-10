@@ -26,7 +26,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 # Set the prompt theme to load
 # Setting it to 'random' loads a random theme.
-zstyle ':prezto:module:prompt' theme 'mastertinner'
+zstyle ':prezto:module:prompt' theme 'cloudlena'
 
 # Use vi keybindings
 zstyle ':prezto:module:editor' key-bindings 'vi'

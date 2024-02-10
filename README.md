@@ -27,7 +27,7 @@ This setup uses a powerful combination of [Alacritty](https://github.com/jwilm/a
 
 ### Text Editor
 
-Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE". The whole setup with all plugins can also be run as a [container](https://github.com/mastertinner/vide).
+Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE". The whole setup with all plugins can also be run as a [container](https://github.com/cloudlena/vide).
 
 - `e`: Start Neovim with all plugins
 - `ide`: Start Neovim with all plugins in an IDE like window layout
@@ -37,7 +37,7 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
 
 ## Installation
 
-1. Clone this repo to `~/dotfiles` by running `git clone git@github.com:mastertinner/dotfiles.git ~/dotfiles`
+1. Clone this repo to `~/dotfiles` by running `git clone git@github.com:cloudlena/dotfiles.git ~/dotfiles`
 1. Change the name and email address in `git/.gitconfig`
 1. Arch Linux only: Change `pacmanfile/.config/pacmanfile/pacmanfile.txt` to your liking or add `pacmanfile-extra.txt` to the same directory for independent packages per machine
 1. macOS only: Change `Brewfile` to your liking or add `extra.Brewfile` for independent packages per machine
@@ -59,5 +59,5 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
     **WARNING: This may install and/or remove software and change your configs!**
 
     ```shell
-    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/main/install.sh | sh
+    $ curl -s https://raw.githubusercontent.com/cloudlena/dotfiles/main/install.sh | sh
     ```
