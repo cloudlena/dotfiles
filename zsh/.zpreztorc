@@ -5,7 +5,7 @@ fpath=(
   ${fpath}
 )
 
-# Set the Prezto modules to load (browse modules).
+# Load Prezto modules
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
@@ -20,17 +20,16 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   'editor'
 
-# Color output (auto set to 'no' on dumb terminals).
+# Enable color output
 zstyle ':prezto:*:*' color 'yes'
 
-# Advanced syntax highlighting for commands
+# Enable advanced syntax highlighting for commands
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
 
-# Set the prompt theme to load.
+# Set the prompt theme to load
 # Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'mastertinner'
 
 # Use vi keybindings
