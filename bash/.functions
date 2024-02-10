@@ -73,8 +73,8 @@ function depu() {
     if [ "${lock_count}" -gt 0 ]; then
         printf "Updating npm dependencies for ${PWD##*/}...\n\n"
         npm update
-        npm prune
         npm dedupe
+        npm prune
         npm outdated
     fi
 
