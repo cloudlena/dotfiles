@@ -114,6 +114,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
+Plug 'wokalski/autocomplete-flow', { 'for': 'javascript.jsx' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
