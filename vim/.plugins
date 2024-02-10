@@ -9,6 +9,10 @@ let g:airline_skip_empty_sections = 1
 " Git integration
 Plug 'tpope/vim-fugitive'
 
+" Diff directories
+Plug 'will133/vim-dirdiff'
+let g:DirDiffExcludes = ".git,node_modules,vendor,dist,.DS_Store,.*.swp"
+
 " Edit surrounds
 Plug 'tpope/vim-surround'
 
