@@ -4,7 +4,7 @@ set -u
 
 . ~/dotfiles/zsh/.zsh.d/functions.zsh
 
-js_dir="${HOME}/js"
+readonly js_dir="${HOME}/js"
 
 if [ -d "${js_dir}" ]; then
     cd "${js_dir}" || exit
