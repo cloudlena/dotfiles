@@ -62,29 +62,24 @@ return require("packer").startup(function()
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
             local on_attach = function(client, bufnr)
-                local function buf_set_keymap(...)
-                    vim.api.nvim_buf_set_keymap(bufnr, ...)
-                end
+                local telescope_builtin = require("telescope.builtin")
 
-                -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local opts = { noremap = true, silent = true }
-                buf_set_keymap("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
-                buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-                buf_set_keymap("n", "gi", "<Cmd>Telescope lsp_implementations<CR>", opts)
-                buf_set_keymap("n", "<space>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-                buf_set_keymap("n", "<space>ca", "<Cmd>Telescope lsp_code_actions<CR>", opts)
-                buf_set_keymap("n", "gr", "<Cmd>Telescope lsp_references<CR>", opts)
-                buf_set_keymap("n", "<space>e", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-                buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-                buf_set_keymap("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-                buf_set_keymap("n", "<space>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+                local opts = { buffer = bufnr, silent = true }
+                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
+                vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+                vim.keymap.set("n", "<space>ca", telescope_builtin.lsp_code_actions, opts)
+                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
+                vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+                vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+                vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+                vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, opts)
 
                 -- Format on save
                 if client.resolved_capabilities.document_formatting then
                     vim.api.nvim_create_autocmd("BufWritePre", {
-                        callback = function()
-                            vim.lsp.buf.formatting_sync()
-                        end,
+                        callback = vim.lsp.buf.formatting_sync,
                     })
                 end
             end
@@ -250,19 +245,37 @@ return require("packer").startup(function()
             })
             telescope.load_extension("fzf")
 
+            local telescope_builtin = require("telescope.builtin")
+
             -- Toggle fuzzy file search
-            vim.api.nvim_set_keymap(
-                "n",
-                "<C-p>",
-                '<Cmd>lua require("telescope.builtin").find_files({ find_command = { "fd", "--type=f", "--type=l", "--hidden", "--no-ignore", "--exclude=.DS_Store", "--exclude=.git", "--exclude=.terraform", "--exclude=.gradle", "--exclude=bin", "--exclude=build", "--exclude=coverage", "--exclude=dist", "--exclude=node_modules", "--exclude=target", "--exclude=vendor" }})<CR>',
-                { noremap = true, silent = true }
-            )
+            vim.keymap.set("n", "<C-p>", function()
+                telescope_builtin.find_files({
+                    find_command = {
+                        "fd",
+                        "--type=f",
+                        "--type=l",
+                        "--hidden",
+                        "--no-ignore",
+                        "--exclude=.DS_Store",
+                        "--exclude=.git",
+                        "--exclude=.terraform",
+                        "--exclude=.gradle",
+                        "--exclude=bin",
+                        "--exclude=build",
+                        "--exclude=coverage",
+                        "--exclude=dist",
+                        "--exclude=node_modules",
+                        "--exclude=target",
+                        "--exclude=vendor",
+                    },
+                })
+            end)
 
             -- Toggle fuzzy search across project
-            vim.api.nvim_set_keymap("n", "\\", "<Cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "\\", telescope_builtin.live_grep)
 
             -- Toggle diagnostics
-            vim.api.nvim_set_keymap("n", "<C-s>", "<Cmd>Telescope diagnostics<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<C-s>", telescope_builtin.diagnostics)
         end,
     })
 
@@ -283,13 +296,16 @@ return require("packer").startup(function()
                 files = 1,
                 folder_arrows = 1,
             }
-            require("nvim-tree").setup({
+
+            local nvim_tree = require("nvim-tree")
+
+            nvim_tree.setup({
                 filters = {
                     custom = { ".DS_Store", ".git" },
                 },
             })
 
-            vim.api.nvim_set_keymap("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<C-n>", nvim_tree.toggle)
         end,
     })
 
@@ -321,7 +337,7 @@ return require("packer").startup(function()
         opt = true,
         cmd = { "SymbolsOutline", "SymbolsOutlineOpen" },
     })
-    vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", { silent = true })
 
     -- Status line
     use({
@@ -355,13 +371,8 @@ return require("packer").startup(function()
             vim.g.ultest_running_sign = "奈"
             vim.g.ultest_not_run_sign = ""
 
-            vim.api.nvim_set_keymap(
-                "n",
-                "<space>tf",
-                "<Cmd>UltestSummaryOpen<CR><Cmd>Ultest<CR>",
-                { noremap = true, silent = true }
-            )
-            vim.api.nvim_set_keymap("n", "<space>tn", "<Cmd>UltestNearest<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<space>tf", "<Cmd>UltestSummaryOpen<CR><Cmd>Ultest<CR>", { silent = true })
+            vim.keymap.set("n", "<space>tn", "<Cmd>UltestNearest<CR>", { silent = true })
         end,
     })
 
