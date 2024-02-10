@@ -56,5 +56,5 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
     **WARNING: This may install and/or remove software and change your configs!**
 
     ```shell
-    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/install.sh | sh
+    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/main/install.sh | sh
     ```
