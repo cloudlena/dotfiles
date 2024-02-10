@@ -167,7 +167,6 @@ Server = http://repo.archlinux.fr/$arch'\'' >> /etc/pacman.conf'
         go-tools \
         htop \
         jq \
-        mongodb \
         neovim \
         protobuf \
         shellcheck \

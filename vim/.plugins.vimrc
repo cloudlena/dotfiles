@@ -19,8 +19,8 @@ Plug 'takac/vim-hardtime'
 let g:hardtime_default_on = 1
 
 " Goyo mode for focused writing
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 if has("autocmd")
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
@@ -43,11 +43,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<cr>
 
-" Time tracking
-Plug 'wakatime/vim-wakatime'
-
 " Diff directories
-Plug 'will133/vim-dirdiff'
+Plug 'will133/vim-dirdiff', { 'on': 'DirDiff' }
 let g:DirDiffExcludes = ".git,node_modules,vendor,dist,.DS_Store,.*.swp"
 
 " Git integration
@@ -67,7 +64,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " Source tree
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['.DS_Store','.git$']
 map <C-n> :NERDTreeToggle<CR>
@@ -164,6 +161,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " nginx
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+
+" MDX
+Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
 
 " Initialize plugin system
 call plug#end()
