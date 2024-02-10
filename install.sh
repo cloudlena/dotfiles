@@ -138,13 +138,6 @@ esac
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Install rustup
-if [ ! -x "$(command -v rustup)" ]; then
-    printf '\e[1mInstalling Rust\e[0m\n'
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    rustup component add rls rust-analysis rust-src rustfmt clippy
-fi
-
 # Install prezto
 if [ ! -d ~/.zprezto ]; then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"

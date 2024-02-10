@@ -1,7 +1,7 @@
 font=Fira Mono 9
-background-color=#212121
-text-color=#bcbec0
+background-color=#1a1b26
+text-color=#c0caf5
 width=350
-border-color=#a48add
+border-color=#bb9af7
 default-timeout=8000
 group-by=app-name,summary

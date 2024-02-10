@@ -4,8 +4,8 @@
 set $mod Mod4
 
 # Colors
-set $foreground #bcbec0
-set $highlight #a48add
+set $foreground #c0caf5
+set $highlight #bb9af7
 set $wallpaper ~/.config/wallpapers/bespinian.png
 set $lock_cmd swaylock --daemonize --image $wallpaper
 set $sleep_cmd systemctl suspend

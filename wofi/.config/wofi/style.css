@@ -1,14 +1,14 @@
 #window {
-  background-color: #212121;
+  background-color: #1a1b26;
   font-family: "Fira Mono";
-  color: #bcbec0;
+  color: #c0caf5;
 }
 
 #input {
-  background-color: #212121;
+  background-color: #1a1b26;
   border-radius: 0;
   border-color: transparent;
-  color: #bcbec0;
+  color: #c0caf5;
   padding: 5px;
 }
 
@@ -17,6 +17,6 @@
 }
 
 #entry:selected {
-  background-color: #a48add;
+  background-color: #bb9af7;
   outline: none;
 }

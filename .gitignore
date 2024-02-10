@@ -3,15 +3,15 @@ pacmanfile/.config/pacmanfile/pacmanfile-extra.txt
 zsh/.zsh.d/extra.zsh
 
 # Neovim creates additional files which need to be ignored
-nvim/.config/nvim
-!gopass/.config/gopass/init.vim
-!gopass/.config/gopass/plugins.vim
+nvim/.config/nvim/*
+!nvim/.config/nvim/init.lua
+!nvim/.config/nvim/lua
 
 # gopass creates additional files which need to be ignored
-gopass/.config/gopass
+gopass/.config/gopass/*
 !gopass/.config/gopass/config.yml
 
 # Vifm creates additional files which need to be ignored
-vifm/.config/vifm/
+vifm/.config/vifm/*
 !vifm/.config/vifm/vifmrc
 !vifm/.config/vifm/colors

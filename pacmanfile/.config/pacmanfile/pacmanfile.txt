@@ -4,6 +4,7 @@ automake
 aws-cli
 awslogs
 base
+bash-language-server
 bind
 binutils
 bison
@@ -93,6 +94,8 @@ python-pynvim
 qemu
 reflector
 ripgrep
+rust
+rust-analyzer
 sed
 shellcheck
 signal-desktop
@@ -115,6 +118,7 @@ tmate
 tmux
 tree
 typescript
+typescript-language-server-bin
 udisks2
 unzip
 vifm

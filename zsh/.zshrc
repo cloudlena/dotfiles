@@ -1,7 +1,7 @@
 # Load the shell dotfiles
 # extra.zsh can be used for settings you don’t want to commit.
 for file in ~/.zsh.d/*.zsh; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+  source "$file"
 done
 
 # Source Prezto

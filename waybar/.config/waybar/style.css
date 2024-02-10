@@ -3,11 +3,11 @@
   border-radius: 0;
   font-family: "Fira Mono";
   font-size: 13px;
-  color: #bcbec0;
+  color: #c0caf5;
 }
 
 window#waybar {
-  background-color: #212121;
+  background-color: #1a1b26;
 }
 
 /* Workspaces */
@@ -17,14 +17,13 @@ window#waybar {
 
 /* Workspaces */
 #workspaces button:hover {
-  background: #414141;
+  background: #414868;
   border-color: transparent;
   box-shadow: none;
 }
 
 #workspaces button.focused {
-  background-color: #414141;
-  border-top: 2px solid #a48add;
+  background-color: #414868;
 }
 
 /* Modules */
@@ -42,15 +41,15 @@ window#waybar {
 #mode,
 #custom-updates {
   font-weight: bold;
-  color: #a48add;
+  color: #bb9af7;
 }
 
 #custom-failed-services {
   font-weight: bold;
-  color: #dd7186;
+  color: #f7768e;
 }
 
 #network.disconnected {
   font-weight: bold;
-  color: #dd7186;
+  color: #f7768e;
 }

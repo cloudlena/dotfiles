@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! failed_count=$(systemctl --failed | grep 'failed' | wc -l); then
+if ! failed_count=$(systemctl --failed | grep -c 'failed'); then
     failed_count=0
 fi
 

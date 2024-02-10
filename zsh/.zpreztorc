@@ -1,17 +1,14 @@
 # vim: ft=zsh
 
-fpath=(
-  ${HOME}/dotfiles
-  ${fpath}
-)
+fpath=(~/dotfiles $fpath)
 
 # Load Prezto modules
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
   'utility' \
-  'completion' \
   'git' \
+  'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt' \
