@@ -124,7 +124,6 @@ case "$(uname)" in
         curl \
         diff-so-fancy \
         dnsutils \
-        dropbox \
         efibootmgr \
         ethtool \
         eslint \
@@ -187,6 +186,7 @@ case "$(uname)" in
         python-pip \
         python-pynvim \
         qemu \
+        rclone \
         redshift-wlr-gamma-control-git \
         ripgrep \
         ruby \
