@@ -53,15 +53,17 @@ cask 'google-chrome'
 cask 'graphiql'
 cask 'imageoptim'
 cask 'iterm2'
+cask 'mongodb-compass'
 cask 'postman'
 cask 'rambox'
 cask 'spotify'
+cask 'sqlectron'
 cask 'virtualbox'
 
 mas "1Password", id: 443987910
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id:824183456
 mas "BetterSnapTool", id: 417375580
 mas "Caffeine", id: 411246225
-mas "Pixelmator", id: 407963104
 mas "PopClip", id: 445189367
-mas "Sip", id: 507257563
 mas "The Unarchiver", id: 425424353
