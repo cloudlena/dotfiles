@@ -73,13 +73,19 @@ case "$(uname)" in
     # Install the Python neovim package
     pip install --upgrade --user neovim
 
+    # Install vim-plug
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
     # Run full system upgrade
     source ~/dotfiles/bash/.path
     source ~/dotfiles/bash/.functions
     pacu
 
     # Install prezto
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    if [ ! -d ~/.zprezto ]; then
+        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    fi
 
     # Symlink nvim to vim if Vim not installed
     if [ ! -f /usr/local/bin/vim ]; then
@@ -179,6 +185,10 @@ case "$(uname)" in
 
     # Install the Python neovim package
     pip install neovim --upgrade --user
+
+    # Install vim-plug
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Run full system upgrade
     source ~/dotfiles/bash/.path
