@@ -14,5 +14,6 @@ vim.opt.spelllang = "en_us" -- Set default spell language
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.termguicolors = true -- True color support
+vim.opt.tabstop = 4 -- Set tab width to 4 spaces
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- Reserve space for keymaps
