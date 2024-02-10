@@ -9,18 +9,17 @@
 # Note if multiple patterns are present in the same application name,
 # precedence is given in order of apparition in this file.
 
-# Terminal
-"alacritty" = ""
-"nvim" = ""
-
 # Browsers
 "brave" = ""
 "chromium" = ""
 "firefox" = ""
 
 # Apps
+"alacritty" = ""
+"blender" = ""
 "gimp" = ""
 "inkscape" = ""
+"krita" = ""
 "libreoffice calc" = ""
 "libreoffice impress" = ""
 "libreoffice writer" = ""
