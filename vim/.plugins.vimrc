@@ -43,7 +43,7 @@ Plug 'tpope/vim-surround'
 " Source tree
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
-let NERDTreeIgnore = ['.DS_Store']
+let NERDTreeIgnore = ['.DS_Store','.git$']
 map <C-n> :NERDTreeToggle<CR>
 
 " Toggle Comments
