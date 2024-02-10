@@ -6,6 +6,7 @@ autotiling
 aws-cli-v2-bin
 base
 bash-language-server
+bc
 bind
 binutils
 bison

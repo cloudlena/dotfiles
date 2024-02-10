@@ -9,6 +9,7 @@ tap "sonatype-nexus-community/homebrew-nancy-tap"
 
 brew "awscli"
 brew "bash-language-server"
+brew "bc"
 brew "diff-so-fancy"
 brew "driftctl"
 brew "eslint"
