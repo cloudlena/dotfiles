@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# Remove existing rules to avoid duplication
+bspc rule -r '*'
+
 # Autostart
 sxhkd &
 nitrogen --restore &

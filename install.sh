@@ -101,6 +101,7 @@ case "$(uname)" in
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
         alacritty \
+        alsa-utils \
         ansible \
         ansible-lint \
         aws-cli \
