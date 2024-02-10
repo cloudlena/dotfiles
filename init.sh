@@ -147,6 +147,7 @@ case "$(uname)" in
         mongodb \
         neovim \
         shellcheck \
+        terraform \
         the_silver_searcher \
         tmux \
         wget \
