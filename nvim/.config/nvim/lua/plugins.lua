@@ -81,10 +81,11 @@ return require("packer").startup(function()
 
                 -- Format on save
                 if client.resolved_capabilities.document_formatting then
-                    vim.cmd([[augroup Format]])
-                    vim.cmd([[autocmd! * <buffer>]])
-                    vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
-                    vim.cmd([[augroup END]])
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        callback = function()
+                            vim.lsp.buf.formatting_sync()
+                        end,
+                    })
                 end
             end
 
@@ -208,7 +209,11 @@ return require("packer").startup(function()
                 sources = sources,
                 on_attach = function(client)
                     if client.resolved_capabilities.document_formatting then
-                        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 10000)")
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            callback = function()
+                                vim.lsp.buf.formatting_sync(nil, 10000)
+                            end,
+                        })
                     end
                 end,
             })
