@@ -22,7 +22,7 @@ zstyle ':prezto:*:*' color 'yes'
 # Enable advanced syntax highlighting for commands
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
-  'brackets' \
+  'brackets'
 
 # Set the prompt theme to load
 # Setting it to 'random' loads a random theme.
