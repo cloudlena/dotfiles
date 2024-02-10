@@ -5,9 +5,7 @@ return {
         keys = {
             {
                 "<Leader>j",
-                function()
-                    require("nvim-tree").toggle(true)
-                end,
+                "<Cmd>NvimTreeFindFileToggle<CR>",
                 desc = "Toggle file tree",
             },
         },
