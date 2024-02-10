@@ -76,9 +76,6 @@ endif
 " Detect indent settings
 Plug 'tpope/vim-sleuth'
 
-" Crystal language support
-Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-
 " Go language support
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' ,'for': 'go' }
 let g:go_fmt_command = 'goimports'
