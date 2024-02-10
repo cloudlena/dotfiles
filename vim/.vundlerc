@@ -41,6 +41,10 @@ Plugin 'fatih/vim-go'
 " Node Plugin
 Plugin 'moll/vim-node'
 
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'icholy/typescript-tools'
+
 " Open Files
 Plugin 'kien/ctrlp.vim'
 
