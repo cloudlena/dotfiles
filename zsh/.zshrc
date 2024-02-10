@@ -1,5 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+case "$(uname)" in
+'Linux')
+    export ZSH=/usr/share/oh-my-zsh
+    ;;
+'Darwin')
+    export ZSH=$HOME/.oh-my-zsh
+    ;;
+esac
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
