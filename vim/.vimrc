@@ -17,7 +17,7 @@ let mapleader=","
 " Enable relative line numbers
 set relativenumber
 set number
-" Use 2 spaces instead of tabs
+" Use spaces instead of tabs
 set expandtab
 set tabstop=4
 set softtabstop=4
