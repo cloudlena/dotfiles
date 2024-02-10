@@ -25,6 +25,3 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Don't search files which are gitignored in FZF
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
