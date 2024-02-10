@@ -133,6 +133,7 @@ function pacu() {
             brew update
             cat ~/dotfiles/Brewfile* | brew bundle --file=-
             cat ~/dotfiles/Brewfile* | brew bundle cleanup --force --file=-
+            brew cu --all --yes --cleanup
             brew cleanup
         fi
         if typeset -f zprezto-update > /dev/null; then
