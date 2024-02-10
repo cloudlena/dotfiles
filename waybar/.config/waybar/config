@@ -1,5 +1,6 @@
 {
   "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center":["custom/tasks"],
   "modules-right": [
     "custom/updates",
     "network",
@@ -41,6 +42,11 @@
       "car": "",
       "phone": ""
     }
+  },
+  "custom/tasks": {
+    "exec": "~/.config/waybar/scripts/tasks.sh",
+    "exec-if": "which task",
+    "interval": 60
   },
   "custom/updates": {
     "format": " {}",
