@@ -109,7 +109,7 @@ depu() {
     # Go
     if [ -e go.mod ]; then
         printf "Updating Go dependencies for %s...\n\n" "${PWD##*/}"
-        go get -d -t -u all
+        go get -t -u ./...
         go mod tidy
     fi
 
