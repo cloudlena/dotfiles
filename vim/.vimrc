@@ -18,8 +18,11 @@ let mapleader=","
 " Enable relative line numbers
 set relativenumber
 set number
-" Make tabs as wide as two spaces
+" Use 2 spaces instead of tabs
+set expandtab
 set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -45,26 +48,20 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
 " Automatic commands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  " Enable file type detection
+  filetype on
+  " Treat .json files as .js
+  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  " Treat .md files as Markdown
+  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  " Use 4 spaces for python files
+  autocmd FileType python setlocal ts=4 sts=4 sw=4
+  " Use tabs for make files
+  autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+  " Strip trailing whitespaces on save
+  autocmd BufWritePre * %s/\s\+$//e
 endif
 
 " Import Vundle configuration
