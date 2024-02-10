@@ -76,6 +76,10 @@ function pacu() {
   (gem update --force) &
   ruby_pid="$!"
 
+  # Python3
+  (for pkg in $(pip3 list | cut -d' ' -f1); do pip3 install --upgrade $pkg; done) &
+  python3_pid="$!"
+
   # Vim
   vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
 
@@ -83,6 +87,7 @@ function pacu() {
   wait "${npm_pid}"
   wait "${go_pid}"
   wait "${ruby_pid}"
+  wait "${python3_pid}"
 
   echo 'System upgrade finished'
 }
