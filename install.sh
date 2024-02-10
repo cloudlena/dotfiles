@@ -17,7 +17,7 @@ case "$(uname)" in
     # Install Git if not installed
     if [ ! -x "$(command -v git)" ]; then
         printf '\e[1mInstalling Git\e[0m\n'
-        sudo pacman -Syu --noconfirm --needed git
+        sudo pacman -S --noconfirm --needed git
     fi
 
     # git clone these dotfiles if not done yet
@@ -27,7 +27,7 @@ case "$(uname)" in
     fi
 
     # Install Stow if not installed
-    sudo pacman -Syu --noconfirm --needed stow
+    sudo pacman -S --noconfirm --needed stow
     # Remove existing config files
     if [ -f ~/.zshrc ]; then
         rm ~/.zshrc
@@ -52,7 +52,7 @@ case "$(uname)" in
     # Install Pacmanfile if not installed
     if [ ! -x "$(command -v pacmanfile)" ]; then
         printf '\e[1mInstalling Pacmanfile\e[0m\n'
-        paru -Syu --noconfirm --needed pacmanfile
+        paru -S --noconfirm --needed pacmanfile
     fi
 
     # Install packages using Pacmanfile
