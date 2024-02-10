@@ -130,8 +130,9 @@ Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 
 " GraphQL schema support
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
-" HCL support
-Plug 'fatih/vim-hclfmt'
+" Terraform support
+Plug 'hashivim/vim-terraform'
+let g:terraform_fmt_on_save = 1
 
 " Initialize plugin system
 call plug#end()
