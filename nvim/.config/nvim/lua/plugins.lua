@@ -39,6 +39,9 @@ return require("packer").startup(function()
         end,
     })
 
+    -- Automatically set indent settings
+    use("tpope/vim-sleuth")
+
     -- Syntax highlighting
     use({
         "nvim-treesitter/nvim-treesitter",
