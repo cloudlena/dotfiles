@@ -39,6 +39,3 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre * retab
 " Enable spell checking for certain file types
 autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
-
-" Shortcut to search whole project
-nnoremap \ :Rg<space>
