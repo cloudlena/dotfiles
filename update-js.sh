@@ -4,7 +4,6 @@ set -u
 
 js_dir="${HOME}/js"
 
-
 if [ -d "${js_dir}" ]; then
     cd "${js_dir}" || exit
     for d in */ ; do
