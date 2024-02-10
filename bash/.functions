@@ -83,7 +83,6 @@ function depu() {
         echo "Updating Go dep dependencies...\n"
         dep ensure
         dep ensure -update
-        dep prune
     fi
 
 }
@@ -123,7 +122,7 @@ function pacu() {
     # On macOS, use mas and Homebrew in parallel
     'Darwin')
         if [ -x "$(command -v mas)" ]; then
-            printf '\e[1mUpdating Mac App Store apps\e[0m\n'
+            printf '\e[1mUpdating App Store apps\e[0m\n'
             (mas upgrade) &
             mas_pid="$!"
         fi
@@ -146,14 +145,14 @@ function pacu() {
         ;;
     esac
 
-# Go
+    # Go
     if [ -x "$(command -v go)" ]; then
         printf '\e[1mUpdating Go binaries\e[0m\n'
         ("${HOME}/dotfiles/update-go.sh") &
         go_pid="$!"
     fi
 
-# Node.js and npm
+    # Node.js and npm
     if [ -x "$(command -v npm)" ]; then
         printf '\e[1mUpdating globally installed npm packages\e[0m\n'
         (npm update -g) &
@@ -166,14 +165,14 @@ function pacu() {
         npm_pid="$!"
     fi
 
-# Ruby
+    # Ruby
     if [ -x "$(command -v gem)" ]; then
         printf '\e[1mUpdating Ruby gems\e[0m\n'
         (gem update --force && gem cleanup) &
         ruby_pid="$!"
     fi
 
-# Python
+    # Python
     if [ -x "$(command -v pip)" ]; then
         printf '\e[1mUpdating pip packages\e[0m\n'
         (for pkg in $(pip list --outdated | cut -d' ' -f1); do pip install --user --upgrade $pkg; done) &
@@ -185,20 +184,20 @@ function pacu() {
         python_pid="$!"
     fi
 
-# Python3
+    # Python3
     if [ -x "$(command -v pip3)" ]; then
         printf '\e[1mUpdating pip3 packages\e[0m\n'
         (for pkg in $(pip3 list --outdated | cut -d' ' -f1); do pip3 install --user --upgrade $pkg; done) &
         python3_pid="$!"
     fi
 
-# Vim
+    # Vim
     if [ -x "$(command -v vim)" ]; then
         printf '\e[1mUpdating vim plugins\e[0m\n'
         vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
     fi
 
-# Wait for all processes to finish
+    # Wait for all processes to finish
     wait "${npm_pid}" &> /dev/null
     wait "${go_pid}" &> /dev/null
     wait "${ruby_pid}" &> /dev/null
