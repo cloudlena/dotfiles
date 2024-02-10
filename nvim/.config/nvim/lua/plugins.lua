@@ -170,9 +170,9 @@ return require("packer").startup(function()
                         vim.fn["vsnip#anonymous"](args.body)
                     end,
                 },
-                mapping = {
+                mapping = cmp.mapping.preset.insert({
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                },
+                }),
                 sources = sources,
                 formatting = { format = require("lspkind").cmp_format() },
             })
