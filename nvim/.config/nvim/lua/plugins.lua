@@ -69,7 +69,7 @@ return require("packer").startup(function()
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
                 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set("n", "<space>ca", telescope_builtin.lsp_code_actions, opts)
+                vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
                 vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
                 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
                 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -231,6 +231,7 @@ return require("packer").startup(function()
         requires = {
             "nvim-lua/plenary.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+            "nvim-telescope/telescope-ui-select.nvim",
         },
         config = function()
             local telescope = require("telescope")
@@ -244,6 +245,7 @@ return require("packer").startup(function()
                 },
             })
             telescope.load_extension("fzf")
+            telescope.load_extension("ui-select")
 
             local telescope_builtin = require("telescope.builtin")
 
