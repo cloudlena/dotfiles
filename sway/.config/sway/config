@@ -163,7 +163,7 @@ exec mako
 exec kanshi
 
 # Adjust color temperature to reduce eye strain
-exec redshift -l '46.95:7.45'
+exec gammastep -l '46.95:7.45'
 
 # Clipboard manager
 exec wl-paste --type text --watch clipman store
