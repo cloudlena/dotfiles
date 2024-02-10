@@ -2,7 +2,7 @@
 
 My personal dotfiles
 
-I mainly work with [Go](https://golang.org/), [Node.js](https://nodejs.org/en/), [TypeScript](https://www.typescriptlang.org/), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
+I mainly work with [Go](https://golang.org/), [TypeScript](https://www.typescriptlang.org/), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
 
 ## Usage
 
@@ -27,7 +27,6 @@ I use [Stow](https://www.gnu.org/software/stow/) to symlink the files from this 
 * Install [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) and run `ln -s "${HOME}/dotfiles/vim/.vimrc" "${HOME}/.config/nvim/init.vim"`
 * Install [vim-plug](https://github.com/junegunn/vim-plug#installation)
 * Install [Python 3](https://www.python.org/downloads/) and run `pip3 install --upgrade neovim`
-* Install the Vim Powerline additions to the font of your terminal (e.g. [Monaco for Powerline](https://gist.github.com/baopham/1838072))
 
 ### macOS recommendations
 
