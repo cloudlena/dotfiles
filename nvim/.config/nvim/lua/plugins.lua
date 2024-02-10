@@ -28,19 +28,12 @@ return require("packer").startup(function()
     -- Syntax highlighting
     use({
         "nvim-treesitter/nvim-treesitter",
+        requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
         run = ":TSUpdateSync",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = "all",
                 highlight = { enable = true },
-            })
-        end,
-    })
-    use({
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        requires = { "nvim-treesitter/nvim-treesitter" },
-        config = function()
-            require("nvim-treesitter.configs").setup({
                 textobjects = {
                     select = {
                         enable = true,
