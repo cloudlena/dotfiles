@@ -146,5 +146,8 @@ Plug 'juliosueiras/vim-terraform-completion', { 'for': 'terraform' }
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 
+" TOML
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+
 " Initialize plugin system
 call plug#end()
