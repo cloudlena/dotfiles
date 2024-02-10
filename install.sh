@@ -12,7 +12,7 @@ case "$(uname)" in
 'Darwin')
 
     # Install Xcode Command Line Tools if not installed
-    if ! xcode-select -p > /dev/null; then
+    if ! xcode-select -p >/dev/null; then
         printf 'Xcode Command Line Tools not installed. You will have to run the script again after successfully installing them. Install now? (Y/n)'
         read -r
         echo
