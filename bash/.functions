@@ -103,6 +103,7 @@ function pacu() {
             brew update
             brew bundle --file=~/dotfiles/Brewfile
             brew bundle cleanup --force --file=~/dotfiles/Brewfile
+            brew cu --all --yes --cleanup
             brew cleanup
         fi
         wait "${mas_pid}" &> /dev/null
