@@ -130,7 +130,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascri
 let g:javascript_plugin_flow = 1
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
-Plug 'wokalski/autocomplete-flow', { 'for': 'javascript.jsx' }
+Plug 'wokalski/autocomplete-flow', { 'for': 'javascript' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
