@@ -37,9 +37,9 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
 1. Clone this repo to `~/dotfiles` by running `git clone git@github.com:mastertinner/dotfiles.git ~/dotfiles`
 1. Change the name and email address in `git/.gitconfig`
 1. macOS only: Change `Brewfile` to your liking or add `extra.Brewfile` for independent packages per machine
-1. macOS only: If you have apps installed which you didn't install through `brew cask` but that you now added to `Brewfile` as `cask`, you need to reinstall them with `brew cask install <name> --force` so `cask` knows it's supposed to manage these apps.
+1. macOS only: If you have apps installed which you didn't install through `brew` but that you now added to `Brewfile`, you need to reinstall them with `brew install <name> --force` so `brew` knows it's supposed to manage these apps.
 
-   Note: This won't delete any of your data. The app will just be reinstalled with `brew cask` and everything will be back to normal once the installation script has run.
+   Note: This won't delete any of your data. The app will just be reinstalled with `brew` and everything will be back to normal once the installation script has run.
 
 1. Run `~/dotfiles/install.sh`
 
