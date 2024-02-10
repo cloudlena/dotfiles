@@ -1,6 +1,4 @@
 alacritty
-ansible
-ansible-lint
 autoconf
 automake
 aws-cli
@@ -14,6 +12,7 @@ bluez-utils
 clipman
 curl
 diff-so-fancy
+driftctl-bin
 dropbox
 efibootmgr
 eslint
@@ -37,6 +36,7 @@ gron-bin
 grub
 hadolint-bin
 htop
+hugo
 imv
 informant
 inkscape
@@ -62,7 +62,6 @@ ncdu
 neovim
 networkmanager
 nftables
-nikto
 nmap
 nodejs
 noto-fonts-cjk
@@ -108,7 +107,7 @@ swayidle
 swaylock
 termshark
 terraform
-terraform-lsp-bin
+terraform-ls-bin
 tflint-bin
 tlp
 tlp-rdw

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! update_count_pacman=$(checkupdates | wc -l ); then
+if ! update_count_pacman=$(checkupdates | wc -l); then
     update_count_pacman=0
 fi
 
