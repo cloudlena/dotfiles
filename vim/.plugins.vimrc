@@ -67,7 +67,7 @@ nnoremap <C-P> :Files<cr>
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-Plug 'mhartington/deoplete-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
+Plug 'mhartington/deoplete-typescript', { 'do': ':UpdateRemotePlugins', 'for': 'typescript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
