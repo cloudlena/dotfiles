@@ -167,12 +167,12 @@ case "$(uname)" in
         zsh-completions
 
     # Install Yay if not installed
-    if [ ! -x "$(command -v yay)"]; then
+    if [ ! -x "$(command -v yay)" ]; then
         printf '\e[1mInstalling Yay\e[0m\n'
         git clone https://aur.archlinux.org/yay.git /tmp/yay
         (cd /tmp/yay && makepkg -si)
     fi
-    
+
     yay -Sy --noconfirm --needed \
         cloudfoundry-cli \
         delve \
