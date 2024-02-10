@@ -195,7 +195,7 @@ case "$(uname)" in
         shellcheck \
         slurp \
         smartmontools \
-        spotifyd-bin-full \
+        spotifyd \
         spotify-tui-bin \
         sudo \
         svgo \
