@@ -2,7 +2,6 @@
 tap "homebrew/cask"
 tap "golangci/tap"
 tap "cloudfoundry/tap"
-tap "go-delve/delve"
 tap "buo/cask-upgrade"
 
 # Languages
@@ -19,7 +18,6 @@ brew "diff-so-fancy"
 brew "flow"
 brew "fzf"
 brew "git"
-brew "go-delve/delve/delve"
 brew "golangci/tap/golangci-lint"
 brew "grv"
 brew "hadolint"
