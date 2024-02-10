@@ -31,6 +31,9 @@ exec swayidle -w \
     before-sleep '$lock_cmd' \
     lock '$lock_cmd'
 
+# Inhibit idle if a window is in fullscreen
+for_window [shell=".*"] inhibit_idle fullscreen
+
 ### Input configuration
 
 # Mouse
