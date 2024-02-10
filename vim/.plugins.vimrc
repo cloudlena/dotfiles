@@ -22,16 +22,18 @@ if has("autocmd")
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
 endif
 function! s:goyo_enter()
+    set noshowmode
     set noshowcmd
     set scrolloff=999
-    ALEDisable
     Limelight
+    ALEDisable
 endfunction
 function! s:goyo_leave()
+    set showmode
     set showcmd
     set scrolloff=3
-    ALEEnable
     Limelight!
+    ALEEnable
 endfunction
 
 " Fuzzy finder

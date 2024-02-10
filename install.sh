@@ -25,9 +25,6 @@ case "$(uname)" in
         exit
     fi
 
-    # Set dark mode
-    sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
-
     # Install Homebrew if not installed
     if [ ! -x "$(command -v brew)" ]; then
         printf '\e[1mInstalling Homebrew\e[0m\n'
@@ -46,7 +43,7 @@ case "$(uname)" in
         git clone git@github.com:mastertinner/dotfiles.git ~/dotfiles
     fi
 
-    # Install stow if not installed
+    # Install Stow if not installed
     if [ ! -x "$(command -v stow)" ]; then
         printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
         brew install stow
@@ -66,34 +63,13 @@ case "$(uname)" in
         npm config set prefix ~/.node_modules
     fi
 
-    # Use vimrc as Neovim config
-    printf '\e[1mSetting up Neovim\e[0m\n'
-    if [ -f ~/.config/nvim/init.vim ]; then
-        rm ~/.config/nvim/init.vim
-    fi
-    mkdir -p ~/.config/nvim
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
-
     # Install pip if not installed
     if [ ! -x "$(command -v pip)" ]; then
         sudo easy_install pip
     fi
-    # Install the Python neovim package
-    pip install --upgrade --user pynvim
 
-    # Install vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # Run full system upgrade
-    . ~/dotfiles/zsh/.zsh.d/.path
-    . ~/dotfiles/zsh/.zsh.d/.functions
-    pacu
-
-    # Symlink nvim to vim if Vim not installed
-    if [ ! -f /usr/local/bin/vim ]; then
-        sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
-    fi
+    # Set dark mode
+    sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
     ;;
 
 'Linux')
@@ -102,10 +78,7 @@ case "$(uname)" in
         exit 1
     fi
 
-    # Set colors for pacman
-    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
-
-    # Install git if not installed
+    # Install Git if not installed
     if [ ! -x "$(command -v git)" ]; then
         printf '\e[1mInstalling Git\e[0m\n'
         sudo pacman -Syu git --noconfirm --needed
@@ -114,7 +87,7 @@ case "$(uname)" in
     # git clone these dotfiles if not done yet
     if [ ! -d ~/dotfiles ]; then
         printf '\e[1mCloning dotfiles repo\e[0m\n'
-        git clone https://github.com/mastertinner/dotfiles.git
+        git clone git@github.com:mastertinner/dotfiles.git ~/dotfiles
     fi
 
     # Install Stow if not installed
@@ -172,6 +145,7 @@ case "$(uname)" in
         typescript \
         vifm \
         wget \
+        xclip \
         zathura \
         zathura-pdf-poppler \
         zsh
@@ -204,30 +178,8 @@ case "$(uname)" in
     getent group docker || groupadd docker
     sudo usermod -aG docker "${USER}"
 
-    # Use vimrc as Neovim config
-    printf '\e[1mSetting up Neovim\e[0m\n'
-    if [ -f ~/.config/nvim/init.vim ]; then
-        rm ~/.config/nvim/init.vim
-    fi
-    mkdir -p ~/.config/nvim
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
-
-    # Install the Python neovim package
-    pip install --upgrade --user pynvim
-
-    # Install vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # Run full system upgrade
-    . ~/dotfiles/zsh/.zsh.d/.path
-    . ~/dotfiles/zsh/.zsh.d/.functions
-    pacu
-
-    # Symlink nvim to vim if Vim not installed
-    if [ ! -f /usr/bin/vim ]; then
-        sudo ln -s /usr/bin/nvim /usr/bin/vim
-    fi
+    # Set colors for pacman
+    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
     ;;
 
 # Default
@@ -236,6 +188,21 @@ case "$(uname)" in
     exit 1
     ;;
 esac
+
+# Use vimrc as Neovim config
+printf '\e[1mSetting up NeoVim\e[0m\n'
+if [ -f ~/.config/nvim/init.vim ]; then
+    rm ~/.config/nvim/init.vim
+fi
+mkdir -p ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+# Install the Python NeoVim package
+pip install --upgrade --user pynvim
+
+# Install vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install rustup
 if [ ! -x "$(command -v rustup)" ]; then
@@ -256,6 +223,11 @@ if [ -x "$(command -v zsh)" ]; then
 fi
 
 # Remove existing bash config files
-rm -f ~/.bash*
+rm -rf ~/.bash*
+
+# Run full system upgrade
+. ~/dotfiles/zsh/.zsh.d/.path
+. ~/dotfiles/zsh/.zsh.d/.functions
+pacu
 
 printf '\e[1mDotfiles successfully installed. Please reboot to finalize.\e[0m\n'
