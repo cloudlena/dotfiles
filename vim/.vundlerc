@@ -8,6 +8,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" EasyMotion
+Plugin 'lokaltog/vim-easymotion'
+
+" Toggle Comments
+Plugin 'tomtom/tcomment_vim'
+
 " Emmet
 Plugin 'mattn/emmet-vim'
 
