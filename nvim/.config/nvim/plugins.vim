@@ -38,7 +38,7 @@ function! s:goyo_leave()
 endfunction
 
 " Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-P> :Files<cr>
 
@@ -97,13 +97,7 @@ let g:ale_fixers['yaml'] = ['prettier']
 let g:ale_fix_on_save = 1
 
 " Autocompletion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 " Go
@@ -151,16 +145,12 @@ Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 " Terraform
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 let g:terraform_fmt_on_save = 1
-Plug 'juliosueiras/vim-terraform-completion', { 'for': 'terraform' }
 
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " nginx
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
-
-" MDX
-Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
 
 " Initialize plugin system
 call plug#end()

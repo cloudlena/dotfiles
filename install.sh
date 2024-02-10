@@ -62,6 +62,9 @@ case "$(uname)" in
         sudo easy_install pip
     fi
 
+    # Install the Python NeoVim package
+    pip install --upgrade --user pynvim
+
     # Set dark mode
     sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
     ;;
@@ -117,6 +120,7 @@ case "$(uname)" in
         binutils \
         bluez \
         bluez-utils \
+        clipman \
         curl \
         diff-so-fancy \
         dnsutils \
@@ -138,6 +142,7 @@ case "$(uname)" in
         hadolint-bin \
         htop \
         imv \
+        informant \
         iputils \
         jq \
         kanshi \
@@ -153,10 +158,12 @@ case "$(uname)" in
         mako \
         man-db \
         mpv \
+        ncdu \
         neovim \
         networkmanager \
         nftables \
         nodejs \
+        noto-fonts-cjk \
         noto-fonts-emoji \
         npm \
         openssh \
@@ -176,6 +183,7 @@ case "$(uname)" in
         pulsemixer \
         python \
         python-pip \
+        python-pynvim \
         qemu \
         redshift-wlr-gamma-control-git \
         ripgrep \
@@ -226,9 +234,6 @@ case "$(uname)" in
     exit 1
     ;;
 esac
-
-# Install the Python NeoVim package
-pip install --upgrade --user pynvim
 
 # Install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
