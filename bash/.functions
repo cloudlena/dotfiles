@@ -168,21 +168,19 @@ function pacu() {
         go_pid="$!"
     fi
 
-    # Node.js, npm and Yarn
+    # npm
     if [ -x "$(command -v npm)" ]; then
         printf '\e[1mUpdating globally installed npm packages\e[0m\n'
-        (npm update -g) &
-        npm_global_pid="$!"
+        npm update -g
 
-        printf '\e[1mUpdating globally installed Yarn packages\e[0m\n'
-        (yarn global upgrade > /dev/null) &
-        yarn_global_pid="$!"
-
-        wait "${npm_global_pid}"
-        wait "${yarn_global_pid}"
         printf '\e[1mUpdating Node.js projects\e[0m\n'
         ("${HOME}/dotfiles/update-js.sh") &
-        yarn_pid="$!"
+    fi
+
+    # Yarn
+    if [ -x "$(command -v yarn)" ]; then
+        printf '\e[1mUpdating globally installed Yarn packages\e[0m\n'
+        yarn global upgrade > /dev/null
     fi
 
     # Ruby
@@ -206,7 +204,6 @@ function pacu() {
     fi
 
     # Wait for all processes to finish
-    wait "${yarn_pid}" &> /dev/null
     wait "${go_pid}" &> /dev/null
     wait "${ruby_pid}" &> /dev/null
     wait "${python_pid}" &> /dev/null

@@ -152,7 +152,6 @@ case "$(uname)" in
         tmux \
         wget \
         yaourt \
-        yarn \
         zsh
     yaourt -Sy --noconfirm --needed \
         cloudfoundry-cli \
