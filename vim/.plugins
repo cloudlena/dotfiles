@@ -11,7 +11,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " Source tree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
 map <C-n> :NERDTreeToggle<CR>
 
