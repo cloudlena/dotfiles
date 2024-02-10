@@ -53,6 +53,7 @@ cask 'google-chrome'
 cask 'imageoptim'
 cask 'iterm2'
 cask 'postman'
+cask 'rambox'
 cask 'spotify'
 cask 'virtualbox'
 
