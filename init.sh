@@ -78,6 +78,9 @@ case "$(uname)" in
     source ~/dotfiles/bash/.functions
     pacu
 
+    # Install prezto
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
     # Symlink nvim to vim if Vim not installed
     if [ ! -f /usr/local/bin/vim ]; then
         sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
