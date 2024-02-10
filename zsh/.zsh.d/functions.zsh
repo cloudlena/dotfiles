@@ -1,17 +1,39 @@
-# Create a new directory and enter it
+# Create a directory and enter it
 mkcd() {
-    mkdir -p "$@" && cd "$_" || exit;
+    mkdir --parents "$@" && cd "$_" || exit;
 }
 
-# cd into directory with fzf
+# cd into directory using fuzzy search
 fcd() {
     local dir
-    dir=$(find "${1:-.}" -path '*/\.*' -prune \
-        -o -type d -print 2> /dev/null | fzf +m) &&
-    cd "$dir" || exit
+    dir=$(fd --type d --follow | fzf --preview 'tree -l -L 1 {}' +m) &&
+    cd "$dir"
 }
 
-# Checkout branches or tags with fzf
+# Edit a firectory or a file using fuzzy search
+fe() {
+    local target fzf_cmd
+    fzf_cmd='fd --follow --hidden --no-ignore \
+        --exclude .git \
+        --exclude vendor \
+        --exclude node_modules \
+        --exclude .terraform \
+        --exclude target \
+        --exclude bin \
+        --exclude build \
+        --exclude dist \
+        --exclude coverage \
+        --exclude .DS_Store'
+    target=$(eval $fzf_cmd | fzf +m) &&
+    if [ -d "$target" ]; then
+        cd "$target" && "$EDITOR"
+    fi
+    if [ -f "$target" ]; then
+        "$EDITOR" "$target"
+    fi
+}
+
+# Checkout Git branches or tags using fuzzy search
 fco() {
     local tags branches target
     tags=$(
@@ -26,7 +48,7 @@ fco() {
     git checkout "$(echo "$target" | awk '{print $2}')"
 }
 
-# fkill - kill process
+# Kill any process with fuzzy search
 fkill() {
     local pid
     if [ "$UID" != "0" ]; then
@@ -41,7 +63,7 @@ fkill() {
     fi
 }
 
-# fshow - git commit browser
+# Git commit browser with fuzzy search
 fshow() {
     git log --graph --color=always \
         --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
