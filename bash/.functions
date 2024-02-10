@@ -102,8 +102,8 @@ function depu() {
     file_count=$(ls -1 Gopkg.toml 2>/dev/null | wc -l)
     if [ "${file_count}" -gt 0 ]; then
         printf "Updating Dep dependencies for ${PWD##*/}...\n\n"
-        dep ensure
-        dep ensure -update
+        GO111MODULE=off dep ensure
+        GO111MODULE=off dep ensure -update
     fi
 
     # Git submodules
