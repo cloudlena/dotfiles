@@ -9,7 +9,7 @@ nvim/.config/nvim/*
 
 # gopass creates additional files which need to be ignored
 gopass/.config/gopass/*
-!gopass/.config/gopass/config.yml
+!gopass/.config/gopass/config
 
 # Vifm creates additional files which need to be ignored
 vifm/.config/vifm/*
