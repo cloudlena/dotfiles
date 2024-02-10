@@ -70,6 +70,9 @@ case "$(uname)" in
         bash-language-server \
         typescript-language-server
 
+    # Install additional Go tooling currently not available via Homebrew
+    go get golang.org/x/tools/cmd/goimports
+
     # Set dark mode
     sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
     ;;
