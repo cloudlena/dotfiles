@@ -46,10 +46,12 @@ cask "imageoptim"
 cask "iterm2"
 cask "mongodb-compass"
 cask "postman"
-cask "rambox"
+cask "skype"
+cask "slack"
 cask "spotify"
 cask "sqlectron"
 cask "virtualbox"
+cask "whatsapp"
 
 mas "1Password", id: 443987910
 mas "Affinity Designer", id: 824171161
