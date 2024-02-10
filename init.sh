@@ -80,8 +80,8 @@ case "$(uname)" in
     pacu
 
     # Symlink Neovim to vim if vim not installed
-    if [ ! -f /usr/bin/vim ]; then
-        sudo ln -s /usr/bin/nvim /usr/bin/vim
+    if [ ! -f /usr/local/bin/vim ]; then
+        sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
     fi
 
     # Install diff-so-fancy
