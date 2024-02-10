@@ -3,8 +3,8 @@
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-right": [
     "custom/updates",
-    "pulseaudio",
     "network",
+    "pulseaudio",
     "battery",
     "clock"
   ],
