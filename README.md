@@ -31,22 +31,33 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 
 - `e`: Start Neovim with all plugins
 - `ide`: Start Neovim with all plugins in an IDE like window layout
+
+#### Navigation
+
+- `\`: Fuzzy search in all files in workspace
 - `ctrl + p`: Fuzzy search files across entire workspace
 - `ctrl + n`: Open visual file explorer
+- `gd`: Go to definition of symbol under cursor
+- `gi`: Go to implementations of symbol under cursor
+- `gr`: Go to references of symbol under cursor
+
+#### Diagnostics and Refactoring
+
 - `ctrl + s`: Open workspace diagnostics
 - `ctrl + k`: Open symbols outline of file
-- `\`: Fuzzy search in all files in workspace
-- `K`: Show signature of symbol currently under cursor
-- `gd`: Go to definition
-- `gd`: Go to implementations
-- `gr`: Go to references
+- `K`: Show signature of symbol under cursor
 - `<space>e`: Show diagnostics details
 - `[d`: Go to previous diagnostic issue
 - `d]`: Go to next diagnostic issue
 - `<space>rn`: Rename current symbol
-- `<space>ca`: Run code actions
-- `<space>tf`: Run all tests in file
+- `<space>ca`: Display code actions
+
+#### Testing
+
 - `<space>tn`: Run nearest test to cursor
+- `<space>tf`: Run all tests in file
+- `<space>ta`: Run all tests
+- `<space>tu`: Toggle extended testing UI
 
 ## Installation
 

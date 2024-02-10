@@ -13,6 +13,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function()
+    local km_opts = { noremap = true, silent = true }
+
     -- Packer manages itself
     use("wbthomason/packer.nvim")
 
@@ -57,10 +59,9 @@ return require("packer").startup(function()
         config = function()
             local nvim_lsp = require("lspconfig")
 
-            local opts = { noremap = true, silent = true }
-            vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+            vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, km_opts)
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, km_opts)
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, km_opts)
 
             -- Add additional capabilities supported by nvim-cmp
             local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -71,16 +72,16 @@ return require("packer").startup(function()
             local on_attach = function(client, bufnr)
                 local telescope_builtin = require("telescope.builtin")
 
-                local bufopts = { silent = true, buffer = bufnr }
-                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, bufopts)
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, bufopts)
-                vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, bufopts)
-                vim.keymap.set("n", "<leader>f", function()
+                local buf_opts = { silent = true, buffer = bufnr }
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, buf_opts)
+                vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, buf_opts)
+                vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, buf_opts)
+                vim.keymap.set("n", "gr", telescope_builtin.lsp_references, buf_opts)
+                vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, buf_opts)
+                vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, buf_opts)
+                vim.keymap.set("n", "<Leader>f", function()
                     vim.lsp.buf.format({ async = true })
-                end, bufopts)
+                end, buf_opts)
 
                 -- Format on save
                 if client.supports_method("textDocument/formatting") then
@@ -251,11 +252,24 @@ return require("packer").startup(function()
         "nvim-telescope/telescope.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-            "nvim-telescope/telescope-ui-select.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "make",
+                config = function()
+                    require("telescope").load_extension("fzf")
+                end,
+            },
+            {
+                "nvim-telescope/telescope-ui-select.nvim",
+                config = function()
+                    require("telescope").load_extension("ui-select")
+                end,
+            },
         },
         config = function()
             local telescope = require("telescope")
+            local telescope_builtin = require("telescope.builtin")
+
             telescope.setup({
                 defaults = {
                     mappings = {
@@ -265,10 +279,6 @@ return require("packer").startup(function()
                     },
                 },
             })
-            telescope.load_extension("fzf")
-            telescope.load_extension("ui-select")
-
-            local telescope_builtin = require("telescope.builtin")
 
             -- Toggle fuzzy file search
             vim.keymap.set("n", "<C-p>", function()
@@ -291,6 +301,8 @@ return require("packer").startup(function()
                         "--exclude=node_modules",
                         "--exclude=target",
                         "--exclude=vendor",
+                        "--exclude=venv",
+                        "--exclude=__pycache__",
                     },
                 })
             end)
@@ -306,7 +318,7 @@ return require("packer").startup(function()
     -- File tree
     use({
         "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             local nvim_tree = require("nvim-tree")
 
@@ -331,7 +343,7 @@ return require("packer").startup(function()
     use({
         "windwp/nvim-autopairs",
         config = function()
-            require("nvim-autopairs").setup({})
+            require("nvim-autopairs").setup()
         end,
     })
 
@@ -349,21 +361,10 @@ return require("packer").startup(function()
     -- Allow to repeat plugin commands
     use("tpope/vim-repeat")
 
-    -- Code outline
-    use({
-        "simrat39/symbols-outline.nvim",
-        opt = true,
-        cmd = { "SymbolsOutline", "SymbolsOutlineOpen" },
-        config = function()
-            require("symbols-outline").setup()
-        end,
-    })
-    vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", { silent = true })
-
     -- Status line
     use({
         "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
                 sections = {
@@ -378,6 +379,17 @@ return require("packer").startup(function()
             })
         end,
     })
+
+    -- Code outline
+    use({
+        "simrat39/symbols-outline.nvim",
+        opt = true,
+        cmd = { "SymbolsOutline" },
+        config = function()
+            require("symbols-outline").setup()
+        end,
+    })
+    vim.keymap.set("n", "<C-k>", "<Cmd>SymbolsOutline<CR>", km_opts)
 
     -- Testing
     use({
@@ -405,17 +417,20 @@ return require("packer").startup(function()
                 },
             })
 
-            vim.keymap.set("n", "<leader>tf", function()
+            vim.keymap.set("n", "<Leader>tn", function()
+                neotest.run.run()
+            end, km_opts)
+            vim.keymap.set("n", "<Leader>tf", function()
                 neotest.run.run(vim.fn.expand("%"))
                 neotest.summary.open()
-            end, { silent = true })
-            vim.keymap.set("n", "<leader>tn", function()
-                neotest.run.run()
-            end, { silent = true })
-            vim.keymap.set("n", "<leader>ta", function()
+            end, km_opts)
+            vim.keymap.set("n", "<Leader>ta", function()
                 neotest.run.run(vim.fn.getcwd())
                 neotest.summary.open()
-            end, { silent = true })
+            end, km_opts)
+            vim.keymap.set("n", "<Leader>tu", function()
+                neotest.summary.toggle()
+            end, km_opts)
         end,
     })
 
@@ -439,7 +454,7 @@ return require("packer").startup(function()
             {
                 "folke/twilight.nvim",
                 config = function()
-                    require("twilight").setup({})
+                    require("twilight").setup()
                 end,
             },
         },
