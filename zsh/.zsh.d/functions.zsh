@@ -208,10 +208,6 @@ pacu() {
     if [ -x "$(command -v npm)" ]; then
         printf '\e[1mUpdating globally installed npm packages\e[0m\n'
         npm update -g
-
-        printf '\e[1mUpdating Node.js projects\e[0m\n'
-        ("${HOME}/dotfiles/update-js.sh") &
-        processes+=("$!")
     fi
 
     # Yarn
@@ -240,5 +236,5 @@ pacu() {
         wait "$p"
     done
 
-    printf '\e[1mSystem update finished\e[0m\n'
+    printf '\n\e[1mSystem update finished\e[0m\n'
 }
