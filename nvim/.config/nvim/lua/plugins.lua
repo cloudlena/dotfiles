@@ -67,6 +67,7 @@ return require('packer').startup(function()
                     symlink_open = '▾'
                 }
             }
+            require'nvim-tree'.setup()
         end
     }
 
