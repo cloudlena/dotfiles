@@ -10,6 +10,7 @@ binutils
 bison
 bluez
 bluez-utils
+brave-bin
 clipman
 curl
 diff-so-fancy
@@ -20,7 +21,6 @@ eslint
 ethtool
 fakeroot
 fd
-firefox
 flex
 fwupd
 fzf

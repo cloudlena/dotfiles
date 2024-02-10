@@ -4,7 +4,7 @@ export LANG='en_US.UTF-8'
 
 # Set default programs
 export TERMINAL='alacritty'
-export BROWSER='firefox'
+export BROWSER='brave'
 export PAGER='less'
 export EDITOR='nvim'
 export VISUAL="${EDITOR}"
