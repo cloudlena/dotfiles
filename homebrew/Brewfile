@@ -1,9 +1,9 @@
 # Taps
+tap "homebrew/core"
 tap "caskroom/cask"
+tap "homebrew/bundle"
 tap "cloudfoundry/tap"
 tap "go-delve/delve"
-tap "homebrew/bundle"
-tap "homebrew/core"
 tap "neovim/neovim"
 
 # Languages
@@ -37,6 +37,7 @@ brew "neovim/neovim/neovim"
     brew "libtermkey"
     brew "libuv"
     brew "libvterm"
+    brew "msgpack"
     brew "unibilium"
 brew "cloudfoundry/tap/cf-cli"
 brew "go-delve/delve/delve"
