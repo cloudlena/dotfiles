@@ -15,6 +15,9 @@ function prompt_mastertinner_setup {
   # Add hook for calling git-info before each command
   add-zsh-hook precmd prompt_mastertinner_precmd
 
+  # Tell prezto we can manage this prompt
+  zstyle ':prezto:module:prompt' managed 'yes'
+
   # Set git-info parameters
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:branch' format '%b'
