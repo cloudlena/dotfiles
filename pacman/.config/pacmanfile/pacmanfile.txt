@@ -10,6 +10,7 @@ bluez
 bluez-utils
 brave-bin
 brightnessctl
+browserpass
 chafa
 clipman
 curl
@@ -28,7 +29,6 @@ gnupg
 go
 golangci-lint-bin
 gopass
-gopass-jsonapi
 grim
 gron
 htop
