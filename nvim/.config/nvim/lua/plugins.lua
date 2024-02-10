@@ -125,6 +125,20 @@ return require('packer').startup(function()
         end
     }
 
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true},
+      config = function() require('lualine').setup{
+        sections = {
+          lualine_a = {},
+          lualine_b = {'branch', 'diff', {'diagnostics', sources={'nvim_lsp'}}},
+          lualine_x = {'filetype'},
+          lualine_z = {},
+        },
+        extensions = {'nvim-tree'}
+      } end
+    }
+
     -- LSP
     use {
         'neovim/nvim-lspconfig',
