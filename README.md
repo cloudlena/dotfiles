@@ -33,6 +33,7 @@ Text editing is based on [Neovim](https://neovim.io/) configured to be an "IDE".
 - `ide`: Start Neovim with all plugins in an IDE like window layout
 - `ctrl + p`: Fuzzy search files across whole project
 - `ctrl + n`: Open visual file explorer
+- `ctrl + k`: Show signature of symbol currently under cursor
 - `ctrl + s`: Open workspace diagnostics
 
 ## Installation
