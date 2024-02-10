@@ -197,13 +197,6 @@ pacu() {
         processes+=("$!")
     fi
 
-    # Go
-    if [ -x "$(command -v go)" ]; then
-        printf '\e[1mUpdating Go binaries\e[0m\n'
-        ("${HOME}/dotfiles/update-go.sh") &
-        processes+=("$!")
-    fi
-
     # Rust
     if [ -x "$(command -v rustup)" ]; then
         printf '\e[1mUpdating rustup components\e[0m\n'
