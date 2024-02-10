@@ -67,6 +67,8 @@ return require("packer").startup(function()
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+            local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
             local on_attach = function(client, bufnr)
@@ -85,10 +87,9 @@ return require("packer").startup(function()
 
                 -- Format on save
                 if client.supports_method("textDocument/formatting") then
-                    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                    vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = augroup,
+                        group = formatting_augroup,
                         buffer = bufnr,
                         callback = function()
                             vim.lsp.buf.format()
@@ -217,15 +218,16 @@ return require("packer").startup(function()
                 }),
             }
 
+            local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+
             -- Format on save
             null_ls.setup({
                 sources = sources,
                 on_attach = function(client, bufnr)
                     if client.supports_method("textDocument/formatting") then
-                        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                        vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
                         vim.api.nvim_create_autocmd("BufWritePre", {
-                            group = augroup,
+                            group = formatting_augroup,
                             buffer = bufnr,
                             callback = function()
                                 vim.lsp.buf.format({ timeout_ms = 5000 })
