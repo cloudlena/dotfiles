@@ -29,7 +29,7 @@ case $(uname) in
 esac
 
 # Arch Clean Up
-alias pacro='pacman -Rns $(pacman -Qtdq)'
+alias pacro='sudo pacman -Rns $(pacman -Qtdq)'
 
 # NPM update folder (also Bower)
 alias npmu='npm-check-updates -u && npm update; bower update'
