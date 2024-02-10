@@ -134,17 +134,16 @@ case "$(uname)" in
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
         alacritty \
-        base-devel \
-        docker \
-        firefox
-        ruby \
         ansible \
         ansible-lint \
         aws-cli \
+        base-devel \
         cmake \
         curl \
         diff-so-fancy \
+        docker \
         fd \
+        firefox \
         fzf \
         git \
         gnupg \
@@ -157,11 +156,13 @@ case "$(uname)" in
         nitrogen \
         nodejs \
         npm \
+        openssh \
         prettier \
         protobuf \
         python \
         python-pip \
         ripgrep \
+        ruby \
         shellcheck \
         sxiv \
         terraform \
@@ -235,6 +236,12 @@ case "$(uname)" in
     exit 1
     ;;
 esac
+
+# Install rustup
+if [ ! -x "$(command -v rustup)" ]; then
+    printf '\e[1mInstalling Rust\e[0m\n'
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 # Install prezto
 if [ ! -d ~/.zprezto ]; then
