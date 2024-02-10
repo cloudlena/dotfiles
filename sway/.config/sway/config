@@ -56,9 +56,6 @@ bindsym $mod+Return exec $TERMINAL
 # Launch browser
 bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 $BROWSER
 
-# Launch clipboard manager
-bindsym $mod+c exec clipmenu
-
 # Take screenshots
 bindsym $mod+Shift+p exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
 bindsym $mod+ctrl+p exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').png"
@@ -107,6 +104,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym $mod+tab workspace back_and_forth
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -147,11 +145,15 @@ bar {
     swaybar_command waybar
 }
 
-# Hide window title bars
+# Hide window title bars and borders
 default_border pixel
+hide_edge_borders smart
 
 # Start notification daemon
 exec mako
+
+# Start display management daemon
+exec kanshi
 
 # Adjust color temperature to reduce eye strain
 exec redshift -l '46.95:7.45'
