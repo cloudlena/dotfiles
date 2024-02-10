@@ -1,6 +1,6 @@
 [user]
-    name = Lena Fuhrimann
-    email = lena.fuhrimann@protonmail.com
+	name = Lena Fuhrimann
+	email = mastertinner@users.noreply.github.com
 [github]
     user = mastertinner
 [core]
@@ -8,20 +8,20 @@
 [pull]
     ff = only
 [commit]
-    gpgsign = true
+	gpgsign = true
 [diff]
-    tool = nvimdiff
+	tool = nvimdiff
 [difftool]
-    prompt = false
+	prompt = false
 [merge]
-    tool = nvimdiff
+	tool = nvimdiff
 [mergetool]
-    prompt = false
+	prompt = false
 [pull]
-    ff = only
+	ff = only
 
 ; diff-so-fancy config
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-    diffFilter = diff-so-fancy --patch
+	diffFilter = diff-so-fancy --patch
