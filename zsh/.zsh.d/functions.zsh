@@ -96,7 +96,7 @@ depu() {
     # Git submodules
     if [ -e .gitmodules ]; then
         printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
-        git submodule update --init --remote --rebase
+        git submodule update --init --remote --rebase --recursive
     fi
 
     # npm
@@ -117,6 +117,13 @@ depu() {
     if [ -e Cargo.toml ]; then
         printf "Updating Cargo dependencies for %s...\n\n" "${PWD##*/}"
         cargo update
+    fi
+
+    # Python
+    if [ -e poetry.lock ]; then
+        printf "Updating Python dependencies for %s...\n\n" "${PWD##*/}"
+	poetry update
+	poetry show --outdated
     fi
 
     # Terraform
