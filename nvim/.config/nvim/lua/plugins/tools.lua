@@ -3,7 +3,7 @@ local tools = require("config.tools")
 return {
     {
         "williamboman/mason.nvim",
-        lazy = true,
+        build = ":MasonUpdate",
         config = true,
     },
     {
