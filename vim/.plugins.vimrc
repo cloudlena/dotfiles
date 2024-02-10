@@ -3,9 +3,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Color scheme
 Plug 'trevordmiller/nova-vim'
-if has("autocmd")
-  autocmd! VimEnter * colorscheme nova
-endif
 
 " Emmet for HTML editing
 Plug 'mattn/emmet-vim', { 'for': ['html','xml'] }
