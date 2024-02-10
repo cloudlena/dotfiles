@@ -169,7 +169,7 @@ return require('packer').startup(function()
                 sources = {
                     {name = 'nvim_lsp'}, {name = 'path'}, {
                         name = 'buffer',
-                        opts = {
+                        option = {
                             get_bufnrs = function()
                                 return vim.api.nvim_list_bufs()
                             end
