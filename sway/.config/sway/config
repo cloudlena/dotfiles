@@ -165,6 +165,9 @@ exec kanshi
 # Adjust color temperature to reduce eye strain
 exec gammastep -l '46.95:7.45'
 
+# Enable autotiling
+exec autotiling
+
 # Waybar Icons
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 

@@ -2,6 +2,7 @@ aardvark-dns
 alacritty
 autoconf
 automake
+autotiling
 aws-cli-v2-bin
 base
 bash-language-server
