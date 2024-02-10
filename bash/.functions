@@ -71,7 +71,7 @@ funcion depu() {
     # npm
     pkg_count=$(ls -1 package.json 2>/dev/null | wc -l)
     if [ "${pkg_count}" -gt 0 ]; then
-        echo "Updating npm dependencies...\n"
+        echo 'Updating npm dependencies...\n'
         npm install
         npm update
         npm prune
@@ -93,7 +93,7 @@ funcion depu() {
 function pacu() {
 
     # Dotfiles repo
-    echo "\e[1mUpdating dotfiles repo\e[0m"
+    echo '\e[1mUpdating dotfiles repo\e[0m'
     (cd "${HOME}/dotfiles" && git pull)
 
     # System tools
@@ -102,19 +102,19 @@ function pacu() {
     'Linux')
         # Arch Linux
         if [ -x "$(command -v pacman)" ]; then
-            echo "\e[1mUpdating pacman packages\e[0m"
+            echo '\e[1mUpdating pacman packages\e[0m'
             sudo pacman -Syu --noconfirm
             sudo pacman -Rns $(pacman -Qtdq) --noconfirm
             sudo pacman -Sc --noconfirm
             sudo pacman-optimize
         fi
         if [ -x "$(command -v yaourt)" ]; then
-            echo "\e[1mUpdating yaourt packages\e[0m"
+            echo '\e[1mUpdating yaourt packages\e[0m'
             yaourt -Syua --noconfirm
         fi
         # Debian
         if [ -x "$(command -v apt-get)" ]; then
-            echo "\e[1mUpdating apt packages\e[0m"
+            echo '\e[1mUpdating apt packages\e[0m'
             sudo apt-get update
             sudo apt-get upgrade -y
             sudo apt-get dist-upgrade -y
@@ -124,16 +124,15 @@ function pacu() {
     # On macOS, use mas and Homebrew in parallel
     'Darwin')
         if [ -x "$(command -v mas)" ]; then
-            echo "\e[1mUpdating Mac App Store apps\e[0m"
+            echo '\e[1mUpdating Mac App Store apps\e[0m'
             (mas upgrade) &
             mas_pid="$!"
         fi
         if [ -x "$(command -v brew)" ]; then
-            echo "\e[1mUpdating Homebrew packages\e[0m"
+            echo '\e[1mUpdating Homebrew packages\e[0m'
             brew update
-            brew bundle --file=~/dotfiles/Brewfile
-            brew bundle cleanup --force --file=~/dotfiles/Brewfile
-            brew cu --all --yes --cleanup
+            cat ~/dotfiles/Brewfile* | brew bundle --file=-
+            cat ~/dotfiles/Brewfile* | brew bundle cleanup --force --file=-
             brew cleanup
         fi
         if typeset -f zprezto-update > /dev/null; then
@@ -148,52 +147,53 @@ function pacu() {
 
 # Go
     if [ -x "$(command -v go)" ]; then
-        echo "\e[1mUpdating Go binaries\e[0m"
+        echo '\e[1mUpdating Go binaries\e[0m'
         ("${HOME}/dotfiles/update-go.sh") &
         go_pid="$!"
     fi
 
 # Node.js and npm
     if [ -x "$(command -v npm)" ]; then
-        echo "\e[1mUpdating globally installed npm packages\e[0m"
+        echo '\e[1mUpdating globally installed npm packages\e[0m'
         (npm update -g) &
         npm_global_pid="$!"
 
         wait "${npm_global_pid}"
         npm outdated -g
+        echo '\e[1mUpdating Node.js projects\e[0m'
         ("${HOME}/dotfiles/update-js.sh") &
         npm_pid="$!"
     fi
 
 # Ruby
     if [ -x "$(command -v gem)" ]; then
-        echo "\e[1mUpdating Ruby gems\e[0m"
+        echo '\e[1mUpdating Ruby gems\e[0m'
         (gem update --force && gem cleanup) &
         ruby_pid="$!"
     fi
 
 # Python
     if [ -x "$(command -v pip)" ]; then
-        echo "\e[1mUpdating pip packages\e[0m"
+        echo '\e[1mUpdating pip packages\e[0m'
         (for pkg in $(pip list --outdated | cut -d' ' -f1); do pip install --user --upgrade $pkg; done) &
         python_pid="$!"
     fi
     if [ -x "$(command -v pip2)" ]; then
-        echo "\e[1mUpdating pip2 packages\e[0m"
+        echo '\e[1mUpdating pip2 packages\e[0m'
         (for pkg in $(pip2 list --outdated | cut -d' ' -f1); do pip2 install --user --upgrade $pkg; done) &
         python_pid="$!"
     fi
 
 # Python3
     if [ -x "$(command -v pip3)" ]; then
-        echo "\e[1mUpdating pip3 packages\e[0m"
+        echo '\e[1mUpdating pip3 packages\e[0m'
         (for pkg in $(pip3 list --outdated | cut -d' ' -f1); do pip3 install --user --upgrade $pkg; done) &
         python3_pid="$!"
     fi
 
 # Vim
     if [ -x "$(command -v vim)" ]; then
-        echo "\e[1mUpdating vim plugins\e[0m"
+        echo '\e[1mUpdating vim plugins\e[0m'
         vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
     fi
 
@@ -204,5 +204,5 @@ function pacu() {
     wait "${python_pid}" &> /dev/null
     wait "${python3_pid}" &> /dev/null
 
-    echo 'System update finished'
+    echo '\e[1mSystem update finished\e[0m'
 }

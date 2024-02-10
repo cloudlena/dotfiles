@@ -1,3 +1,10 @@
+" Install vim plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -53,6 +60,15 @@ Plug 'jiangmiao/auto-pairs'
 
 " Syntax Highlighting
 Plug 'w0rp/ale'
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['css'] = ['prettier']
+let g:ale_fixers['scss'] = ['prettier']
+let g:ale_fixers['less'] = ['prettier']
+let g:ale_fixers['graphql'] = ['prettier']
+let g:ale_fixers['markdown'] = ['prettier']
+let g:ale_fixers['typescript'] = ['prettier','tslint']
+let g:ale_fix_on_save = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -99,13 +115,18 @@ endif
 " Debugging
 Plug 'sebdah/vim-delve', { 'for': 'go' }
 
-" Typescript language support
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
+" Improved JavaScript language support
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 
 " JSX language support
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
+
+" Typescript language support
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'mhartington/nvim-typescript', { 'do': 'npm install -g typescript', 'for': 'typescript' }
 
 " GraphQL schema support
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }

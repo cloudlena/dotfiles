@@ -26,9 +26,6 @@ case "$(uname)" in
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
-    # Install Homebrew Bundle
-    brew tap Homebrew/bundle
-
     # Install git if not installed
     if [ ! -x "$(command -v git)" ]; then
         brew install git
@@ -68,11 +65,7 @@ case "$(uname)" in
         brew install python3
     fi
     # Install the Python neovim package
-    pip3 install --upgrade --user neovim
-
-    # Install vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    pip3 install neovim --upgrade --user neovim
 
     # Run full system upgrade
     source ~/dotfiles/bash/.path
@@ -124,10 +117,6 @@ case "$(uname)" in
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
-
-    # Install vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Install tools
     sudo pacman -Syu --noconfirm --needed \
