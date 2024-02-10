@@ -128,21 +128,40 @@ case "$(uname)" in
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
-        tmux \
+        go \
+        nodejs \
+        python2 \
+        python \
+        ruby \
+        cmake \
+        diff-so-fancy \
+        docker \
+        fzf \
+        git \
+        go-tools \
+        htop \
+        jq \
+        mongodb \
         neovim \
         python-neovim \
-        zsh \
-        go \
-        go-tools \
-        nodejs \
-        yarn \
-        fzf \
+        shellcheck \
         the_silver_searcher \
-        diff-so-fancy
+        tmux \
+        wget \
+        yaourt \
+        yarn \
+        zsh
     yaourt -Sy --noconfirm --needed \
+        cloudfoundry-cli \
+        dep \
+        delve \
+        dropbox \
+        graphiql-app \
+        kubectl-bin \
+        minio-client \
         prezto-git \
         spotify \
-        cloudfoundry-cli
+        tmate
 
     # Use vimrc as Neovim config
     printf '\e[1mSetting up Neovim\e[0m\n'
