@@ -33,5 +33,5 @@ On macOS, it is recommended to use these dotfiles with [iTerm2](https://www.iter
     **WARNING: This may install and/or remove software and change your configs!**
 
     ```shell
-    $ bash <(curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh)
+    $ curl -s https://raw.githubusercontent.com/mastertinner/dotfiles/master/init.sh | bash
     ```
