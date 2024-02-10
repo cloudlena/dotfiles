@@ -17,7 +17,6 @@ clipman
 curl
 diff-so-fancy
 driftctl-bin
-dropbox
 efibootmgr
 eslint
 eslint_d
@@ -71,6 +70,7 @@ lolcat
 lostfiles
 lua-language-server
 m4
+maestral
 make
 mako
 man-db
