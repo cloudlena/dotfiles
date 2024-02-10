@@ -1,10 +1,16 @@
 {
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center":["custom/tasks"],
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "custom/tasks"
+  ],
   "modules-right": [
     "custom/updates",
     "network",
     "pulseaudio",
+    "bluetooth",
     "battery",
     "clock"
   ],
@@ -13,9 +19,17 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-icons": ["", "", "", "", ""]
+    "format": "{icon}",
+    "format-charging": "{icon} ",
+    "format-critical": "{icon} ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "Battery at {capacity}%"
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
@@ -30,18 +44,20 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "format-bluetooth": "{icon} ",
     "format-muted": "",
-    "format-source-muted": "",
-    "format-icons": {
-      "default": ["", "", ""],
-      "headphone": "",
-      "headset": "",
-      "hands-free": "",
-      "portable": "",
-      "car": "",
-      "phone": ""
-    }
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "Volume at {volume}%"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-on": "",
+    "format-connected": "",
+    "tooltip-format-on": "Bluetooth {status}",
+    "tooltip-format-connected": "Connected to {device_alias}"
   },
   "custom/tasks": {
     "exec": "~/.config/waybar/scripts/tasks.sh",

@@ -16,7 +16,7 @@ tooltip {
 
 /* Workspaces */
 #workspaces button {
-  padding: 1px 9px;
+  padding: 1px 0.7em;
 }
 
 #workspaces button:hover {
@@ -25,7 +25,8 @@ tooltip {
   box-shadow: none;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
   background-color: #414868;
 }
 
@@ -34,10 +35,11 @@ tooltip {
 #battery,
 #network,
 #pulseaudio,
+#bluetooth,
 #custom-updates,
 #custom-tasks,
 #mode {
-  padding: 1px 9px;
+  padding: 1px 0.7em;
 }
 
 #mode,
@@ -46,8 +48,7 @@ tooltip {
   color: #bb9af7;
 }
 
-#custom-failed-services,
-#network.disconnected {
+#battery.critical {
   font-weight: bold;
   color: #f7768e;
 }
