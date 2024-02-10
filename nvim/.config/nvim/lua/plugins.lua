@@ -336,7 +336,12 @@ return require("packer").startup(function()
             vim.g.ultest_running_sign = "奈"
             vim.g.ultest_not_run_sign = ""
 
-            vim.api.nvim_set_keymap("n", "<space>tf", "<Cmd>Ultest<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap(
+                "n",
+                "<space>tf",
+                "<Cmd>UltestSummaryOpen<CR><Cmd>Ultest<CR>",
+                { noremap = true, silent = true }
+            )
             vim.api.nvim_set_keymap("n", "<space>tn", "<Cmd>UltestNearest<CR>", { noremap = true, silent = true })
         end,
     })
