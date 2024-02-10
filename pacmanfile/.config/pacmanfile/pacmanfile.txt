@@ -139,6 +139,7 @@ which
 whois
 wl-clipboard
 wofi
+workstyle-git
 xdg-desktop-portal-wlr
 xorg-xwayland
 yq
