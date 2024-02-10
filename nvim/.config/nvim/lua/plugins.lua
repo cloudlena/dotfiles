@@ -31,7 +31,7 @@ return require("packer").startup(function()
         run = ":TSUpdateSync",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = "maintained",
+                ensure_installed = "all",
                 highlight = { enable = true },
             })
         end,
