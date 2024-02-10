@@ -83,8 +83,8 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+w exec $BROWSER
 
 # Take screenshots
-bindsym Print exec grim "screenshot-$(date +'%F-%H-%M-%S').png"
-bindsym Print+$mod exec grim -g "$(slurp)" "screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print exec grim "${HOME}/Downloads/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print+$mod exec grim -g "$(slurp)" "${HOME}/Downloads/screenshot-$(date +'%F-%H-%M-%S').png"
 
 # Lock screen
 bindsym $mod+ctrl+q exec loginctl lock-session
