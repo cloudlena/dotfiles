@@ -114,7 +114,15 @@ pacu() {
     # On Linux, use the respective package manager
     'Linux')
         # Arch Linux
-        if [ -x "$(command -v pacman)" ]; then
+        if [ -x "$(command -v yay)" ]; then
+            printf '\e[1mUpdating Yay packages\e[0m\n'
+            yay -Syu --noconfirm
+            orphans=$(yay -Qtdq) || orphans=''
+            if [ -n "${orphans}" ]; then
+                yay -Rns $orphans --noconfirm
+            fi
+            yay -Sc --noconfirm
+        elif [ -x "$(command -v pacman)" ]; then
             printf '\e[1mUpdating pacman packages\e[0m\n'
             sudo pacman -Syu --noconfirm
             orphans=$(sudo pacman -Qtdq) || orphans=''
@@ -122,10 +130,6 @@ pacu() {
                 sudo pacman -Rns $orphans --noconfirm
             fi
             sudo pacman -Sc --noconfirm
-        fi
-        if [ -x "$(command -v yay)" ]; then
-            printf '\e[1mUpdating Yay packages\e[0m\n'
-            yay -Syua --noconfirm
         fi
         if [ -x "$(command -v paccache)" ]; then
             printf '\e[1mCleaning Pacman cache\e[0m\n'

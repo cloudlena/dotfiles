@@ -112,7 +112,9 @@ case "$(uname)" in
         ansible-lint \
         aws-cli \
         awslogs \
+        base \
         bemenu \
+        binutils \
         bluez \
         bluez-utils \
         curl \
@@ -125,6 +127,7 @@ case "$(uname)" in
         firefox \
         fwupd \
         fzf \
+        gcc \
         git \
         gnupg \
         go \
@@ -139,12 +142,14 @@ case "$(uname)" in
         jq \
         kanshi \
         kubectl \
+        kubectx \
         libimobiledevice \
         libnotify \
         light \
         linux \
         linux-firmware \
         lolcat \
+        make \
         mako \
         man-db \
         mpv \
@@ -179,6 +184,7 @@ case "$(uname)" in
         spotifyd-full-bin \
         spotify-tui-bin \
         sudo \
+        svgo \
         sway \
         swayidle \
         swaylock \
@@ -195,6 +201,7 @@ case "$(uname)" in
         vi \
         vifm \
         waybar \
+        wf-recorder-git \
         wget \
         wl-clipboard \
         zathura \
