@@ -2,12 +2,10 @@
 
 # Taps
 tap "buo/cask-upgrade"
-tap "cloudfoundry/tap"
 tap "github/gh"
 tap "golangci/tap"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "nickolasburr/pfa"
 tap "sonatype-nexus-community/homebrew-nancy-tap"
 
 brew "alacritty"
