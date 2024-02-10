@@ -140,6 +140,7 @@ case "$(uname)" in
         python-pip \
         ripgrep \
         ruby \
+        scrot \
         shellcheck \
         sudo \
         sxhkd \
