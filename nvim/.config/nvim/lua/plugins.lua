@@ -243,7 +243,7 @@ return require("packer").startup(function()
             -- Toggle fuzzy file search
             vim.api.nvim_set_keymap(
                 "n",
-                "<C-P>",
+                "<C-p>",
                 '<Cmd>lua require("telescope.builtin").find_files{ find_command = { "fd", "--type=f", "--type=l", "--hidden", "--no-ignore", "--exclude=.DS_Store", "--exclude=.git", "--exclude=.terraform", "--exclude=.gradle", "--exclude=bin", "--exclude=build", "--exclude=coverage", "--exclude=dist", "--exclude=node_modules", "--exclude=target", "--exclude=vendor" }}<CR>',
                 { noremap = true, silent = true }
             )
