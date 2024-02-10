@@ -390,7 +390,9 @@ return require("packer").startup(function()
             "vim-test/vim-test",
         },
         config = function()
-            require("neotest").setup({
+            local neotest = require("neotest")
+
+            neotest.setup({
                 icons = {
                     failed = "",
                     passed = "",
@@ -404,15 +406,13 @@ return require("packer").startup(function()
             })
 
             vim.keymap.set("n", "<leader>tf", function()
-                local neotest = require("neotest")
                 neotest.run.run(vim.fn.expand("%"))
                 neotest.summary.open()
             end, { silent = true })
             vim.keymap.set("n", "<leader>tn", function()
-                require("neotest").run.run()
+                neotest.run.run()
             end, { silent = true })
             vim.keymap.set("n", "<leader>ta", function()
-                local neotest = require("neotest")
                 neotest.run.run(vim.fn.getcwd())
                 neotest.summary.open()
             end, { silent = true })
