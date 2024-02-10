@@ -47,7 +47,7 @@ function fshow() {
 FZF-EOF"
 }
 
-# Open tmux and vim in an IDE like layout
+# Open tmux and Vim in an IDE like layout
 function ide() {
     if [ ! -z "$1" ]; then
         cd "$1" || exit
@@ -195,22 +195,10 @@ function pacu() {
         (for pkg in $(pip list --outdated | cut -d' ' -f1); do pip install --user --upgrade $pkg; done) &
         python_pid="$!"
     fi
-    if [ -x "$(command -v pip2)" ]; then
-        printf '\e[1mUpdating pip2 packages\e[0m\n'
-        (for pkg in $(pip2 list --outdated | cut -d' ' -f1); do pip2 install --user --upgrade $pkg; done) &
-        python_pid="$!"
-    fi
-
-    # Python3
-    if [ -x "$(command -v pip3)" ]; then
-        printf '\e[1mUpdating pip3 packages\e[0m\n'
-        (for pkg in $(pip3 list --outdated | cut -d' ' -f1); do pip3 install --user --upgrade $pkg; done) &
-        python3_pid="$!"
-    fi
 
     # Vim
     if [ -x "$(command -v vim)" ]; then
-        printf '\e[1mUpdating vim plugins\e[0m\n'
+        printf '\e[1mUpdating Vim plugins\e[0m\n'
         vim -c 'PlugClean! | PlugUpgrade | PlugUpdate | qa'
     fi
 

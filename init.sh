@@ -66,30 +66,22 @@ case "$(uname)" in
     mkdir -p ~/.config/nvim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-    # Install Python3 and pip3 if not installed
-    if [ ! -x "$(command -v pip3)" ]; then
-        brew install python3
+    # Install Python and pip if not installed
+    if [ ! -x "$(command -v pip)" ]; then
+        brew install python
     fi
     # Install the Python neovim package
-    pip3 install neovim --upgrade --user neovim
+    pip install --upgrade --user neovim
 
     # Run full system upgrade
     source ~/dotfiles/bash/.path
     source ~/dotfiles/bash/.functions
     pacu
 
-    # Symlink Neovim to vim if vim not installed
+    # Symlink nvim to vim if Vim not installed
     if [ ! -f /usr/local/bin/vim ]; then
         sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
     fi
-
-    # Use zsh
-    if [ -x "$(command -v zsh)" ]; then
-        printf '\e[1mChanging your shell to zsh\e[0m\n'
-        chsh -s "$(which zsh)"
-    fi
-
-    printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
     ;;
 
 'Linux')
@@ -110,7 +102,7 @@ case "$(uname)" in
         git clone https://github.com/mastertinner/dotfiles.git
     fi
 
-    # Install stow if not installed
+    # Install Stow if not installed
     printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
     sudo pacman -Syu stow --noconfirm --needed
     # Remove existing config files
@@ -124,14 +116,16 @@ case "$(uname)" in
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles "$(basename "${dir}")"
     done
+    sudo pacman -Rns stow --noconfirm
 
     # Install tools
     printf '\e[1mInstalling desired tools and apps\e[0m\n'
     sudo pacman -Syu --noconfirm --needed \
         go \
         nodejs \
-        python2 \
+        npm \
         python \
+        python-pip \
         ruby \
         cmake \
         diff-so-fancy \
@@ -143,7 +137,6 @@ case "$(uname)" in
         jq \
         mongodb \
         neovim \
-        python-neovim \
         shellcheck \
         the_silver_searcher \
         tmux \
@@ -163,6 +156,9 @@ case "$(uname)" in
         spotify \
         tmate
 
+    # Enable docker service
+    sudo systemctl enable docker.service
+
     # Change npm folder
     if [ -x "$(command -v npm)" ]; then
         npm config set prefix ~
@@ -176,23 +172,18 @@ case "$(uname)" in
     mkdir -p ~/.config/nvim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
 
+    # Install the Python neovim package
+    pip install neovim --upgrade --user
+
     # Run full system upgrade
     source ~/dotfiles/bash/.path
     source ~/dotfiles/bash/.functions
     pacu
 
-    # Symlink Neovim to vim if vim not installed
+    # Symlink nvim to vim if Vim not installed
     if [ ! -f /usr/bin/vim ]; then
         sudo ln -s /usr/bin/nvim /usr/bin/vim
     fi
-
-    # Use zsh
-    if [ -x "$(command -v zsh)" ]; then
-        printf '\e[1mChanging your shell to zsh\e[0m\n'
-        chsh -s "$(which zsh)"
-    fi
-
-    printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
     ;;
 
 # Default
@@ -201,3 +192,11 @@ case "$(uname)" in
     exit 1
     ;;
 esac
+
+# Use zsh
+if [ -x "$(command -v zsh)" ]; then
+    printf '\e[1mChanging your shell to zsh\e[0m\n'
+    chsh -s "$(which zsh)"
+fi
+
+printf '\e[1mDotfiles successfully initialized. Please reboot to finalize.\e[0m\n'
