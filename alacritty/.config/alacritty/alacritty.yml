@@ -1,0 +1,43 @@
+window:
+  padding:
+    x: 3
+    y: 3
+  decorations: none
+  startup_mode: Maximized
+
+font:
+  normal:
+    family: Monaco
+  size: 12
+  offset:
+    x: 1
+    y: 1
+
+# The quantum-black color scheme
+colors:
+  primary:
+    background: "0x212120"
+    foreground: "0xbbbebf"
+  normal:
+    black: "0x464545"
+    red: "0xd97084"
+    green: "0x87bb7c"
+    yellow: "0xd5b874"
+    blue: "0x6face4"
+    magenta: "0xa389dd"
+    cyan: "0x68c5cd"
+    white: "0xbbbebf"
+  bright:
+    black: "0x696b6b"
+    red: "0xed8499"
+    green: "0x97d589"
+    yellow: "0xe9cb87"
+    blue: "0x87bff5"
+    magenta: "0xb9a0ee"
+    cyan: "0x7bdbe4"
+    white: "0xd0d2d2"
+
+key_bindings:
+  - { key: Key0, mods: Command, action: ResetFontSize }
+  - { key: Add, mods: Command, action: IncreaseFontSize }
+  - { key: Minus, mods: Command, action: DecreaseFontSize }
