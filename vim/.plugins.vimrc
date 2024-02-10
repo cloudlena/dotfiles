@@ -72,7 +72,7 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 
 " Linting and auto fixing
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier','eslint']
 let g:ale_fixers['typescript'] = ['prettier','eslint']
