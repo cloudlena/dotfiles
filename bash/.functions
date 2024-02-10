@@ -73,45 +73,38 @@ ide() {
 
 # Update dependencies
 depu() {
-
     # npm
-    file_count=$(find . -maxdepth 1 -name package-lock.json | wc -l)
-    if [ "${file_count}" -gt 0 ]; then
+    if [ -e package-lock.json ]; then
         printf "Updating npm dependencies for %s...\n\n" "${PWD##*/}"
         npm update
         npm outdated
     fi
 
     # Yarn
-    file_count=$(find . -maxdepth 1 -name yarn.lock | wc -l)
-    if [ "${file_count}" -gt 0 ]; then
+    if [ -e yarn.lock ]; then
         printf "Updating Yarn dependencies for %s...\n\n" "${PWD##*/}"
         yarn upgrade > /dev/null
         yarn outdated
     fi
 
     # Go
-    file_count=$(find . -maxdepth 1 -name go.mod | wc -l)
-    if [ "${file_count}" -gt 0 ]; then
+    if [ -e go.mod ]; then
         printf "Updating Go dependencies for %s...\n\n" "${PWD##*/}"
         go get -u
         go mod tidy
     fi
 
     # Rust
-    file_count=$(find . -maxdepth 1 -name Cargo.toml | wc -l)
-    if [ "${file_count}" -gt 0 ]; then
+    if [ -e Cargo.toml ]; then
         printf "Updating Cargo dependencies for %s...\n\n" "${PWD##*/}"
         cargo update
     fi
 
     # Git submodules
-    file_count=$(find . -maxdepth 1 -name .gitmodules | wc -l)
-    if [ "${file_count}" -gt 0 ]; then
+    if [ -e .gitmodules ]; then
         printf "Updating Git submodules for %s...\n\n" "${PWD##*/}"
         git submodule update --init
     fi
-
 }
 
 # System update
@@ -155,7 +148,8 @@ pacu() {
             sudo apt-get autoclean -y
         fi
         ;;
-    # On macOS, use mas and Homebrew in parallel
+
+    # On macOS, use mas and Homebrew
     'Darwin')
         if [ -x "$(command -v mas)" ]; then
             printf '\e[1mUpdating App Store apps\e[0m\n'
@@ -170,7 +164,7 @@ pacu() {
             brew cu --all --yes --cleanup
             brew cleanup --prune 7
         fi
-        if [ -x "$(command -v zprezto-update)" ]; then
+        if typeset -f zprezto-update > /dev/null; then
             printf '\e[1mUpdating zprezto\e[0m\n'
             zprezto-update &
             processes+=("$!")
@@ -212,7 +206,7 @@ pacu() {
     # Ruby gems
     if [ -x "$(command -v gem)" ]; then
         printf '\e[1mUpdating Ruby gems\e[0m\n'
-        (gem update --force && gem cleanup) &
+        (gem update --system --force && gem update --force && gem cleanup) &
         processes+=("$!")
     fi
 
