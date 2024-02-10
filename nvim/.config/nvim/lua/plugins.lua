@@ -131,7 +131,6 @@ return require('packer').startup(function()
       config = function() require('lualine').setup{
         sections = {
           lualine_a = {},
-          lualine_b = {'branch', 'diff', {'diagnostics', sources={'nvim_diagnostic'}}},
           lualine_x = {'filetype'},
           lualine_z = {},
         },
