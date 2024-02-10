@@ -81,7 +81,7 @@ nancy-bin
 ncdu
 ncspot-bin
 neovim
-nerd-fonts-fira-code
+ttf-firacode-nerd
 networkmanager
 nftables
 nmap
