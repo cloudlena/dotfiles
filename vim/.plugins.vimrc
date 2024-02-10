@@ -106,5 +106,8 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 let g:jsx_ext_required = 0
 
+" GraphQL schema support
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
+
 " Initialize plugin system
 call plug#end()
