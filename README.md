@@ -34,21 +34,21 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 
 #### Navigation
 
-- `\`: Fuzzy search in all files in workspace
-- `ctrl + p`: Fuzzy search files across entire workspace
-- `ctrl + n`: Open visual file explorer
 - `gd`: Go to definition of symbol under cursor
 - `gi`: Go to implementations of symbol under cursor
 - `gr`: Go to references of symbol under cursor
+- `<space><space>`: Fuzzy search files in workspace
+- `<space>/`: Fuzzy search in all files in workspace
+- `<space>j`: Open visual file explorer
 
 #### Diagnostics and Refactoring
 
-- `ctrl + s`: Open workspace diagnostics
-- `ctrl + k`: Open symbols outline of file
 - `K`: Show signature of symbol under cursor
-- `<space>e`: Show diagnostics details
 - `[d`: Go to previous diagnostic issue
 - `d]`: Go to next diagnostic issue
+- `<space>e`: Show diagnostics details
+- `<space>s`: Open workspace diagnostics
+- `<space>k`: Open symbols outline of file
 - `<space>r`: Rename current symbol
 - `<space>a`: Display code actions
 
@@ -68,6 +68,10 @@ Text editing is based on [Neovim](https://neovim.io/), configured to be an "IDE"
 - `<space>do`: Step out
 - `<space>dK`: Show evaluation of symbol under cursor
 - `<space>du`: Toggle extended debugging UI
+
+#### Add Languages and Tools
+
+To extend the editor with new languages and tools, simply add them to [`tools.lua`](./nvim/.config/nvim/lua/config/tools.lua).
 
 ## Installation
 

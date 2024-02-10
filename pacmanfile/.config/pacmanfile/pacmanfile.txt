@@ -7,7 +7,6 @@ automake
 autotiling-rs
 aws-cli-v2
 base
-bash-language-server
 bind
 binutils
 bison
@@ -17,7 +16,6 @@ brave-bin
 brightnessctl
 clipman
 curl
-delve
 diff-so-fancy
 driftctl-bin
 efibootmgr
@@ -44,7 +42,6 @@ go
 golangci-lint-bin
 gopass
 gopass-jsonapi
-gopls
 go-tools
 grep
 grim
@@ -69,7 +66,6 @@ linux
 linux-firmware
 lolcat
 lostfiles
-lua-language-server
 m4
 maestral
 make
@@ -78,13 +74,11 @@ man-db
 mpv
 nancy-bin
 ncdu
-ncspot-bin
 neovim
 networkmanager
 nftables
 nmap
 nodejs
-nodejs-svelte-language-server
 noto-fonts-cjk
 noto-fonts-emoji
 npm
@@ -111,7 +105,6 @@ qemu-desktop
 reflector
 ripgrep
 rust
-rust-analyzer
 sed
 shellcheck
 shfmt
@@ -129,10 +122,9 @@ swaylock
 task
 termshark
 terraform
-terraform-ls-bin
 texinfo
-thermald
 tflint-bin
+thermald
 timew
 tldr
 tmate
@@ -140,7 +132,6 @@ tmux
 tree
 ttf-firacode-nerd
 typescript
-typescript-language-server
 udisks2
 unzip
 vifm
