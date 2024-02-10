@@ -52,8 +52,7 @@ let NERDTreeIgnore = ['.DS_Store','.git$']
 map <C-n> :NERDTreeToggle<CR>
 
 " Toggle Comments
-Plug 'scrooloose/nerdcommenter'
-let g:NERDSpaceDelims = 1
+Plug 'tpope/vim-commentary'
 
 " Auto close braces
 Plug 'jiangmiao/auto-pairs'
