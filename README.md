@@ -2,9 +2,9 @@
 
 :unicorn: My personal dotfiles
 
-I mainly work with [Go](https://golang.org/), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [TypeScript](https://www.typescriptlang.org/), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
+I mainly work with [Go](https://golang.org), [Rust](https://www.rust-lang.org), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [TypeScript](https://www.typescriptlang.org), [Markdown](https://en.wikipedia.org/wiki/Markdown) and [shell scripts](https://en.wikipedia.org/wiki/Shell_script) so my setup is geared towards working with these technologies.
 
-On macOS, it is recommended to use these dotfiles with [iTerm2](https://www.iterm2.com/) and the [quantum](https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/iterm/quantum.itermcolors) color scheme.
+On macOS, it is recommended to use these dotfiles with [iTerm2](https://www.iterm2.com/) and the [quantum-black](https://github.com/tyrannicaltoucan/vim-quantum/blob/master/term/iterm/quantum-black.itermcolors) color scheme.
 
 ## Usage
 
@@ -26,7 +26,7 @@ On macOS, it is recommended to use these dotfiles with [iTerm2](https://www.iter
 
    **WARNING: This may install and/or remove software and change your configs!**
 
-## Quick Installation without customization (not recommended)
+## Quick Installation without customization (not recommended unless you're the owner of this repo :wink:)
 
 1.  Run the following command:
 
