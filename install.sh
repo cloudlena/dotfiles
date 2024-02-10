@@ -8,7 +8,64 @@ printf '\e[1mInstalling dotfiles\e[0m\n'
 
 case "$(uname)" in
 
-# On Linux, use the respective package manager
+'Linux')
+    if [ ! -x "$(command -v pacman)" ]; then
+        printf '\e[1mArch Linux is the only distro currently supported for automated setup\e[0m\n'
+        exit 1
+    fi
+
+    # Install Git if not installed
+    if [ ! -x "$(command -v git)" ]; then
+        printf '\e[1mInstalling Git\e[0m\n'
+        sudo pacman -Syu --noconfirm --needed git
+    fi
+
+    # git clone these dotfiles if not done yet
+    if [ ! -d ~/dotfiles ]; then
+        printf '\e[1mCloning dotfiles repo\e[0m\n'
+        git clone https://github.com/cloudlena/dotfiles.git ~/dotfiles
+    fi
+
+    # Install Stow if not installed
+    sudo pacman -Syu --noconfirm --needed stow
+    # Remove existing config files
+    if [ -f ~/.zshrc ]; then
+        rm ~/.zshrc
+    fi
+    # Stow subdirectories of dotfiles
+    printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
+    for dir in ~/dotfiles/*/; do
+        stow --dir ~/dotfiles --target ~ "$(basename "${dir}")"
+    done
+    sudo pacman -Rns --noconfirm stow
+
+    # Install Paru if not installed
+    if [ ! -x "$(command -v paru)" ]; then
+        printf '\e[1mInstalling Paru\e[0m\n'
+        git clone https://aur.archlinux.org/paru-bin.git /tmp/paru
+        (cd /tmp/paru && makepkg -si)
+    fi
+
+    # Set colors for pacman
+    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
+    # Install Pacmanfile if not installed
+    if [ ! -x "$(command -v pacmanfile)" ]; then
+        printf '\e[1mInstalling Pacmanfile\e[0m\n'
+        paru -Syu --noconfirm --needed pacmanfile
+    fi
+
+    # Install packages using Pacmanfile
+    printf '\e[1mInstalling desired packages using Pacmanfile\e[0m\n'
+    pacmanfile sync --noconfirm
+
+    # Change npm folder
+    if [ -x "$(command -v npm)" ]; then
+        mkdir -p ~/.node_modules/lib
+        npm config set prefix '~/.node_modules'
+    fi
+    ;;
+
 'Darwin')
 
     # Install Xcode Command Line Tools if not installed
@@ -40,12 +97,11 @@ case "$(uname)" in
     # git clone these dotfiles if not done yet
     if [ ! -d ~/dotfiles ]; then
         printf '\e[1mCloning dotfiles repo\e[0m\n'
-        git clone git@github.com:cloudlena/dotfiles.git ~/dotfiles
+        git clone https://github.com/cloudlena/dotfiles.git ~/dotfiles
     fi
 
     # Install Stow if not installed
     if [ ! -x "$(command -v stow)" ]; then
-        printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
         brew install stow
     fi
     # Remove existing config files
@@ -53,12 +109,16 @@ case "$(uname)" in
         rm ~/.zshrc
     fi
     # Stow subdirectories of dotfiles
+    printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
     for dir in ~/dotfiles/*/; do
         stow --dir ~/dotfiles --target ~ "$(basename "${dir}")"
     done
+    # Remove Stow
+    brew uninstall stow
 
     # Install pip if not installed
     if [ ! -x "$(command -v pip)" ]; then
+        printf '\e[1mInstalling Python Pip\e[0m\n'
         sudo easy_install pip
     fi
 
@@ -78,64 +138,6 @@ case "$(uname)" in
     sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
     ;;
 
-'Linux')
-    if [ ! -x "$(command -v pacman)" ]; then
-        printf '\e[1mArch Linux is the only distro currently supported for automated setup\e[0m\n'
-        exit 1
-    fi
-
-    # Install Git if not installed
-    if [ ! -x "$(command -v git)" ]; then
-        printf '\e[1mInstalling Git\e[0m\n'
-        sudo pacman -Syu git --noconfirm --needed
-    fi
-
-    # git clone these dotfiles if not done yet
-    if [ ! -d ~/dotfiles ]; then
-        printf '\e[1mCloning dotfiles repo\e[0m\n'
-        git clone git@github.com:cloudlena/dotfiles.git ~/dotfiles
-    fi
-
-    # Install Stow if not installed
-    printf '\e[1mLinking dotfiles to your home directory\e[0m\n'
-    sudo pacman -Syu stow --noconfirm --needed
-    # Remove existing config files
-    if [ -f ~/.zshrc ]; then
-        rm ~/.zshrc
-    fi
-    # Stow subdirectories of dotfiles
-    for dir in ~/dotfiles/*/; do
-        stow --dir ~/dotfiles --target ~ "$(basename "${dir}")"
-    done
-    sudo pacman -Rns stow --noconfirm
-
-    # Install Paru if not installed
-    if [ ! -x "$(command -v paru)" ]; then
-        printf '\e[1mInstalling Paru\e[0m\n'
-        git clone https://aur.archlinux.org/paru-bin.git /tmp/paru
-        (cd /tmp/paru && makepkg -si)
-    fi
-
-    # Set colors for pacman
-    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
-
-    # Install Pacmanfile if not installed
-    if [ ! -x "$(command -v pacmanfile)" ]; then
-        printf '\e[1mInstalling Pacmanfile\e[0m\n'
-        paru -Syu --noconfirm --needed pacmanfile
-    fi
-
-    # Install packages using Pacmanfile
-    printf '\e[1mInstalling desired packages using Pacmanfile\e[0m\n'
-    pacmanfile sync --noconfirm
-
-    # Change npm folder
-    if [ -x "$(command -v npm)" ]; then
-        mkdir -p ~/.node_modules/lib
-        npm config set prefix '~/.node_modules'
-    fi
-    ;;
-
 # Default
 *)
     printf '\e[1mOS not supported for automated setup. Please install manually.\e[0m\n'
@@ -143,9 +145,11 @@ case "$(uname)" in
     ;;
 esac
 
-# Install vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Install Neovim plugin manager
+if [ ! -d ~/.local/share/nvim/site/pack/packer ]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 
 # Install prezto
 if [ ! -d ~/.zprezto ]; then
