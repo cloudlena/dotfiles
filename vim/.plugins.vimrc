@@ -18,21 +18,15 @@ Plug 'junegunn/limelight.vim'
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 function! s:goyo_enter()
-  silent !tmux set status off
-  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  let g:neomake_place_signs=0
-  sign unplace *
   set noshowcmd
   set scrolloff=999
+  ALEDisable
   Limelight
 endfunction
 function! s:goyo_leave()
-  silent !tmux set status on
-  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  let g:neomake_place_signs=1
-  Neomake
   set showcmd
   set scrolloff=3
+  ALEEnable
   Limelight!
 endfunction
 
@@ -60,10 +54,9 @@ let g:NERDSpaceDelims = 1
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax Highlighting
-Plug 'neomake/neomake'
-if has("autocmd")
-  autocmd! BufWritePost,BufEnter * Neomake
-endif
+Plug 'w0rp/ale'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Show Git indicators with line numbers
 Plug 'airblade/vim-gitgutter'
