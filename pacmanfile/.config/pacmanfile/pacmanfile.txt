@@ -2,6 +2,7 @@ aardvark-dns
 alacritty
 archlinux-keyring
 autoconf
+auto-cpufreq
 automake
 autotiling-rs
 aws-cli-v2-bin
@@ -23,7 +24,6 @@ driftctl-bin
 efibootmgr
 eslint
 eslint_d
-ethtool
 fakeroot
 fd
 file
@@ -119,7 +119,6 @@ shellcheck
 shfmt
 signal-desktop
 slurp
-smartmontools
 speedtest-cli
 stylua
 sudo
@@ -137,8 +136,6 @@ texinfo
 tflint-bin
 timew
 tldr
-tlp
-tlp-rdw
 tmate
 tmux
 tree
